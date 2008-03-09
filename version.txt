@@ -8,7 +8,7 @@ Release Date: 3/9/08
       Author: Asbjørn Sloth Tønnesen <asbjorn.tonnesen@puremvc.org>
      License: Creative Commons Attribution 3.0 Unported License
 --------------------------------------------------------------------------
-2.0.1 - Updated to AS3 2.0.1 functionality. 
+2.0.1 - Updated to AS3 2.0.1 functionality. - CLH
 
 1.7.1 - Initial upload of ported code, doc is coming shortly - AST
 
