@@ -1,10 +1,9 @@
 <?php
 /*
  PureMVC PHP Port by Asbjørn Sloth Tønnesen <asbjorn.tonnesen@puremvc.org>
- PureMVC - Copyright(c) 2006, 2007 FutureScale, Inc., Some rights reserved.
+ PureMVC - Copyright(c) 2006-08 Futurescale, Inc., Some rights reserved.
  Your reuse is governed by the Creative Commons Attribution 3.0 Unported License
 */
-
 
 /**
  * The interface definition for a PureMVC Observer.
@@ -42,8 +41,8 @@
  * in an object implementing the <code>INotification</code> interface, such
  * as a subclass of <code>Notification</code>.</P>
  * 
- * @see org.puremvc.interfaces.IView IView
- * @see org.puremvc.interfaces.INotification INotification
+ * @see org.puremvc.php.interfaces.IView IView
+ * @see org.puremvc.php.interfaces.INotification INotification
  */
 interface IObserver
 {

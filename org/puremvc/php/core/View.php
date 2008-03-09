@@ -1,7 +1,7 @@
 <?php
 /*
  PureMVC PHP Port by Asbjørn Sloth Tønnesen <asbjorn.tonnesen@puremvc.org>
- PureMVC - Copyright(c) 2006, 2007 FutureScale, Inc., Some rights reserved.
+ PureMVC - Copyright(c) 2006-08 Futurescale, Inc., Some rights reserved.
  Your reuse is governed by the Creative Commons Attribution 3.0 Unported License
 */
 
@@ -19,10 +19,10 @@
  * <LI>Notifying the <code>IObservers</code> of a given <code>INotification</code> when it broadcast.</LI>
  * </UL>
  * 
- * @package org.puremvc.php.core.view.View
- * @see org.puremvc.patterns.mediator.Mediator Mediator
- * @see org.puremvc.patterns.observer.Observer Observer
- * @see org.puremvc.patterns.observer.Notification Notification
+ * @package org.puremvc.php.core.View
+ * @see org.puremvc.php.patterns.mediator.Mediator Mediator
+ * @see org.puremvc.php.patterns.observer.Observer Observer
+ * @see org.puremvc.php.patterns.observer.Notification Notification
  */
 class View implements IView
 {
@@ -143,6 +143,9 @@ class View implements IView
     foreach ($interests as $interest) {
       registerObserver( $interest,  $observer );
     }			
+    
+    // Alert the Mediator that it has been registered
+    $mediator->onRegister();
   }
 
   /**
@@ -154,6 +157,16 @@ class View implements IView
   public function retrieveMediator( $mediatorName )
   {
     return $this->mediatorMap[ $mediatorName ];
+  }
+
+  /**
+   * Check to see if a Mediator is registered with the View.
+   * 
+   * @param mediatorName name of the <code>IMediator</code> instance to check for.
+   */
+  public function hasMediator( $mediatorName )
+  {
+	  return $this->mediatorMap[ $mediatorName ] != null;
   }
 
   /**
@@ -178,8 +191,16 @@ class View implements IView
         }
       }
     }			
-    // Remove the reference to the Mediator itself
+   	// get a reference to the mediator to be removed
+    &$mediator = $this->mediatorMap[ $mediatorName ];
+    
+    // Remove the reference from the map
     unset($this->mediatorMap[ $mediatorName ]);
+    
+    // alert the mediator that it has been removed
+    if ($mediator != null) { $mediator->onRemove(); );
+    
+    return $mediator;
   }
           
   // Mapping of Mediator names to Mediator instances

@@ -1,7 +1,7 @@
 <?php
 /*
  PureMVC PHP Port by Asbjørn Sloth Tønnesen <asbjorn.tonnesen@puremvc.org>
- PureMVC - Copyright(c) 2006, 2007 FutureScale, Inc., Some rights reserved.
+ PureMVC - Copyright(c) 2006-08 Futurescale, Inc., Some rights reserved.
  Your reuse is governed by the Creative Commons Attribution 3.0 Unported License
 */
 
@@ -26,8 +26,9 @@ class Mediator extends Notifier implements IMediator, INotifier
   /**
    * Constructor.
    */
-  public function __construct( Object $viewComponent=null ) {
-    $this->viewComponent = $viewComponent;	
+  public function __construct( $mediatorName, Object $viewComponent=null ) {
+    $this->viewComponent = $viewComponent;
+    $this->mediatorName = ($mediatorName != null)?$mediatorName:self::NAME; 
   }
 
   /**
@@ -37,23 +38,11 @@ class Mediator extends Notifier implements IMediator, INotifier
    */		
   public function getMediatorName() 
   {	
-    return Mediator::NAME;
+    return $this->mediatorName;
   }
 
   /**
    * Get the <code>Mediator</code>'s view component.
-   * 
-   * <P>
-   * Additionally, an implicit getter will usually
-   * be defined in the subclass that casts the view 
-   * object to a type, like this:</P>
-   * 
-   * <listing>
-   *		private function get comboBox : mx.controls.ComboBox 
-   *		{
-   *			return viewComponent as mx.controls.ComboBox;
-   *		}
-   * </listing>
    */		
   public function getViewComponent()
   {	
@@ -81,6 +70,25 @@ class Mediator extends Notifier implements IMediator, INotifier
    */ 
   public function handleNotification( INotification $notification ) {}
   
+  /**
+   * Called when the View registers a Mediator.
+   */
+  public function onRemove( )
+  {
+     return;
+  }
+  
+  /**
+   * Called when the View removes a Mediator.
+   */
+  public function onRemove( )
+  {
+  	return;
+  }
+
+  // the mediator name
+  protected $mediatorName;
+
   // The view component
   protected $viewComponent;
 }

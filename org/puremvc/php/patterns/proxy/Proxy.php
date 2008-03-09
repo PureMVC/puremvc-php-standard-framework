@@ -1,7 +1,7 @@
 <?php
 /*
  PureMVC PHP Port by Asbjørn Sloth Tønnesen <asbjorn.tonnesen@puremvc.org>
- PureMVC - Copyright(c) 2006, 2007 FutureScale, Inc., Some rights reserved.
+ PureMVC - Copyright(c) 2006-08 Futurescale, Inc., Some rights reserved.
  Your reuse is governed by the Creative Commons Attribution 3.0 Unported License
 */
 	
@@ -64,6 +64,28 @@ class Proxy extends Notifier implements IProxy, INotifier
   {
     return $this->data;
   }		
+  
+  /**
+   * Called when the Model registers a Proxy.
+   */
+  public function onRegister( )
+  {
+     return;
+  }
+  
+  /**
+   * Called when the Model removes a Proxy.
+   */
+  public function onRemove( )
+  {
+     return;
+  }
+  
+  /**
+   * Called when the Model removes a Proxy.
+   */
+  function onRemove( );
+  
   
   // the proxy name
   protected $proxyName;

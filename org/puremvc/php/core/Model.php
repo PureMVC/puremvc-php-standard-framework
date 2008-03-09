@@ -1,7 +1,7 @@
 <?php
 /*
  PureMVC PHP Port by Asbjørn Sloth Tønnesen <asbjorn.tonnesen@puremvc.org>
- PureMVC - Copyright(c) 2006, 2007 FutureScale, Inc., Some rights reserved.
+ PureMVC - Copyright(c) 2006-08 Futurescale, Inc., Some rights reserved.
  Your reuse is governed by the Creative Commons Attribution 3.0 Unported License
 */
 
@@ -28,9 +28,9 @@
  * instances once the <code>Facade</code> has initialized the Core 
  * actors.</p>
  *
- * @package org.puremvc.php.core.model.Model
- * @see org.puremvc.patterns.proxy.Proxy Proxy
- * @see org.puremvc.interfaces.IProxy IProxy
+ * @package org.puremvc.php.core.Model
+ * @see org.puremvc.php.patterns.proxy.Proxy Proxy
+ * @see org.puremvc.php.interfaces.IProxy IProxy
  */
 class Model implements IModel
 {
@@ -87,6 +87,7 @@ class Model implements IModel
   public function registerProxy( IProxy $proxy )
   {
     $this->proxyMap[ $proxy->getProxyName() ] = $proxy;
+    $proxy->onRegister();
   }
 
   /**
@@ -99,15 +100,34 @@ class Model implements IModel
   {
     return $this->proxyMap[ $proxyName ];
   }
-
+  
   /**
+   * Check to see if a Proxy is registered with the Model.
+   * 
+   * @param proxyName name of the <code>IProxy</code> instance to check for.
+   */
+  public function hasProxy( $proxyName )
+  {
+  	return $this->proxyMap[ $proxyName ] != null;
+  }
+
+ /**
    * Remove an <code>IProxy</code> from the <code>Model</code>.
    * 
    * @param proxyName name of the <code>IProxy</code> instance to be removed.
    */
   public function removeProxy( $proxyName )
   {
+    // get a reference to the proxy to be removed 
+    &$proxy = $this->proxyMap[ $proxyName ];
+
+    // remove the instance from the map
     unset($this->proxyMap[ $proxyName ]);
+
+	// alert the proxy that it has been removed
+    $proxy->onRemove();
+    
+    return $proxy;
   }
 
   // Mapping of proxyNames to IProxy instances

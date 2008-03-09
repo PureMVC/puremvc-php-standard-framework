@@ -8,6 +8,6 @@ Release Date: 01/02/08
       Author: Asbjørn Sloth Tønnesen <asbjorn.tonnesen@puremvc.org>
      License: Creative Commons Attribution 3.0 Unported License
 --------------------------------------------------------------------------
-0.1 - Initial project structure created in repository - CLH
-
 0.2 - Initial upload of ported code, doc is coming shortly - AST
+
+0.1 - Initial project structure created in repository - CLH

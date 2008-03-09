@@ -1,7 +1,7 @@
 <?php
 /*
  PureMVC PHP Port by Asbjørn Sloth Tønnesen <asbjorn.tonnesen@puremvc.org>
- PureMVC - Copyright(c) 2006, 2007 FutureScale, Inc., Some rights reserved.
+ PureMVC - Copyright(c) 2006-08 Futurescale, Inc., Some rights reserved.
  Your reuse is governed by the Creative Commons Attribution 3.0 Unported License
 */
 
@@ -22,9 +22,9 @@
  * <LI>Notifying the <code>IObservers</code> of a given <code>INotification</code> when it broadcast.</LI>
  * </UL>
  * 
- * @see org.puremvc.interfaces.IMediator IMediator
- * @see org.puremvc.interfaces.IObserver IObserver
- * @see org.puremvc.interfaces.INotification INotification
+ * @see org.puremvc.php.interfaces.IMediator IMediator
+ * @see org.puremvc.php.interfaces.IObserver IObserver
+ * @see org.puremvc.php.interfaces.INotification INotification
  */
 interface IView 
 {
@@ -82,6 +82,13 @@ interface IView
    * @param mediatorName name of the <code>IMediator</code> instance to be removed.
    */
   function removeMediator( $mediatorName );
+ 
+  /**
+   * Check to see if a Mediator is registered with the View.
+   * 
+   * @param mediatorName name of the <code>IMediator</code> instance to check for.
+   */
+  public function hasMediator( $mediatorName );
   
 }
 ?>

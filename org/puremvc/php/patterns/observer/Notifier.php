@@ -1,7 +1,7 @@
 <?php
 /*
  PureMVC PHP Port by Asbjørn Sloth Tønnesen <asbjorn.tonnesen@puremvc.org>
- PureMVC - Copyright(c) 2006, 2007 FutureScale, Inc., Some rights reserved.
+ PureMVC - Copyright(c) 2006-08 Futurescale, Inc., Some rights reserved.
  Your reuse is governed by the Creative Commons Attribution 3.0 Unported License
 */
 
@@ -24,11 +24,11 @@
  * classes have frequent <code>Facade</code> interactions and usually require
  * access to the facade anyway.</P>
  * 
- * @see org.puremvc.patterns.facade.Facade Facade
- * @see org.puremvc.patterns.mediator.Mediator Mediator
- * @see org.puremvc.patterns.proxy.Proxy Proxy
- * @see org.puremvc.patterns.command.SimpleCommand SimpleCommand
- * @see org.puremvc.patterns.command.MacroCommand MacroCommand
+ * @see org.puremvc.php.patterns.facade.Facade Facade
+ * @see org.puremvc.php.patterns.mediator.Mediator Mediator
+ * @see org.puremvc.php.patterns.proxy.Proxy Proxy
+ * @see org.puremvc.php.patterns.command.SimpleCommand SimpleCommand
+ * @see org.puremvc.php.patterns.command.MacroCommand MacroCommand
  */
 abstract class Notifier
 {
@@ -44,7 +44,7 @@ abstract class Notifier
    */ 
   public function sendNotification( $notificationName, Object $body=null, $type=null ) 
   {
-    $this->facade->notifyObservers( new Notification( $notificationName, $body, $type ) );
+    $this->facade->sendNotification( $notificationName, $body, $type );
   }
   
   public function __constructor()

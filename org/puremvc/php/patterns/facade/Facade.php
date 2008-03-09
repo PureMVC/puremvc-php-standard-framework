@@ -1,7 +1,7 @@
 <?php
 /*
  PureMVC PHP Port by Asbjørn Sloth Tønnesen <asbjorn.tonnesen@puremvc.org>
- PureMVC - Copyright(c) 2006, 2007 FutureScale, Inc., Some rights reserved.
+ PureMVC - Copyright(c) 2006-08 Futurescale, Inc., Some rights reserved.
  Your reuse is governed by the Creative Commons Attribution 3.0 Unported License
 */
 
@@ -21,107 +21,15 @@
  * <LI>Providing a single point of contact to the application for 
  * registering <code>Commands</code> and notifying <code>Observers</code></LI>
  * </UL>
- * <P>
- * Example usage:
- * <listing>
- *	import org.puremvc.patterns.facade.&lowast;;
  * 
- *	import com.me.myapp.model.~~;
- *	import com.me.myapp.view.~~;
- *	import com.me.myapp.controller.~~;
- * 
- *	public class MyFacade extends Facade
- *	{
- *		// Notification constants. The Facade is the ideal
- *		// location for these constants, since any part
- *		// of the application participating in PureMVC 
- *		// Observer Notification will know the Facade.
- *		public static const GO_COMMAND:String = "go";
- * 		
- *		// Override Singleton Factory method 
- *		public static function getInstance() : MyFacade {
- *			if (instance == null) instance = new MyFacade();
- *			return instance as MyFacade;
- *		}
- * 		
- *		// optional initialization hook for Facade
- *		override public function initializeFacade() : void {
- *			super.initializeFacade();
- *			// do any special subclass initialization here
- *		}
- *	
- *		// optional initialization hook for Controller
- *		override public function initializeController() : void {
- *			// call super to use the PureMVC Controller Singleton. 
- *			super.initializeController();
- * 
- *			// Otherwise, if you're implmenting your own
- *			// IController, then instead do:
- *			// if ( controller != null ) return;
- *			// controller = MyAppController.getInstance();
- * 		
- *			// do any special subclass initialization here
- *			// such as registering Commands
- *			registerCommand( GO_COMMAND, com.me.myapp.controller.GoCommand )
- *		}
- *	
- *		// optional initialization hook for Model
- *		override public function initializeModel() : void {
- *			// call super to use the PureMVC Model Singleton. 
- *			super.initializeModel();
- * 
- *			// Otherwise, if you're implmenting your own
- *			// IModel, then instead do:
- *			// if ( model != null ) return;
- *			// model = MyAppModel.getInstance();
- * 		
- *			// do any special subclass initialization here
- *			// such as creating and registering Model proxys
- *			// that don't require a facade reference at
- *			// construction time, such as fixed type lists
- *			// that never need to send Notifications.
- *			regsiterProxy( new USStateNamesProxy() );
- * 			
- *			// CAREFUL: Can't reference Facade instance in constructor 
- *			// of new Proxys from here, since this step is part of
- *			// Facade construction!  Usually, Proxys needing to send 
- *			// notifications are registered elsewhere in the app 
- *			// for this reason.
- *		}
- *	
- *		// optional initialization hook for View
- *		override public function initializeView() : void {
- *			// call super to use the PureMVC View Singleton. 
- *			super.initializeView();
- * 
- *			// Otherwise, if you're implmenting your own
- *			// IView, then instead do:
- *			// if ( view != null ) return;
- *			// view = MyAppView.getInstance();
- * 		
- *			// do any special subclass initialization here
- *			// such as creating and registering Mediators
- *			// that do not need a Facade reference at construction
- *			// time.
- *			registerMediator( new LoginMediator() ); 
- * 
- *			// CAREFUL: Can't reference Facade instance in constructor 
- *			// of new Mediators from here, since this is a step
- *			// in Facade construction! Usually, all Mediators need 
- *			// receive notifications, and are registered elsewhere in 
- *			// the app for this reason.
- *		}
- *	}
- * </listing>
- * 
- * @see org.puremvc.core.model.Model Model
- * @see org.puremvc.core.view.View View
- * @see org.puremvc.core.controller.Controller Controller
- * @see org.puremvc.patterns.observer.Notification Notification
- * @see org.puremvc.patterns.mediator.Mediator Mediator
- * @see org.puremvc.patterns.proxy.Proxy Proxy
- * @see org.puremvc.patterns.command.SimpleCommand SimpleCommand
- * @see org.puremvc.patterns.command.MacroCommand MacroCommand
+ * @see org.puremvc.php.core.Model Model
+ * @see org.puremvc.php.core.View View
+ * @see org.puremvc.php.core.Controller Controller
+ * @see org.puremvc.php.patterns.observer.Notification Notification
+ * @see org.puremvc.php.patterns.mediator.Mediator Mediator
+ * @see org.puremvc.php.patterns.proxy.Proxy Proxy
+ * @see org.puremvc.php.patterns.command.SimpleCommand SimpleCommand
+ * @see org.puremvc.php.patterns.command.MacroCommand MacroCommand
  */
 class Facade implements IFacade
 {
@@ -282,6 +190,15 @@ class Facade implements IFacade
   }
 
   /**
+   * Check to see if a Proxy is registered with the Model.
+   * 
+   * @param proxyName name of the <code>IProxy</code> instance to check for.
+   */
+  public function hasProxy( $proxyName ){
+  	return $this->model->hasProxy ( $proxyName );	
+  }
+
+  /**
    * Remove an <code>IProxy</code> from the <code>Model</code> by name.
    *
    * @param proxyName the <code>IProxy</code> to remove from the <code>Model</code>.
@@ -311,12 +228,36 @@ class Facade implements IFacade
   }
 
   /**
+   * Check to see if a Mediator is registered with the View.
+   * 
+   * @param mediatorName name of the <code>IMediator</code> instance to check for.
+   */
+  public function hasMediator( $mediatorName ){
+  	return $this->view->hasMediator ( $mediatorName );
+  }
+ 
+  /**
    * Remove an <code>IMediator</code> from the <code>View</code>.
    * 
    * @param mediatorName name of the <code>IMediator</code> to be removed.
    */
   public function removeMediator( $mediatorName ) {
     if ( $this->view != null ) $this->view->removeMediator( $mediatorName );			
+  }
+
+  /**
+   * Send an <code>INotification</code>.
+   * 
+   * <P>
+   * Keeps us from having to construct new notification 
+   * instances in our implementation code.
+   * @param notificationName the name of the notiification to send
+   * @param body the body of the notification (optional)
+   * @param type the type of the notification (optional)
+   */ 
+  public function sendNotification( $notificationName, Object $body=null, $type=null ) 
+  {
+    $this->notifyObservers( new Notification( $notificationName, $body, $type ) );
   }
 
   // Private references to Model, View and Controller

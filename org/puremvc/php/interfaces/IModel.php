@@ -1,7 +1,7 @@
 <?php
 /*
  PureMVC PHP Port by Asbjørn Sloth Tønnesen <asbjorn.tonnesen@puremvc.org>
- PureMVC - Copyright(c) 2006, 2007 FutureScale, Inc., Some rights reserved.
+ PureMVC - Copyright(c) 2006-08 Futurescale, Inc., Some rights reserved.
  Your reuse is governed by the Creative Commons Attribution 3.0 Unported License
 */
 
@@ -44,6 +44,13 @@ interface IModel
    * @param proxyName name of the <code>IProxy</code> instance to be removed.
    */
   public function removeProxy( $proxyName );
+  
+  /**
+   * Check to see if a Proxy is registered with the Model.
+   * 
+   * @param proxyName name of the <code>IProxy</code> instance to check for.
+   */
+  public function hasProxy( $proxyName );
   
 }
 ?>

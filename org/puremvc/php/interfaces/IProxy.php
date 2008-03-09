@@ -1,7 +1,7 @@
 <?php
 /*
  PureMVC PHP Port by Asbjørn Sloth Tønnesen <asbjorn.tonnesen@puremvc.org>
- PureMVC - Copyright(c) 2006, 2007 FutureScale, Inc., Some rights reserved.
+ PureMVC - Copyright(c) 2006-08 Futurescale, Inc., Some rights reserved.
  Your reuse is governed by the Creative Commons Attribution 3.0 Unported License
 */
 	
@@ -32,6 +32,26 @@ interface IProxy
    * @return the Proxy instance name
    */
   function getProxyName();
+  
+  /**
+   * Get the data object 
+   */
+  function getData( );
+  
+  /**
+   * Set the data object.
+   */
+  function setData( Object $data );
+  
+  /**
+   * Called when the Model registers a Proxy.
+   */
+  function onRegister( );
+  
+  /**
+   * Called when the Model removes a Proxy.
+   */
+  function onRemove( );
   
 }
 ?>
