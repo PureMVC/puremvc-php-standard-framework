@@ -3,13 +3,13 @@ PureMVC - Copyright(c) 2006-2007 Futurescale, Inc., Some rights reserved.
 --------------------------------------------------------------------------
 Release Date: 3/9/08
     Platform: PHP 5 
-     Version: 2 
-    Revision: 0.1
+     Version: 0 
+    Revision: 3
       Author: Asbjørn Sloth Tønnesen <asbjorn.tonnesen@puremvc.org>
      License: Creative Commons Attribution 3.0 Unported License
 --------------------------------------------------------------------------
-2.0.1 - Updated to AS3 2.0.1 functionality. - CLH
+0.3 - Updated to AS3 2.0.1 functionality. - CLH
 
-1.7.1 - Initial upload of ported code, doc is coming shortly - AST
+0.2 - Initial upload of ported code, doc is coming shortly - AST
 
-0.1   - Initial project structure created in repository - CLH
+0.1 - Initial project structure created in repository - CLH
