@@ -69,8 +69,8 @@ class View implements IView
    */
   public static function getInstance()
   {
-    if ( $this->instance == null ) $this->instance = new View( );
-    return $this->instance;
+    if ( View::$instance == null ) View::$instance = new View( );
+    return View::$instance;
   }
       
   /**

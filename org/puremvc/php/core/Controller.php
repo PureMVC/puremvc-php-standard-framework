@@ -93,8 +93,8 @@ class Controller implements IController
    */
   public static function getInstance()
   {
-    if ( $this->instance == null ) $this->instance = new Controller();
-    return $this->instance;
+    if ( Controller::$instance == null ) Controller::$instance = new Controller();
+    return Controller::$instance;
   }
 
   /**

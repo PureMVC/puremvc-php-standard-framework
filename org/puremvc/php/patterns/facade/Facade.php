@@ -69,8 +69,8 @@ class Facade implements IFacade
    * @return the Singleton instance of the Facade
    */
   public static function getInstance() {
-    if ($this->instance == null) $this->instance = new Facade( );
-    return $this->instance;
+    if (Facade::$instance == null) Facade::$instance = new Facade( );
+    return Facade::$instance;
   }
 
   /**

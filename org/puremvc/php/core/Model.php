@@ -75,8 +75,8 @@ class Model implements IModel
    */
   public static function getInstance()
   {
-    if ($this->instance == null) $this->instance = new Model( );
-    return $this->instance;
+    if (Model::$instance == null) Model::$instance = new Model( );
+    return Model::$instance;
   }
 
   /**
