@@ -1,7 +1,7 @@
 <?php
 /*
- PureMVC PHP Port by Asbjørn Sloth Tønnesen <asbjorn.tonnesen@puremvc.org>
- PureMVC - Copyright(c) 2006-08 Futurescale, Inc., Some rights reserved.
+ PureMVC Port to PHP Originally by Asbjørn Sloth Tønnesen
+ PureMVC - Copyright(c) 2006-2008 Futurescale, Inc., Some rights reserved.
  Your reuse is governed by the Creative Commons Attribution 3.0 Unported License
 */
 	

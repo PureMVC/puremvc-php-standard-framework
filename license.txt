@@ -1,5 +1,5 @@
-PureMVC Port to PHP by Asbjorn Tonnesen <asbjorn.tonnesen@puremvc.org>
-PureMVC - Copyright(c) 2006-2007 Futurescale, Inc., Some rights reserved.
+PureMVC Port to PHP Originally by Asbjørn Sloth Tønnesen
+PureMVC - Copyright(c) 2006-2008 Futurescale, Inc., Some rights reserved.
 --------------------------------------------------------------------------
     Reuse governed by Creative Commons Attribution 3.0 Unported License
    View this license and the associated Creative Commons deed online at: 
