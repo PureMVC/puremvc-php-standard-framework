@@ -1,12 +1,12 @@
-PureMVC Port to PHP Originally by Asbjørn Sloth Tønnesen
+﻿PureMVC Port to PHP Originally by Asbjørn Sloth Tønnesen
 PureMVC - Copyright(c) 2006-2008 Futurescale, Inc., Some rights reserved.
 --------------------------------------------------------------------------
-Release Date: 3/9/08
+Release Date: 4/8/08
     Platform: PHP 5 
      Version: 0 
-    Revision: 3
-     Authors: Cliff Hall <cliff@puremvc.org>
-              Asbjørn Sloth Tønnesen 
+    Revision: 4
+     Authors: Asbjørn Sloth Tønnesen 
+            : Cliff Hall <cliff@puremvc.org>
      License: Creative Commons Attribution 3.0 Unported License
 --------------------------------------------------------------------------
 0.4 - Corrected Singleton creation functionality - CLH
