@@ -1,9 +1,16 @@
 <?php
-/*
- PureMVC Port to PHP Originally by Asbjørn Sloth Tønnesen
- PureMVC - Copyright(c) 2006-2008 Futurescale, Inc., Some rights reserved.
- Your reuse is governed by the Creative Commons Attribution 3.0 Unported License
-*/
+/**
+ * PureMVC Port to PHP originally translated by Asbjørn Sloth Tønnesen
+ *
+ * @author Omar Gonzalez :: omar@almerblank.com
+ * @author Hasan Otuome :: hasan@almerblank.com 
+ * 
+ * Created on Sep 24, 2008
+ * PureMVC - Copyright(c) 2006-2008 Futurescale, Inc., Some rights reserved.
+ * Your reuse is governed by the Creative Commons Attribution 3.0 Unported License
+ */
+ 
+require_once 'org/puremvc/php/interfaces/INotification.php';
 
 /**
  * A base <code>INotification</code> implementation.
@@ -11,9 +18,16 @@
  * @see org.puremvc.php.patterns.observer.Observer Observer
  * 
  */
+
 class Notification implements INotification
 {
-  
+  // the name of the notification instance
+  private $name;
+  // the type of the notification instance
+  private $type;
+  // the body of the notification instance
+  private $body;
+   
   /**
    * Constructor. 
    * 
@@ -21,7 +35,7 @@ class Notification implements INotification
    * @param body the <code>Notification</code> body. (optional)
    * @param type the type of the <code>Notification</code> (optional)
    */
-  public function Notification( $name, Object $body=null, $type=null )
+  public function Notification( $name, $body=null, $type=null )
   {
     $this->name = $name;
     $this->body = $body;
@@ -41,7 +55,7 @@ class Notification implements INotification
   /**
    * Set the body of the <code>Notification</code> instance.
    */
-  public function setBody( Object $body)
+  public function setBody( $body)
   {
     $this->body = $body;
   }
@@ -82,17 +96,11 @@ class Notification implements INotification
   public function toString()
   {
     $msg = "Notification Name: " . $this->getName();
-    $msg .= "\nBody:" . ( $this->body == null ?"null":$this->body);
-    $msg .= "\nType:" . ( $this->type == null ?"null":$this->type);
+    $msg .= "\nBody:";
+    $msg .= ($this->body == null) ? "null" : $this->body;
+    $msg .= "\nType:";
+    $msg .= ($this->type == null) ? "null" : $this->type;
     return $msg;
   }
-  
-  // the name of the notification instance
-  private $name;
-  // the type of the notification instance
-  private $type;
-  // the body of the notification instance
-  private $body;
-  
 }
 ?>

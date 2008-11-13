@@ -1,9 +1,21 @@
 <?php
-/*
- PureMVC Port to PHP Originally by Asbjørn Sloth Tønnesen
- PureMVC - Copyright(c) 2006-2008 Futurescale, Inc., Some rights reserved.
- Your reuse is governed by the Creative Commons Attribution 3.0 Unported License
-*/
+/**
+ * PureMVC Port to PHP originally translated by Asbjørn Sloth Tønnesen
+ *
+ * @author Omar Gonzalez :: omar@almerblank.com
+ * @author Hasan Otuome :: hasan@almerblank.com 
+ * 
+ * Created on Sep 24, 2008
+ * PureMVC - Copyright(c) 2006-2008 Futurescale, Inc., Some rights reserved.
+ * Your reuse is governed by the Creative Commons Attribution 3.0 Unported License
+ */
+ 
+
+ 
+require_once 'org/puremvc/php/patterns/observer/Observer.php';
+require_once 'org/puremvc/php/core/View.php';
+require_once 'org/puremvc/php/interfaces/IController.php';
+require_once 'org/puremvc/php/interfaces/INotification.php';
 	
 /**
  * A Singleton <code>IController</code> implementation.
@@ -41,6 +53,15 @@
  */
 class Controller implements IController
 {
+    
+  // Local reference to View 
+  protected $view;
+  
+  // Mapping of Notification names to Command Class references
+  protected $commandMap;
+
+  // Singleton instance
+  protected static $instance;
   
   /**
    * Constructor. 
@@ -54,11 +75,10 @@ class Controller implements IController
    * @throws Error Error if Singleton instance has already been constructed
    * 
    */
-  private function __construct( )
+  private function __construct()
   {
-    $instance = $this;
     $this->commandMap = array();
-    $this->initializeController();	
+    $this->initializeController();
   }
   
   /**
@@ -81,9 +101,9 @@ class Controller implements IController
    * 
    * @return void
    */
-  protected function initializeController(  )
+  protected function initializeController()
   {
-    $view = View::getInstance();
+    $this->view = View::getInstance();
   }
 
   /**
@@ -105,11 +125,12 @@ class Controller implements IController
    */
   public function executeCommand( INotification $note )
   {
-    $commandClassRef = $this->commandMap[ $note->getName() ];
-    if ( $commandClassRef == null ) return;
-
-    $commandInstance = new commandClassRef();
-    $commandInstance->execute( $note );
+    // $commandClassRef = $this->commandMap[ $note->getName() ];
+    //     if ($commandClassRef) $commandClassRef->execute( $note );
+	$commandClassName = $this->commandMap[ $note->getName() ];
+	$commandClassReflector = new ReflectionClass( $commandClassName );
+	$commandClassRef = $commandClassReflector->newInstance();
+	$commandClassRef->execute( $note );
   }
 
   /**
@@ -124,10 +145,20 @@ class Controller implements IController
    * @param notificationName the name of the <code>INotification</code>
    * @param commandClassRef the <code>Class</code> of the <code>ICommand</code>
    */
-  public function registerCommand( $notificationName, object $commandClassRef )
+  public function registerCommand( $notificationName, $commandClassRef )
   {
     $this->commandMap[$notificationName] = $commandClassRef;
-    $this->view->registerObserver( $notificationName, new Observer( array($this, "executeCommand") ) );
+    $this->view->registerObserver( $notificationName, new Observer("executeCommand", $this) );
+  }
+  /**
+   * Check if a Command is registered for a given Notification 
+   *
+   * @param string $notificationName
+   * @return whether a Command is currently registered for the given <code>notificationName</code>.
+   */
+  public function hasCommand( $notificationName )
+  {
+  	return $this->commandMap[ $notificationName ] != null;
   }
   
   /**
@@ -139,15 +170,5 @@ class Controller implements IController
   {
     $this->commandMap[ $notificationName ] = null;
   }
-  
-  // Local reference to View 
-  protected $view;
-  
-  // Mapping of Notification names to Command Class references
-  protected $commandMap;
-
-  // Singleton instance
-  protected static $instance;
-
 }
 ?>

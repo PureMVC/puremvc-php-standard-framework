@@ -1,10 +1,17 @@
 <?php
-/*
- PureMVC Port to PHP Originally by Asbjørn Sloth Tønnesen
- PureMVC - Copyright(c) 2006-2008 Futurescale, Inc., Some rights reserved.
- Your reuse is governed by the Creative Commons Attribution 3.0 Unported License
-*/
+/**
+ * PureMVC Port to PHP originally translated by Asbjørn Sloth Tønnesen
+ *
+ * @author Omar Gonzalez :: omar@almerblank.com
+ * @author Hasan Otuome :: hasan@almerblank.com 
+ * 
+ * Created on Sep 24, 2008
+ * PureMVC - Copyright(c) 2006-2008 Futurescale, Inc., Some rights reserved.
+ * Your reuse is governed by the Creative Commons Attribution 3.0 Unported License
+ */
 
+require_once 'org/puremvc/php/interfaces/INotifier.php';
+ 
 /**
  * A Base <code>INotifier</code> implementation.
  * 
@@ -30,7 +37,8 @@
  * @see org.puremvc.php.patterns.command.SimpleCommand SimpleCommand
  * @see org.puremvc.php.patterns.command.MacroCommand MacroCommand
  */
-abstract class Notifier
+ 
+class Notifier implements INotifier
 {
   /**
    * Send an <code>INotification</code>s.
@@ -42,18 +50,19 @@ abstract class Notifier
    * @param body the body of the notification (optional)
    * @param type the type of the notification (optional)
    */ 
-  public function sendNotification( $notificationName, Object $body=null, $type=null ) 
+
+  // Local reference to the Facade Singleton
+  protected $facade;
+  
+  public function sendNotification( $notificationName, $body=null, $type=null ) 
   {
     $this->facade->sendNotification( $notificationName, $body, $type );
   }
   
-  public function __constructor()
+  public function __construct()
   {
     $this->facade = Facade::getInstance();
-    parent::__constructor();
+    parent::__construct();
   }
-
-  // Local reference to the Facade Singleton
-  protected $facade;
 }
 ?>

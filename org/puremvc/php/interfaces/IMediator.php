@@ -1,10 +1,15 @@
 <?php
-/*
- PureMVC Port to PHP Originally by Asbjørn Sloth Tønnesen
- PureMVC - Copyright(c) 2006-2008 Futurescale, Inc., Some rights reserved.
- Your reuse is governed by the Creative Commons Attribution 3.0 Unported License
-*/
-
+/**
+ * PureMVC Port to PHP originally translated by Asbjørn Sloth Tønnesen
+ *
+ * @author Omar Gonzalez :: omar@almerblank.com
+ * @author Hasan Otuome :: hasan@almerblank.com 
+ * 
+ * Created on Sep 24, 2008
+ * PureMVC - Copyright(c) 2006-2008 Futurescale, Inc., Some rights reserved.
+ * Your reuse is governed by the Creative Commons Attribution 3.0 Unported License
+ */
+ 
 /**
  * The interface definition for a PureMVC Mediator.
  * 
@@ -18,45 +23,45 @@ interface IMediator
    * 
    * @return the <code>IMediator</code> instance name
    */
-  function getMediatorName();
+  public function getMediatorName();
   
   /**
    * Get the <code>IMediator</code>'s view component.
    * 
    * @return Object the view component
    */
-  function getViewComponent();
+  public function getViewComponent();
 
   /**
    * Set the <code>IMediator</code>'s view component.
    * 
    * @param Object the view component
    */
-  function setViewComponent( Object $viewComponent );
+  public function setViewComponent( $viewComponent );
   
   /**
    * List <code>INotification</code> interests.
    * 
    * @return an <code>Array</code> of the <code>INotification</code> names this <code>IMediator</code> has an interest in.
    */
-  function listNotificationInterests( );
+  public function listNotificationInterests();
   
   /**
    * Handle an <code>INotification</code>.
    * 
    * @param notification the <code>INotification</code> to be handled
    */
-  function handleNotification( INotification $notification );
+  public function handleNotification( INotification $notification );
   
   /**
    * Called when the View registers a Mediator.
    */
-  function onRegister( );
+  public function onRegister();
   
   /**
    * Called when the View removes a Mediator.
    */
-  function onRemove( );
+  public function onRemove();
   
 }
 ?>

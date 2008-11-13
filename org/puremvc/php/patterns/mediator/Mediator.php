@@ -1,9 +1,20 @@
 <?php
-/*
- PureMVC Port to PHP Originally by Asbjørn Sloth Tønnesen
- PureMVC - Copyright(c) 2006-2008 Futurescale, Inc., Some rights reserved.
- Your reuse is governed by the Creative Commons Attribution 3.0 Unported License
-*/
+/**
+ * PureMVC Port to PHP originally translated by Asbjørn Sloth Tønnesen
+ *
+ * @author Omar Gonzalez :: omar@almerblank.com
+ * @author Hasan Otuome :: hasan@almerblank.com 
+ * 
+ * Created on Sep 24, 2008
+ * PureMVC - Copyright(c) 2006-2008 Futurescale, Inc., Some rights reserved.
+ * Your reuse is governed by the Creative Commons Attribution 3.0 Unported License
+ */
+ 
+require_once 'org/puremvc/php/interfaces/IMediator.php'; 
+require_once 'org/puremvc/php/interfaces/INotifier.php'; 
+require_once 'org/puremvc/php/interfaces/INotification.php'; 
+require_once 'org/puremvc/php/patterns/facade/Facade.php';
+require_once 'org/puremvc/php/patterns/observer/Notifier.php'; 
 
 /**
  * A base <code>IMediator</code> implementation. 
@@ -12,6 +23,14 @@
  */
 class Mediator extends Notifier implements IMediator, INotifier
 {
+
+  // the mediator name
+  protected $mediatorName;
+
+  // The view component
+  protected $viewComponent;
+  
+  protected $facade;
 
   /**
    * The name of the <code>Mediator</code>. 
@@ -26,9 +45,11 @@ class Mediator extends Notifier implements IMediator, INotifier
   /**
    * Constructor.
    */
-  public function __construct( $mediatorName, Object $viewComponent=null ) {
+  public function __construct( $mediatorName, $viewComponent=null )
+  {
+  	$this->facade = Facade::getInstance();
     $this->viewComponent = $viewComponent;
-    $this->mediatorName = ($mediatorName != null)?$mediatorName:self::NAME; 
+    $this->mediatorName = ($mediatorName != null) ? $mediatorName : self::NAME; 
   }
 
   /**
@@ -47,6 +68,11 @@ class Mediator extends Notifier implements IMediator, INotifier
   public function getViewComponent()
   {	
     return $this->viewComponent;
+  }
+  
+  public function setViewComponent( $component )
+  {
+  	$this->viewComponent = $component;
   }
 
   /**
@@ -68,12 +94,15 @@ class Mediator extends Notifier implements IMediator, INotifier
    * with one 'case' entry per <code>INotification</code>
    * the <code>Mediator</code> is interested in.
    */ 
-  public function handleNotification( INotification $notification ) {}
+  public function handleNotification( INotification $notification )
+  {
+  	
+  }
   
   /**
    * Called when the View registers a Mediator.
    */
-  public function onRemove( )
+  public function onRegister()
   {
      return;
   }
@@ -81,15 +110,9 @@ class Mediator extends Notifier implements IMediator, INotifier
   /**
    * Called when the View removes a Mediator.
    */
-  public function onRemove( )
+  public function onRemove()
   {
   	return;
   }
-
-  // the mediator name
-  protected $mediatorName;
-
-  // The view component
-  protected $viewComponent;
 }
 ?>

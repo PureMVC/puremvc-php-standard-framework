@@ -1,10 +1,15 @@
 <?php
-/*
- PureMVC Port to PHP Originally by Asbjørn Sloth Tønnesen
- PureMVC - Copyright(c) 2006-2008 Futurescale, Inc., Some rights reserved.
- Your reuse is governed by the Creative Commons Attribution 3.0 Unported License
-*/
-
+/**
+ * PureMVC Port to PHP originally translated by Asbjørn Sloth Tønnesen
+ *
+ * @author Omar Gonzalez :: omar@almerblank.com
+ * @author Hasan Otuome :: hasan@almerblank.com 
+ * 
+ * Created on Sep 24, 2008
+ * PureMVC - Copyright(c) 2006-2008 Futurescale, Inc., Some rights reserved.
+ * Your reuse is governed by the Creative Commons Attribution 3.0 Unported License
+ */
+ 
 /**
  * The interface definition for a PureMVC Facade.
  *
@@ -31,7 +36,7 @@ interface IFacade
    * 
    * @param proxy the <code>IProxy</code> to be registered with the <code>Model</code>.
    */
-  function registerProxy( IProxy $proxy );
+  public function registerProxy( IProxy $proxy );
 
   /**
    * Retrieve a <code>IProxy</code> from the <code>Model</code> by name.
@@ -39,7 +44,7 @@ interface IFacade
    * @param proxyName the name of the <code>IProxy</code> instance to be retrieved.
    * @return the <code>IProxy</code> previously regisetered by <code>proxyName</code> with the <code>Model</code>.
    */
-  function retrieveProxy( $proxyName );
+  public function retrieveProxy( $proxyName );
   
    /**
    * Check to see if a Proxy is registered with the Model.
@@ -53,7 +58,7 @@ interface IFacade
    *
    * @param proxyName the <code>IProxy</code> to remove from the <code>Model</code>.
    */
-  function removeProxy( $proxyName );
+  public function removeProxy( $proxyName );
   
   /**
    * Register an <code>ICommand</code> with the <code>Controller</code>.
@@ -61,21 +66,21 @@ interface IFacade
    * @param noteName the name of the <code>INotification</code> to associate the <code>ICommand</code> with.
    * @param commandClassRef a reference to the <code>Class</code> of the <code>ICommand</code>.
    */
-  function registerCommand( $noteName, $commandClassRef );
+  public function registerCommand( $noteName, $commandClassRef );
   
   /**
    * Notify <code>Observer</code>s of an <code>INotification</code>.
    * 
    * @param note the <code>INotification</code> to have the <code>View</code> notify observers of.
    */
-  function notifyObservers( INotification $note );
+  public function notifyObservers( INotification $note );
   
   /**
    * Register an <code>IMediator</code> instance with the <code>View</code>.
    * 
    * @param mediator a reference to the <code>IMediator</code> instance
    */
-  function registerMediator( IMediator $mediator );
+  public function registerMediator( IMediator $mediator );
 
   /**
    * Retrieve an <code>IMediator</code> instance from the <code>View</code>.
@@ -83,7 +88,7 @@ interface IFacade
    * @param mediatorName the name of the <code>IMediator</code> instance to retrievve
    * @return the <code>IMediator</code> previously registered with the given <code>mediatorName</code>.
    */
-  function retrieveMediator( $mediatorName );
+  public function retrieveMediator( $mediatorName );
 
   /**
    * Check to see if a Mediator is registered with the View.
@@ -97,7 +102,7 @@ interface IFacade
    * 
    * @param mediatorName name of the <code>IMediator</code> instance to be removed.
    */
-  function removeMediator( $mediatorName );
+  public function removeMediator( $mediatorName );
 
   /**
    * Send a <code>INotification</code>.
@@ -110,7 +115,7 @@ interface IFacade
    * @param body the body of the notification (optional)
    * @param type the type of the notification (optional)
    */ 
-  function sendNotification( $notificationName, Object $body=null, $type=null ); 
+  public function sendNotification( $notificationName, $body=null, $type=null ); 
 
 }
 ?>

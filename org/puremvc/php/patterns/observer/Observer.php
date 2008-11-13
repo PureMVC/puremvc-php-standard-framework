@@ -1,9 +1,17 @@
 <?php
-/*
- PureMVC Port to PHP Originally by Asbjørn Sloth Tønnesen
- PureMVC - Copyright(c) 2006-2008 Futurescale, Inc., Some rights reserved.
- Your reuse is governed by the Creative Commons Attribution 3.0 Unported License
-*/
+/**
+ * PureMVC Port to PHP originally translated by Asbjørn Sloth Tønnesen
+ *
+ * @author Omar Gonzalez :: omar@almerblank.com
+ * @author Hasan Otuome :: hasan@almerblank.com 
+ * 
+ * Created on Sep 24, 2008
+ * PureMVC - Copyright(c) 2006-2008 Futurescale, Inc., Some rights reserved.
+ * Your reuse is governed by the Creative Commons Attribution 3.0 Unported License
+ */
+ 
+require_once 'org/puremvc/php/interfaces/INotification.php';
+require_once 'org/puremvc/php/interfaces/IObserver.php';
 
 /**
  * A base <code>IObserver</code> implementation.
@@ -40,7 +48,7 @@ class Observer implements IObserver
    * @param notifyMethod the notification method of the interested object
    * @param notifyContext the notification context of the interested object
    */
-  public function __construct( $notifyMethod, Object $notifyContext ) 
+  public function __construct( $notifyMethod, $notifyContext ) 
   {
     $this->setNotifyMethod( $notifyMethod );
     $this->setNotifyContext( $notifyContext );
@@ -64,7 +72,7 @@ class Observer implements IObserver
    * 
    * @param notifyContext the notification context (this) of the interested object.
    */
-  public function setNotifyContext( Object $notifyContext )
+  public function setNotifyContext( $notifyContext )
   {
     $this->context = $notifyContext;
   }
@@ -96,7 +104,16 @@ class Observer implements IObserver
    */
   public function notifyObserver( INotification $notification )
   {
-    call_user_func_array($this->getNotifyMethod(), array(this.getNotifyContext(), $notification));
+	$context		= $this->getNotifyContext();
+	$method			= $this->getNotifyMethod();
+	
+	$classReflector = new ReflectionClass( $context );
+
+	$className = $classReflector->getName();
+	
+	$funcReflector = new ReflectionMethod( $className, $method );
+	
+	$funcReflector->invokeArgs( $context, array($notification) );
   }
 
   /**
@@ -105,7 +122,7 @@ class Observer implements IObserver
    * @param object the object to compare
    * @return boolean indicating if the object and the notification context are the same
    */
-   public function compareNotifyContext( Object $object )
+   public function compareNotifyContext( $object )
    {
     return $object === $this->context;
    }		

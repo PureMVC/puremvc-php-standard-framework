@@ -1,10 +1,17 @@
 <?php
-/*
- PureMVC Port to PHP Originally by Asbjørn Sloth Tønnesen
- PureMVC - Copyright(c) 2006-2008 Futurescale, Inc., Some rights reserved.
- Your reuse is governed by the Creative Commons Attribution 3.0 Unported License
-*/
+/**
+ * PureMVC Port to PHP originally translated by Asbjørn Sloth Tønnesen
+ *
+ * @author Omar Gonzalez :: omar@almerblank.com
+ * @author Hasan Otuome :: hasan@almerblank.com 
+ * 
+ * Created on Sep 24, 2008
+ * PureMVC - Copyright(c) 2006-2008 Futurescale, Inc., Some rights reserved.
+ * Your reuse is governed by the Creative Commons Attribution 3.0 Unported License
+ */
 
+require_once 'org/puremvc/php/interfaces/INotification.php';
+ 
 /**
  * The interface definition for a PureMVC Controller.
  * 
@@ -37,7 +44,7 @@ interface IController
    * @param notificationName the name of the <code>INotification</code>
    * @param commandClassRef the Class of the <code>ICommand</code>
    */
-  function registerCommand( $notificationName, $commandClassRef );
+  public function registerCommand( $notificationName, $commandClassRef );
   
   /**
    * Execute the <code>ICommand</code> previously registered as the
@@ -45,13 +52,13 @@ interface IController
    * 
    * @param notification the <code>INotification</code> to execute the associated <code>ICommand</code> for
    */
-  function executeCommand( INotification $notification );
+  public function executeCommand( INotification $notification );
 
   /**
    * Remove a previously registered <code>ICommand</code> to <code>INotification</code> mapping.
    * 
    * @param notificationName the name of the <code>INotification</code> to remove the <code>ICommand</code> mapping for
    */
-  function removeCommand( $notificationName );
+  public function removeCommand( $notificationName );
 }
 ?>

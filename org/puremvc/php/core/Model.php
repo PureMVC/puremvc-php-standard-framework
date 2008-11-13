@@ -1,9 +1,17 @@
 <?php
-/*
- PureMVC Port to PHP Originally by Asbjørn Sloth Tønnesen
- PureMVC - Copyright(c) 2006-2008 Futurescale, Inc., Some rights reserved.
- Your reuse is governed by the Creative Commons Attribution 3.0 Unported License
-*/
+/**
+ * PureMVC Port to PHP originally translated by Asbjørn Sloth Tønnesen
+ *
+ * @author Omar Gonzalez :: omar@almerblank.com
+ * @author Hasan Otuome :: hasan@almerblank.com 
+ * 
+ * Created on Sep 24, 2008
+ * PureMVC - Copyright(c) 2006-2008 Futurescale, Inc., Some rights reserved.
+ * Your reuse is governed by the Creative Commons Attribution 3.0 Unported License
+ */
+ 
+require_once 'org/puremvc/php/interfaces/IModel.php';
+require_once 'org/puremvc/php/interfaces/IProxy.php';
 
 /**
  * A Singleton <code>IModel</code> implementation.
@@ -34,6 +42,12 @@
  */
 class Model implements IModel
 {
+  // Mapping of proxyNames to IProxy instances
+  protected $proxyMap;
+
+  // Singleton instance
+  protected static $instance;
+  
   /**
    * Constructor. 
    * 
@@ -46,13 +60,11 @@ class Model implements IModel
    * @throws Error Error if Singleton instance has already been constructed
    * 
    */
-  private function __construct( )
+  private function __construct()
   {
-    $this->instance = $this;
     $this->proxyMap = array();
     $this->initializeModel();	
   }
-  
   /**
    * Initialize the Singleton <code>Model</code> instance.
    * 
@@ -64,7 +76,7 @@ class Model implements IModel
    * 
    * @return void
    */
-  protected function initializeModel(  )
+  protected function initializeModel()
   {
   }
       
@@ -73,9 +85,9 @@ class Model implements IModel
    * 
    * @return the Singleton instance
    */
-  public static function getInstance()
+  static public function getInstance()
   {
-    if (Model::$instance == null) Model::$instance = new Model( );
+    if (Model::$instance == null) Model::$instance = new Model();
     return Model::$instance;
   }
 
@@ -100,16 +112,6 @@ class Model implements IModel
   {
     return $this->proxyMap[ $proxyName ];
   }
-  
-  /**
-   * Check to see if a Proxy is registered with the Model.
-   * 
-   * @param proxyName name of the <code>IProxy</code> instance to check for.
-   */
-  public function hasProxy( $proxyName )
-  {
-  	return $this->proxyMap[ $proxyName ] != null;
-  }
 
  /**
    * Remove an <code>IProxy</code> from the <code>Model</code>.
@@ -119,7 +121,7 @@ class Model implements IModel
   public function removeProxy( $proxyName )
   {
     // get a reference to the proxy to be removed 
-    &$proxy = $this->proxyMap[ $proxyName ];
+    $proxy = $this->proxyMap[ $proxyName ];
 
     // remove the instance from the map
     unset($this->proxyMap[ $proxyName ]);
@@ -130,11 +132,14 @@ class Model implements IModel
     return $proxy;
   }
 
-  // Mapping of proxyNames to IProxy instances
-  protected $proxyMap;
-
-  // Singleton instance
-  protected static $instance;
-
+  /**
+   * Check to see if a Proxy is registered with the Model.
+   * 
+   * @param proxyName name of the <code>IProxy</code> instance to check for.
+   */
+  public function hasProxy( $proxyName )
+  {
+  	return $this->proxyMap[ $proxyName ] != null;
+  }
 }
 ?>

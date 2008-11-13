@@ -1,9 +1,19 @@
 <?php
-/*
- PureMVC Port to PHP Originally by Asbjørn Sloth Tønnesen
- PureMVC - Copyright(c) 2006-2008 Futurescale, Inc., Some rights reserved.
- Your reuse is governed by the Creative Commons Attribution 3.0 Unported License
-*/
+/**
+ * PureMVC Port to PHP originally translated by Asbjørn Sloth Tønnesen
+ *
+ * @author Omar Gonzalez :: omar@almerblank.com
+ * @author Hasan Otuome :: hasan@almerblank.com 
+ * 
+ * Created on Sep 24, 2008
+ * PureMVC - Copyright(c) 2006-2008 Futurescale, Inc., Some rights reserved.
+ * Your reuse is governed by the Creative Commons Attribution 3.0 Unported License
+ */
+
+require_once 'org/puremvc/php/interfaces/IView.php';
+require_once 'org/puremvc/php/interfaces/IMediator.php';
+require_once 'org/puremvc/php/interfaces/INotification.php';
+require_once 'org/puremvc/php/interfaces/IObserver.php';
 
 /**
  * A Singleton <code>IView</code> implementation.
@@ -26,7 +36,16 @@
  */
 class View implements IView
 {
+          
+  // Mapping of Mediator names to Mediator instances
+  protected $mediatorMap;
+
+  // Mapping of Notification names to Observer lists
+  protected $observerMap;
   
+  // Singleton instance
+  protected static $instance;
+    
   /**
    * Constructor. 
    * 
@@ -39,9 +58,8 @@ class View implements IView
    * @throws Error Error if Singleton instance has already been constructed
    * 
    */
-  private function __construct( )
+  private function __construct()
   {
-    $this->instance = $this;
     $this->mediatorMap = array();
     $this->observerMap = array();	
     $this->initializeView();	
@@ -58,7 +76,7 @@ class View implements IView
    * 
    * @return void
    */
-  protected function initializeView(  )
+  protected function initializeView()
   {
   }
 
@@ -69,7 +87,7 @@ class View implements IView
    */
   public static function getInstance()
   {
-    if ( View::$instance == null ) View::$instance = new View( );
+    if ( View::$instance == null ) View::$instance = new View();
     return View::$instance;
   }
       
@@ -80,11 +98,14 @@ class View implements IView
    * @param notificationName the name of the <code>INotifications</code> to notify this <code>IObserver</code> of
    * @param observer the <code>IObserver</code> to register
    */
-  public function registerObserver ( $notificationName, IObserver $observer )
+  public function registerObserver( $notificationName, IObserver $observer )
   {
-    if( $this->observerMap[ $notificationName ] != null ) {
-      array_push($this->observerMap[ $notificationName ], $observer );
-    } else {
+    if ($this->observerMap[ $notificationName ] != null)
+    {
+      array_push( $this->observerMap[ $notificationName ], $observer );
+    }
+    else
+    {
       $this->observerMap[ $notificationName ] = array( $observer );	
     }
   }
@@ -102,9 +123,11 @@ class View implements IView
    */
   public function notifyObservers( INotification $notification )
   {
-    if( $this->observerMap[ $notification->getName() ] != null ) {
+    if ($this->observerMap[ $notification->getName() ] != null)
+    {
       $observers = $this->observerMap[ $notification->getName() ];
-      foreach ($observers as $observer) {
+      foreach ($observers as $observer)
+      {
         $observer->notifyObserver( $notification );
       }
     }
@@ -134,15 +157,18 @@ class View implements IView
     
     // Get Notification interests, if any.
     $interests = $mediator->listNotificationInterests();
-    if ( sizeof($interests) == 0) return;
     
-    // Create Observer
-    $observer = new Observer( array($mediator, "handleNotification"), $mediator );
-    
-    // Register Mediator as Observer for its list of Notification interests
-    foreach ($interests as $interest) {
-      registerObserver( $interest,  $observer );
-    }			
+    if (count($interests) > 0)
+    {
+    	// Create Observer
+	    $observer = new Observer( "handleNotification", $mediator );
+	    
+	    // Register Mediator as Observer for its list of Notification interests
+	    foreach ($interests as $interest)
+	    {
+	      $this->registerObserver( $interest,  $observer );
+	    }			
+    }
     
     // Alert the Mediator that it has been registered
     $mediator->onRegister();
@@ -179,12 +205,16 @@ class View implements IView
     // Remove all Observers with a reference to this Mediator			
     // also, when an notification's observer list length falls to 
     // zero, remove it.
-    foreach ( $this->observerMap as &$observers ) {
-      foreach ( $observers as &$observer ) {
-        if ( $observer->compareNotifyContext( $this->retrieveMediator( $mediatorName ) ) == true ) {
+    foreach ( $this->observerMap as &$observers )
+    {
+      foreach ( $observers as &$observer )
+      {
+        if ($observer->compareNotifyContext( $this->retrieveMediator( $mediatorName ) ) == true)
+        {
           unset($observer);
 
-          if ( sizeof($observers) == 0 ) {
+          if ( count($observers) == 0 )
+          {
             unset($observers);
             break;
           }
@@ -192,24 +222,15 @@ class View implements IView
       }
     }			
    	// get a reference to the mediator to be removed
-    &$mediator = $this->mediatorMap[ $mediatorName ];
+    $mediator = $this->mediatorMap[ $mediatorName ];
     
     // Remove the reference from the map
     unset($this->mediatorMap[ $mediatorName ]);
     
     // alert the mediator that it has been removed
-    if ($mediator != null) { $mediator->onRemove(); );
+    if ($mediator != null) { $mediator->onRemove(); }
     
     return $mediator;
   }
-          
-  // Mapping of Mediator names to Mediator instances
-  protected $mediatorMap;
-
-  // Mapping of Notification names to Observer lists
-  protected $observerMap;
-  
-  // Singleton instance
-  protected static $instance;
 }
 ?>

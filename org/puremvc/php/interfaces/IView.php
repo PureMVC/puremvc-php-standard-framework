@@ -1,10 +1,15 @@
 <?php
-/*
- PureMVC Port to PHP Originally by Asbjørn Sloth Tønnesen
- PureMVC - Copyright(c) 2006-2008 Futurescale, Inc., Some rights reserved.
- Your reuse is governed by the Creative Commons Attribution 3.0 Unported License
-*/
-
+/**
+ * PureMVC Port to PHP originally translated by Asbjørn Sloth Tønnesen
+ *
+ * @author Omar Gonzalez :: omar@almerblank.com
+ * @author Hasan Otuome :: hasan@almerblank.com 
+ * 
+ * Created on Sep 24, 2008
+ * PureMVC - Copyright(c) 2006-2008 Futurescale, Inc., Some rights reserved.
+ * Your reuse is governed by the Creative Commons Attribution 3.0 Unported License
+ */
+ 
 /**
  * The interface definition for a PureMVC View.
  * 
@@ -35,7 +40,7 @@ interface IView
    * @param notificationName the name of the <code>INotifications</code> to notify this <code>IObserver</code> of
    * @param observer the <code>IObserver</code> to register
    */
-  function registerObserver ( $noteName, IObserver $observer );
+  public function registerObserver ( $noteName, IObserver $observer );
 
   /**
    * Notify the <code>IObservers</code> for a particular <code>INotification</code>.
@@ -47,7 +52,7 @@ interface IView
    * 
    * @param notification the <code>INotification</code> to notify <code>IObservers</code> of.
    */
-  function notifyObservers( INotification $note );
+  public function notifyObservers( INotification $note );
   
   /**
    * Register an <code>IMediator</code> instance with the <code>View</code>.
@@ -66,7 +71,7 @@ interface IView
    * @param mediatorName the name to associate with this <code>IMediator</code> instance
    * @param mediator a reference to the <code>IMediator</code> instance
    */
-  function registerMediator( IMediator $mediator );
+  public function registerMediator( IMediator $mediator );
 
   /**
    * Retrieve an <code>IMediator</code> from the <code>View</code>.
@@ -74,14 +79,14 @@ interface IView
    * @param mediatorName the name of the <code>IMediator</code> instance to retrieve.
    * @return the <code>IMediator</code> instance previously registered with the given <code>mediatorName</code>.
    */
-  function retrieveMediator( $mediatorName );
+  public function retrieveMediator( $mediatorName );
 
   /**
    * Remove an <code>IMediator</code> from the <code>View</code>.
    * 
    * @param mediatorName name of the <code>IMediator</code> instance to be removed.
    */
-  function removeMediator( $mediatorName );
+  public function removeMediator( $mediatorName );
  
   /**
    * Check to see if a Mediator is registered with the View.

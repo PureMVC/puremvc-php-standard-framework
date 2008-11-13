@@ -1,10 +1,19 @@
 <?php
-/*
- PureMVC Port to PHP Originally by Asbjørn Sloth Tønnesen
- PureMVC - Copyright(c) 2006-2008 Futurescale, Inc., Some rights reserved.
- Your reuse is governed by the Creative Commons Attribution 3.0 Unported License
-*/
+/**
+ * PureMVC Port to PHP originally translated by Asbjørn Sloth Tønnesen
+ *
+ * @author Omar Gonzalez :: omar@almerblank.com
+ * @author Hasan Otuome :: hasan@almerblank.com 
+ * 
+ * Created on Sep 24, 2008
+ * PureMVC - Copyright(c) 2006-2008 Futurescale, Inc., Some rights reserved.
+ * Your reuse is governed by the Creative Commons Attribution 3.0 Unported License
+ */
 
+require_once 'org/puremvc/php/interfaces/ICommand.php'; 
+require_once 'org/puremvc/php/interfaces/INotifier.php'; 
+require_once 'org/puremvc/php/patterns/observer/Notifier.php'; 
+ 
 /**
  * A base <code>ICommand</code> implementation that executes other <code>ICommand</code>s.
  *  
@@ -32,9 +41,9 @@
  * @see org.puremvc.patterns.observer.Notification Notification
  * @see org.puremvc.patterns.command.SimpleCommand SimpleCommand
  */
+
 class MacroCommand extends Notifier implements ICommand, INotifier
 {
-  
   private $subCommands;
   
   /**
@@ -93,7 +102,7 @@ class MacroCommand extends Notifier implements ICommand, INotifier
    */
   protected function addSubCommand( $commandClassRef )
   {
-    array_push($subCommands, $commandClassRef);
+	array_push( $this->subCommands, $commandClassRef );
   }
   
   /** 
@@ -107,11 +116,13 @@ class MacroCommand extends Notifier implements ICommand, INotifier
    */
   public final function execute( INotification $notification )
   {
-    while ( count($subCommands) > 0 ) {
-      $commandClassRef = array_shift($subCommands);
-      $commandInstance = new $this->commandClassRef();
-      $commandInstance->execute( $notification );
-    }
+	    while (count($this->subCommands) > 0)
+	    {
+	      $commandClassName = array_shift( $this->subCommands );
+		  $commandClassReflector = new ReflectionClass( $commandClassName );
+		  $commandClassRef = $commandClassReflector->newInstance();
+		  $commandClassRef->execute( $notification );
+	    }
   }
               
 }

@@ -1,9 +1,23 @@
 <?php
-/*
- PureMVC Port to PHP Originally by Asbjørn Sloth Tønnesen
- PureMVC - Copyright(c) 2006-2008 Futurescale, Inc., Some rights reserved.
- Your reuse is governed by the Creative Commons Attribution 3.0 Unported License
-*/
+/**
+ * PureMVC Port to PHP originally translated by Asbjørn Sloth Tønnesen
+ *
+ * @author Omar Gonzalez :: omar@almerblank.com
+ * @author Hasan Otuome :: hasan@almerblank.com 
+ * 
+ * Created on Sep 24, 2008
+ * PureMVC - Copyright(c) 2006-2008 Futurescale, Inc., Some rights reserved.
+ * Your reuse is governed by the Creative Commons Attribution 3.0 Unported License
+ */
+ 
+require_once 'org/puremvc/php/core/Controller.php';
+require_once 'org/puremvc/php/core/Model.php';
+require_once 'org/puremvc/php/core/View.php';
+require_once 'org/puremvc/php/interfaces/IFacade.php';
+require_once 'org/puremvc/php/interfaces/IMediator.php';
+require_once 'org/puremvc/php/interfaces/INotification.php';
+require_once 'org/puremvc/php/interfaces/IProxy.php';
+require_once 'org/puremvc/php/patterns/observer/Notification.php';
 
 /**
  * A base Singleton <code>IFacade</code> implementation.
@@ -33,6 +47,14 @@
  */
 class Facade implements IFacade
 {
+
+  // Private references to Model, View and Controller
+  protected $controller;
+  protected $model;
+  protected $view;
+  
+  // The Singleton Facade instance.
+  protected static $instance;
   /**
    * Constructor. 
    * 
@@ -45,7 +67,8 @@ class Facade implements IFacade
    * @throws Error Error if Singleton instance has already been constructed
    * 
    */
-  private function __construct( ) {
+  protected function __construct()
+  {
     $this->initializeFacade();	
   }
 
@@ -57,7 +80,8 @@ class Facade implements IFacade
    * subclass to do any subclass specific initializations. Be
    * sure to call <code>super.initializeFacade()</code>, though.</P>
    */
-  protected function initializeFacade(  ) {
+  protected function initializeFacade()
+  {
     $this->initializeModel();
     $this->initializeController();
     $this->initializeView();
@@ -68,8 +92,9 @@ class Facade implements IFacade
    * 
    * @return the Singleton instance of the Facade
    */
-  public static function getInstance() {
-    if (Facade::$instance == null) Facade::$instance = new Facade( );
+  static public function getInstance()
+  {
+    if (Facade::$instance == null) Facade::$instance = new Facade();
     return Facade::$instance;
   }
 
@@ -89,8 +114,9 @@ class Facade implements IFacade
    * method, then register <code>Command</code>s.
    * </P>
    */
-  protected function initializeController( ) {
-    if ( $this->controller != null ) return;
+  protected function initializeController()
+  {
+    if ($this->controller != null) return;
     $this->controller = Controller::getInstance();
   }
 
@@ -117,8 +143,9 @@ class Facade implements IFacade
    * the <code>Facade</code> during their construction. 
    * </P>
    */
-  protected function initializeModel( ) {
-    if ( $this->model != null ) return;
+  protected function initializeModel()
+  {
+    if ($this->model != null) return;
     $this->model = Model::getInstance();
   }
   
@@ -145,7 +172,8 @@ class Facade implements IFacade
    * to the <code>Facade</code> during their construction. 
    * </P>
    */
-  protected function initializeView( ) {
+  protected function initializeView()
+  {
     if ( $this->view != null ) return;
     $this->view = View::getInstance();
   }
@@ -155,8 +183,9 @@ class Facade implements IFacade
    * 
    * @param notification the <code>INotification</code> to have the <code>View</code> notify <code>Observers</code> of.
    */
-  public function notifyObservers ( INotification $notification ) {
-    if ( $this->view != null ) $this->view->notifyObservers( $notification );
+  public function notifyObservers( INotification $notification )
+  {
+    if ($this->view != null) $this->view->notifyObservers( $notification );
   }
 
   /**
@@ -165,18 +194,41 @@ class Facade implements IFacade
    * @param notificationName the name of the <code>INotification</code> to associate the <code>ICommand</code> with
    * @param commandClassRef a reference to the Class of the <code>ICommand</code>
    */
-  public function registerCommand( $notificationName, $commandClassRef ) {
+  public function registerCommand( $notificationName, $commandClassRef )
+  {
     $this->controller->registerCommand( $notificationName, $commandClassRef );
   }
-
+  
+  /**
+   * Remove a previously registered <code>ICommand</code> to <code>INotification</code> mapping from the Controller.
+   * 
+   * @param notificationName the name of the <code>INotification</code> to remove the <code>ICommand</code> mapping for
+  */
+  public function removeCommand( $notificationName ) 
+  {
+	$this->controller->removeCommand( $notificationName );
+  }
+  
+  /**
+   * Check if a Command is registered for a given Notification 
+   * 
+   * @param notificationName
+   * @return whether a Command is currently registered for the given <code>notificationName</code>.
+   */
+  public function hasCommand( $notificationName )
+  {
+ 	return $this->controller->hasCommand( $notificationName );
+  }
+  
   /**
    * Register an <code>IProxy</code> with the <code>Model</code> by name.
    * 
    * @param proxyName the name of the <code>IProxy</code>.
    * @param proxy the <code>IProxy</code> instance to be registered with the <code>Model</code>.
    */
-  public function registerProxy ( IProxy $proxy )	{
-    $this->model->registerProxy ( $proxy );	
+  public function registerProxy( IProxy $proxy )
+  {
+    $this->model->registerProxy( $proxy );	
   }
       
   /**
@@ -185,8 +237,9 @@ class Facade implements IFacade
    * @param proxyName the name of the proxy to be retrieved.
    * @return the <code>IProxy</code> instance previously registered with the given <code>proxyName</code>.
    */
-  public function retrieveProxy ( $proxyName ) {
-    return $this->model->retrieveProxy ( $proxyName );	
+  public function retrieveProxy( $proxyName )
+  {
+    return $this->model->retrieveProxy( $proxyName );	
   }
 
   /**
@@ -194,8 +247,9 @@ class Facade implements IFacade
    * 
    * @param proxyName name of the <code>IProxy</code> instance to check for.
    */
-  public function hasProxy( $proxyName ){
-  	return $this->model->hasProxy ( $proxyName );	
+  public function hasProxy( $proxyName )
+  {
+  	return $this->model->hasProxy( $proxyName );	
   }
 
   /**
@@ -203,8 +257,10 @@ class Facade implements IFacade
    *
    * @param proxyName the <code>IProxy</code> to remove from the <code>Model</code>.
    */
-  public function removeProxy ( $proxyName ) {
-    if ( $this->model != null ) $this->model->removeProxy ( $proxyName );	
+  public function removeProxy( $proxyName )
+  {
+    if ($this->model != null) $proxy = $this->model->removeProxy( $proxyName );	
+    return $proxy;
   }
 
   /**
@@ -213,8 +269,9 @@ class Facade implements IFacade
    * @param mediatorName the name to associate with this <code>IMediator</code>
    * @param mediator a reference to the <code>IMediator</code>
    */
-  public function registerMediator( IMediator $mediator ) {
-    if ( $this->view != null ) $this->view->registerMediator( $mediator );
+  public function registerMediator( IMediator $mediator )
+  {
+    if ($this->view != null) $this->view->registerMediator( $mediator );
   }
 
   /**
@@ -223,7 +280,8 @@ class Facade implements IFacade
    * @param mediatorName
    * @return the <code>IMediator</code> previously registered with the given <code>mediatorName</code>.
    */
-  public function retrieveMediator( $mediatorName ) {
+  public function retrieveMediator( $mediatorName )
+  {
     return $this->view->retrieveMediator( $mediatorName );
   }
 
@@ -232,8 +290,9 @@ class Facade implements IFacade
    * 
    * @param mediatorName name of the <code>IMediator</code> instance to check for.
    */
-  public function hasMediator( $mediatorName ){
-  	return $this->view->hasMediator ( $mediatorName );
+  public function hasMediator( $mediatorName )
+  {
+  	return $this->view->hasMediator( $mediatorName );
   }
  
   /**
@@ -241,8 +300,10 @@ class Facade implements IFacade
    * 
    * @param mediatorName name of the <code>IMediator</code> to be removed.
    */
-  public function removeMediator( $mediatorName ) {
-    if ( $this->view != null ) $this->view->removeMediator( $mediatorName );			
+  public function removeMediator( $mediatorName )
+  {
+    if ($this->view != null) $mediator = $this->view->removeMediator( $mediatorName );
+    return $mediator;			
   }
 
   /**
@@ -255,18 +316,9 @@ class Facade implements IFacade
    * @param body the body of the notification (optional)
    * @param type the type of the notification (optional)
    */ 
-  public function sendNotification( $notificationName, Object $body=null, $type=null ) 
+  public function sendNotification( $notificationName, $body=null, $type=null ) 
   {
     $this->notifyObservers( new Notification( $notificationName, $body, $type ) );
   }
-
-  // Private references to Model, View and Controller
-  protected $controller;
-  protected $model;
-  protected $view;
-  
-  // The Singleton Facade instance.
-  protected static $instance; 
-  
 }
 ?>

@@ -1,10 +1,20 @@
 <?php
-/*
- PureMVC Port to PHP Originally by Asbjørn Sloth Tønnesen
- PureMVC - Copyright(c) 2006-2008 Futurescale, Inc., Some rights reserved.
- Your reuse is governed by the Creative Commons Attribution 3.0 Unported License
-*/
-	
+/**
+ * PureMVC Port to PHP originally translated by Asbjørn Sloth Tønnesen
+ *
+ * @author Omar Gonzalez :: omar@almerblank.com
+ * @author Hasan Otuome :: hasan@almerblank.com 
+ * 
+ * Created on Sep 24, 2008
+ * PureMVC - Copyright(c) 2006-2008 Futurescale, Inc., Some rights reserved.
+ * Your reuse is governed by the Creative Commons Attribution 3.0 Unported License
+ */
+
+require_once 'org/puremvc/php/interfaces/IProxy.php'; 
+require_once 'org/puremvc/php/interfaces/INotifier.php'; 
+require_once 'org/puremvc/php/patterns/observer/Notifier.php'; 
+require_once 'org/puremvc/php/patterns/facade/Facade.php';
+
 /**
  * A base <code>IProxy</code> implementation. 
  * 
@@ -26,19 +36,28 @@
  * 
  * @see org.puremvc.core.model.Model Model
  */
+ 
 class Proxy extends Notifier implements IProxy, INotifier
 {
 
-  public static $NAME = 'Proxy';
+  // the proxy name
+  protected $proxyName;
+  
+  // the data object
+  protected $data;
+  
+  protected $facade;
+
+  const NAME = 'Proxy';
   
   /**
    * Constructor
    */
-  public function __construct( $proxyName=null, Object $data=null ) 
+  public function __construct( $proxyName=null, $data=null ) 
   {
-    
-    $this->proxyName = ($proxyName != null)?$proxyName:self::NAME; 
-    if ($data != null) setData($data);
+  	$this->facade = Facade::getInstance();
+    $this->proxyName = ($proxyName != null) ? $proxyName : self::NAME; 
+    if ($data != null) $this->setData($data);
   }
 
   /**
@@ -52,7 +71,7 @@ class Proxy extends Notifier implements IProxy, INotifier
   /**
    * Set the data object
    */
-  public function setData( Object $data ) 
+  public function setData( $data ) 
   {
     $this->data = $data;
   }
@@ -68,7 +87,7 @@ class Proxy extends Notifier implements IProxy, INotifier
   /**
    * Called when the Model registers a Proxy.
    */
-  public function onRegister( )
+  public function onRegister()
   {
      return;
   }
@@ -76,21 +95,9 @@ class Proxy extends Notifier implements IProxy, INotifier
   /**
    * Called when the Model removes a Proxy.
    */
-  public function onRemove( )
+  public function onRemove()
   {
      return;
   }
-  
-  /**
-   * Called when the Model removes a Proxy.
-   */
-  function onRemove( );
-  
-  
-  // the proxy name
-  protected $proxyName;
-  
-  // the data object
-  protected $data;
 }
 ?>

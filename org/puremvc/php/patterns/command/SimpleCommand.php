@@ -1,9 +1,19 @@
 <?php
-/*
- PureMVC Port to PHP Originally by Asbjørn Sloth Tønnesen
- PureMVC - Copyright(c) 2006-2008 Futurescale, Inc., Some rights reserved.
- Your reuse is governed by the Creative Commons Attribution 3.0 Unported License
-*/
+/**
+ * PureMVC Port to PHP originally translated by Asbjørn Sloth Tønnesen
+ *
+ * @author Omar Gonzalez :: omar@almerblank.com
+ * @author Hasan Otuome :: hasan@almerblank.com 
+ * 
+ * Created on Sep 24, 2008
+ * PureMVC - Copyright(c) 2006-2008 Futurescale, Inc., Some rights reserved.
+ * Your reuse is governed by the Creative Commons Attribution 3.0 Unported License
+ */
+ 
+require_once 'org/puremvc/php/interfaces/ICommand.php'; 
+require_once 'org/puremvc/php/interfaces/INotifier.php'; 
+require_once 'org/puremvc/php/patterns/observer/Notifier.php'; 
+require_once 'org/puremvc/php/patterns/facade/Facade.php';
 
 /**
  * A base <code>ICommand</code> implementation.
@@ -16,9 +26,16 @@
  * @see org.puremvc.patterns.observer.Notification Notification
  * @see org.puremvc.patterns.command.MacroCommand MacroCommand
  */
+
 class SimpleCommand extends Notifier implements ICommand, INotifier 
 {
-  
+	protected $facade;
+	
+	public function __construct()
+	{
+		$this->facade = Facade::getInstance();
+	}
+    
   /**
    * Fulfill the use-case initiated by the given <code>INotification</code>.
    * 
