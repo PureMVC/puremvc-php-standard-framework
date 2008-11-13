@@ -1,0 +1,499 @@
+<html>
+<head>
+<title>Docs For Class Controller</title>
+<link rel="stylesheet" type="text/css" href="../media/style.css">
+</head>
+<body>
+
+<table border="0" cellspacing="0" cellpadding="0" height="48" width="100%">
+  <tr>
+    <td class="header_top">org.puremvc.php.core</td>
+  </tr>
+  <tr><td class="header_line"><img src="../media/empty.png" width="1" height="1" border="0" alt=""  /></td></tr>
+  <tr>
+    <td class="header_menu">
+        
+                                    
+                                                                                                                                                                                                                                                          		  [ <a href="../classtrees_org.puremvc.php.core.html" class="menu">class tree: org.puremvc.php.core</a> ]
+		  [ <a href="../elementindex_org.puremvc.php.core.html" class="menu">index: org.puremvc.php.core</a> ]
+		  	    [ <a href="../elementindex.html" class="menu">all elements</a> ]
+    </td>
+  </tr>
+  <tr><td class="header_line"><img src="../media/empty.png" width="1" height="1" border="0" alt=""  /></td></tr>
+</table>
+
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="200" class="menu">
+      <b>Packages:</b><br />
+              <a href="../li_org.puremvc.php.core.html">org.puremvc.php.core</a><br />
+              <a href="../li_org.puremvc.php.demos.html">org.puremvc.php.demos</a><br />
+              <a href="../li_org.puremvc.php.demos.basic.controller.commands.html">org.puremvc.php.demos.basic.controller.commands</a><br />
+              <a href="../li_org.puremvc.php.demos.basic.model.proxy.html">org.puremvc.php.demos.basic.model.proxy</a><br />
+              <a href="../li_org.puremvc.php.demos.basic.model.vo.html">org.puremvc.php.demos.basic.model.vo</a><br />
+              <a href="../li_org.puremvc.php.demos.basic.view.html">org.puremvc.php.demos.basic.view</a><br />
+              <a href="../li_org.puremvc.php.interfaces.html">org.puremvc.php.interfaces</a><br />
+              <a href="../li_org.puremvc.php.patterns.command.html">org.puremvc.php.patterns.command</a><br />
+              <a href="../li_org.puremvc.php.patterns.facade.html">org.puremvc.php.patterns.facade</a><br />
+              <a href="../li_org.puremvc.php.patterns.mediator.html">org.puremvc.php.patterns.mediator</a><br />
+              <a href="../li_org.puremvc.php.patterns.observer.html">org.puremvc.php.patterns.observer</a><br />
+              <a href="../li_org.puremvc.php.patterns.proxy.html">org.puremvc.php.patterns.proxy</a><br />
+            <br /><br />
+                        <b>Files:</b><br />
+      	  <div class="package">
+			<a href="../org.puremvc.php.core/_core---Controller.php.html">		Controller.php
+		</a><br>
+			<a href="../org.puremvc.php.core/_core---Model.php.html">		Model.php
+		</a><br>
+			<a href="../org.puremvc.php.core/_core---View.php.html">		View.php
+		</a><br>
+	  </div><br />
+      
+      
+            <b>Classes:</b><br />
+        <div class="package">
+		    		<a href="../org.puremvc.php.core/Controller.html">Controller</a><br />
+	    		<a href="../org.puremvc.php.core/Model.html">Model</a><br />
+	    		<a href="../org.puremvc.php.core/View.html">View</a><br />
+	  </div>
+                </td>
+    <td>
+      <table cellpadding="10" cellspacing="0" width="100%" border="0"><tr><td valign="top">
+
+<h1>Class: Controller</h1>
+Source Location: /core/Controller.php<br /><br />
+
+
+<table width="100%" border="0">
+<tr><td valign="top">
+
+<h3><a href="#class_details">Class Overview</a></h3>
+<pre></pre><br />
+<div class="description">A Singleton <ol><li><div class="src-line"><span class="src-id"><a href="../org.puremvc.php.interfaces/IController.html">IController</a></span></div></li>
+</ol> implementation.</div><br /><br />
+<h4>Author(s):</h4>
+<ul>
+                                </ul>
+
+
+
+
+                    
+
+                <p class="implements">
+            Implements interfaces:
+            <ul>
+                <li><a href="../org.puremvc.php.interfaces/IController.html">IController</a></li>            </ul>
+        </p>
+        
+</td>
+
+<td valign="top">
+<h3><a href="#class_vars">Variables</a></h3>
+<ul>
+    <li><a href="../org.puremvc.php.core/Controller.html#var$commandMap">$commandMap</a></li>
+    <li><a href="../org.puremvc.php.core/Controller.html#var$instance">$instance</a></li>
+    <li><a href="../org.puremvc.php.core/Controller.html#var$view">$view</a></li>
+  </ul>
+</td>
+
+
+<td valign="top">
+<h3><a href="#class_methods">Methods</a></h3>
+<ul>
+    <li><a href="../org.puremvc.php.core/Controller.html#methodexecuteCommand">executeCommand</a></li>
+    <li><a href="../org.puremvc.php.core/Controller.html#methodgetInstance">getInstance</a></li>
+    <li><a href="../org.puremvc.php.core/Controller.html#methodhasCommand">hasCommand</a></li>
+    <li><a href="../org.puremvc.php.core/Controller.html#methodinitializeController">initializeController</a></li>
+    <li><a href="../org.puremvc.php.core/Controller.html#methodregisterCommand">registerCommand</a></li>
+    <li><a href="../org.puremvc.php.core/Controller.html#methodremoveCommand">removeCommand</a></li>
+  </ul>
+</td>
+
+</tr></table>
+<hr />
+
+<table width="100%" border="0"><tr>
+
+
+
+
+
+
+</tr></table>
+<hr />
+
+<a name="class_details"></a>
+<h3>Class Details</h3>
+<div class="tags">
+[line 54]<br />
+A Singleton <ol><li><div class="src-line"><span class="src-id"><a href="../org.puremvc.php.interfaces/IController.html">IController</a></span></div></li>
+</ol> implementation.<br /><br /><p>In PureMVC, the <ol><li><div class="src-line"><span class="src-id"><a href="../org.puremvc.php.core/Controller.html">Controller</a></span></div></li>
+</ol> class follows the  'Command and Controller' strategy, and assumes these  responsibilities:  <ul><li>Remembering which <ol><li><div class="src-line"><span class="src-id"><a href="../org.puremvc.php.interfaces/ICommand.html">ICommand</a></span></div></li>
+</ol>s
+ are intended to handle which <ol><li><div class="src-line"><span class="src-id">INotifications</span></div></li>
+</ol>.</li><li>Registering itself as an <ol><li><div class="src-line"><span class="src-id"><a href="../org.puremvc.php.interfaces/IObserver.html">IObserver</a></span></div></li>
+</ol> with
+ the <ol><li><div class="src-line"><span class="src-id"><a href="../org.puremvc.php.core/View.html">View</a></span></div></li>
+</ol> for each <ol><li><div class="src-line"><span class="src-id"><a href="../org.puremvc.php.interfaces/INotification.html">INotification</a></span></div></li>
+</ol>
+ that it has an <ol><li><div class="src-line"><span class="src-id"><a href="../org.puremvc.php.interfaces/ICommand.html">ICommand</a></span></div></li>
+</ol> mapping for.</li><li>Creating a new instance of the proper <ol><li><div class="src-line"><span class="src-id"><a href="../org.puremvc.php.interfaces/ICommand.html">ICommand</a></span></div></li>
+</ol>
+ to handle a given <ol><li><div class="src-line"><span class="src-id"><a href="../org.puremvc.php.interfaces/INotification.html">INotification</a></span></div></li>
+</ol> when notified by the <ol><li><div class="src-line"><span class="src-id"><a href="../org.puremvc.php.core/View.html">View</a></span></div></li>
+</ol>.</li><li>Calling the <ol><li><div class="src-line"><span class="src-id"><a href="../org.puremvc.php.interfaces/ICommand.html">ICommand</a></span></div></li>
+</ol>'s <ol><li><div class="src-line"><span class="src-id">execute</span></div></li>
+</ol>
+ method, passing in the <ol><li><div class="src-line"><span class="src-id"><a href="../org.puremvc.php.interfaces/INotification.html">INotification</a></span></div></li>
+</ol>.</li></ul></p><p>Your application must register <ol><li><div class="src-line"><span class="src-id">ICommands</span></div></li>
+</ol> with the  Controller.</p><p>The simplest way is to subclass &lt;/code&gt;Facade&lt;/code&gt;,  and use its <ol><li><div class="src-line"><a href="../org.puremvc.php.core/Controller.html#methodinitializeController">initializeController</a></div></li>
+</ol> method to add your  registrations.</p><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>see:</b>&nbsp;&nbsp;</td><td>org.puremvc.php.patterns.command.MacroCommand MacroCommand</td>
+  </tr>
+  <tr>
+    <td><b>see:</b>&nbsp;&nbsp;</td><td>org.puremvc.php.patterns.command.SimpleCommand SimpleCommand</td>
+  </tr>
+  <tr>
+    <td><b>see:</b>&nbsp;&nbsp;</td><td>org.puremvc.php.patterns.observer.Notification Notification</td>
+  </tr>
+  <tr>
+    <td><b>see:</b>&nbsp;&nbsp;</td><td>org.puremvc.php.patterns.observer.Observer Observer</td>
+  </tr>
+  <tr>
+    <td><b>see:</b>&nbsp;&nbsp;</td><td>org.puremvc.core.View View</td>
+  </tr>
+</table>
+</div>
+</div><br /><br />
+<div class="top">[ <a href="#top">Top</a> ]</div><br />
+
+<hr />
+<a name="class_vars"></a>
+<h3>Class Variables</h3>
+<div class="tags">
+	<a name="var$instance"></a>
+	<p></p>
+	<h4>static $instance = <span class="value"></span></h4>
+	<p>[line 64]</p>
+  <br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>protected</td>
+  </tr>
+</table>
+</div>
+
+  <br />
+	<div class="tags">
+  <table border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <td><b>Type:</b>&nbsp;&nbsp;</td>
+      <td>mixed</td>
+    </tr>
+      </table>
+	</div><br /><br />
+	<div class="top">[ <a href="#top">Top</a> ]</div><br />
+	<a name="var$commandMap"></a>
+	<p></p>
+	<h4>$commandMap = <span class="value"></span></h4>
+	<p>[line 61]</p>
+  <br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>protected</td>
+  </tr>
+</table>
+</div>
+
+  <br />
+	<div class="tags">
+  <table border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <td><b>Type:</b>&nbsp;&nbsp;</td>
+      <td>mixed</td>
+    </tr>
+      </table>
+	</div><br /><br />
+	<div class="top">[ <a href="#top">Top</a> ]</div><br />
+	<a name="var$view"></a>
+	<p></p>
+	<h4>$view = <span class="value"></span></h4>
+	<p>[line 58]</p>
+  <br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>protected</td>
+  </tr>
+</table>
+</div>
+
+  <br />
+	<div class="tags">
+  <table border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <td><b>Type:</b>&nbsp;&nbsp;</td>
+      <td>mixed</td>
+    </tr>
+      </table>
+	</div><br /><br />
+	<div class="top">[ <a href="#top">Top</a> ]</div><br />
+</div><br />
+
+<hr />
+<a name="class_methods"></a>
+<h3>Class Methods</h3>
+<div class="tags">
+  <hr />
+	<a name="methodgetInstance"></a>
+	<h3>static method getInstance <span class="smalllinenumber">[line 114]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>static the getInstance(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		<ol><li><div class="src-line"><span class="src-id"><a href="../org.puremvc.php.core/Controller.html">Controller</a></span></div></li>
+</ol> Singleton Factory method.<br /><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>return:</b>&nbsp;&nbsp;</td><td>Singleton instance of <ol><li><div class="src-line"><span class="src-id"><a href="../org.puremvc.php.core/Controller.html">Controller</a></span></div></li>
+</ol></td>
+  </tr>
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+	
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+
+  <hr />
+	<a name="methodexecuteCommand"></a>
+	<h3>method executeCommand <span class="smalllinenumber">[line 126]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>void executeCommand(
+
+$note)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		If an <ol><li><div class="src-line"><span class="src-id"><a href="../org.puremvc.php.interfaces/ICommand.html">ICommand</a></span></div></li>
+</ol> has previously been registered  to handle a the given <ol><li><div class="src-line"><span class="src-id"><a href="../org.puremvc.php.interfaces/INotification.html">INotification</a></span></div></li>
+</ol>, then it is executed.<br /><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+	
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type">note&nbsp;&nbsp;</td>
+        <td><b>$note</b>&nbsp;&nbsp;</td>
+        <td>an <ol><li><div class="src-line"><span class="src-id"><a href="../org.puremvc.php.interfaces/INotification.html">INotification</a></span></div></li>
+</ol></td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodhasCommand"></a>
+	<h3>method hasCommand <span class="smalllinenumber">[line 155]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>whether hasCommand(
+string
+$notificationName)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Check if a Command is registered for a given Notification<br /><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>return:</b>&nbsp;&nbsp;</td><td>a Command is currently registered for the given <ol><li><div class="src-line"><span class="src-id">notificationName</span></div></li>
+</ol>.</td>
+  </tr>
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+	
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type">string&nbsp;&nbsp;</td>
+        <td><b>$notificationName</b>&nbsp;&nbsp;</td>
+        <td></td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodinitializeController"></a>
+	<h3>method initializeController <span class="smalllinenumber">[line 104]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>void initializeController(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Initialize the Singleton <ol><li><div class="src-line"><span class="src-id"><a href="../org.puremvc.php.core/Controller.html">Controller</a></span></div></li>
+</ol> instance.<br /><br /><p>Called automatically by the constructor.</p><p>Note that if you are using a subclass of <ol><li><div class="src-line"><span class="src-id"><a href="../org.puremvc.php.core/View.html">View</a></span></div></li>
+</ol>  in your application, you should <em>also</em> subclass <ol><li><div class="src-line"><span class="src-id"><a href="../org.puremvc.php.core/Controller.html">Controller</a></span></div></li>
+</ol>  and override the <ol><li><div class="src-line"><a href="../org.puremvc.php.core/Controller.html#methodinitializeController">initializeController</a></div></li>
+</ol> method in the  following way:</p><p>&lt;listing&gt;		// ensure that the Controller is talking to my IView implementation		override public function initializeController(  ) : void		{			view = MyView.getInstance();		} &lt;/listing&gt;</p><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>protected</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+	
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodregisterCommand"></a>
+	<h3>method registerCommand <span class="smalllinenumber">[line 144]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>void registerCommand(
+notificationName
+$notificationName, commandClassRef
+$commandClassRef)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Register a particular <ol><li><div class="src-line"><span class="src-id"><a href="../org.puremvc.php.interfaces/ICommand.html">ICommand</a></span></div></li>
+</ol> class as the handler for a particular <ol><li><div class="src-line"><span class="src-id"><a href="../org.puremvc.php.interfaces/INotification.html">INotification</a></span></div></li>
+</ol>.<br /><br /><p>If an <ol><li><div class="src-line"><span class="src-id"><a href="../org.puremvc.php.interfaces/ICommand.html">ICommand</a></span></div></li>
+</ol> has already been registered to  handle <ol><li><div class="src-line"><span class="src-id"><a href="../org.puremvc.php.interfaces/INotification.html">INotification</a></span></div></li>
+</ol>s with this name, it is no longer  used, the new <ol><li><div class="src-line"><span class="src-id"><a href="../org.puremvc.php.interfaces/ICommand.html">ICommand</a></span></div></li>
+</ol> is used instead.</p><p></p><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+	
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type">notificationName&nbsp;&nbsp;</td>
+        <td><b>$notificationName</b>&nbsp;&nbsp;</td>
+        <td>the name of the <ol><li><div class="src-line"><span class="src-id"><a href="../org.puremvc.php.interfaces/INotification.html">INotification</a></span></div></li>
+</ol></td>
+      </tr>
+          <tr>
+        <td class="type">commandClassRef&nbsp;&nbsp;</td>
+        <td><b>$commandClassRef</b>&nbsp;&nbsp;</td>
+        <td>the <ol><li><div class="src-line"><span class="src-key">Class</span></div></li>
+</ol> of the <ol><li><div class="src-line"><span class="src-id"><a href="../org.puremvc.php.interfaces/ICommand.html">ICommand</a></span></div></li>
+</ol></td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodremoveCommand"></a>
+	<h3>method removeCommand <span class="smalllinenumber">[line 165]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>void removeCommand(
+notificationName
+$notificationName)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Remove a previously registered <ol><li><div class="src-line"><span class="src-id"><a href="../org.puremvc.php.interfaces/ICommand.html">ICommand</a></span></div></li>
+</ol> to <ol><li><div class="src-line"><span class="src-id"><a href="../org.puremvc.php.interfaces/INotification.html">INotification</a></span></div></li>
+</ol> mapping.<br /><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+	
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type">notificationName&nbsp;&nbsp;</td>
+        <td><b>$notificationName</b>&nbsp;&nbsp;</td>
+        <td>the name of the <ol><li><div class="src-line"><span class="src-id"><a href="../org.puremvc.php.interfaces/INotification.html">INotification</a></span></div></li>
+</ol> to remove the <ol><li><div class="src-line"><span class="src-id"><a href="../org.puremvc.php.interfaces/ICommand.html">ICommand</a></span></div></li>
+</ol> mapping for</td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+</div><br />
+
+
+        <div class="credit">
+		    <hr />
+		    Documentation generated on Tue, 30 Sep 2008 08:05:43 -0700 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.0</a>
+	      </div>
+      </td></tr></table>
+    </td>
+  </tr>
+</table>
+
+</body>
+</html>

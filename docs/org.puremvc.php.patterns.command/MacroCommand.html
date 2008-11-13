@@ -1,0 +1,357 @@
+<html>
+<head>
+<title>Docs For Class MacroCommand</title>
+<link rel="stylesheet" type="text/css" href="../media/style.css">
+</head>
+<body>
+
+<table border="0" cellspacing="0" cellpadding="0" height="48" width="100%">
+  <tr>
+    <td class="header_top">org.puremvc.php.patterns.command</td>
+  </tr>
+  <tr><td class="header_line"><img src="../media/empty.png" width="1" height="1" border="0" alt=""  /></td></tr>
+  <tr>
+    <td class="header_menu">
+        
+                                                                                                                                                                                
+                                                                                                              		  [ <a href="../classtrees_org.puremvc.php.patterns.command.html" class="menu">class tree: org.puremvc.php.patterns.command</a> ]
+		  [ <a href="../elementindex_org.puremvc.php.patterns.command.html" class="menu">index: org.puremvc.php.patterns.command</a> ]
+		  	    [ <a href="../elementindex.html" class="menu">all elements</a> ]
+    </td>
+  </tr>
+  <tr><td class="header_line"><img src="../media/empty.png" width="1" height="1" border="0" alt=""  /></td></tr>
+</table>
+
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="200" class="menu">
+      <b>Packages:</b><br />
+              <a href="../li_org.puremvc.php.core.html">org.puremvc.php.core</a><br />
+              <a href="../li_org.puremvc.php.demos.html">org.puremvc.php.demos</a><br />
+              <a href="../li_org.puremvc.php.demos.basic.controller.commands.html">org.puremvc.php.demos.basic.controller.commands</a><br />
+              <a href="../li_org.puremvc.php.demos.basic.model.proxy.html">org.puremvc.php.demos.basic.model.proxy</a><br />
+              <a href="../li_org.puremvc.php.demos.basic.model.vo.html">org.puremvc.php.demos.basic.model.vo</a><br />
+              <a href="../li_org.puremvc.php.demos.basic.view.html">org.puremvc.php.demos.basic.view</a><br />
+              <a href="../li_org.puremvc.php.interfaces.html">org.puremvc.php.interfaces</a><br />
+              <a href="../li_org.puremvc.php.patterns.command.html">org.puremvc.php.patterns.command</a><br />
+              <a href="../li_org.puremvc.php.patterns.facade.html">org.puremvc.php.patterns.facade</a><br />
+              <a href="../li_org.puremvc.php.patterns.mediator.html">org.puremvc.php.patterns.mediator</a><br />
+              <a href="../li_org.puremvc.php.patterns.observer.html">org.puremvc.php.patterns.observer</a><br />
+              <a href="../li_org.puremvc.php.patterns.proxy.html">org.puremvc.php.patterns.proxy</a><br />
+            <br /><br />
+                        <b>Files:</b><br />
+      	  <div class="package">
+			<a href="../org.puremvc.php.patterns.command/_patterns---command---MacroCommand.php.html">		MacroCommand.php
+		</a><br>
+			<a href="../org.puremvc.php.patterns.command/_patterns---command---SimpleCommand.php.html">		SimpleCommand.php
+		</a><br>
+	  </div><br />
+      
+      
+            <b>Classes:</b><br />
+        <div class="package">
+		    		<a href="../org.puremvc.php.patterns.command/MacroCommand.html">MacroCommand</a><br />
+	    		<a href="../org.puremvc.php.patterns.command/SimpleCommand.html">SimpleCommand</a><br />
+	  </div>
+                </td>
+    <td>
+      <table cellpadding="10" cellspacing="0" width="100%" border="0"><tr><td valign="top">
+
+<h1>Class: MacroCommand</h1>
+Source Location: /patterns/command/MacroCommand.php<br /><br />
+
+
+<table width="100%" border="0">
+<tr><td valign="top">
+
+<h3><a href="#class_details">Class Overview</a></h3>
+<pre><a href="../org.puremvc.php.patterns.observer/Notifier.html">Notifier</a>
+   |
+   ..MacroCommand</pre><br />
+<div class="description">A base <ol><li><div class="src-line"><span class="src-id"><a href="../org.puremvc.php.interfaces/ICommand.html">ICommand</a></span></div></li>
+</ol> implementation that executes other <ol><li><div class="src-line"><span class="src-id"><a href="../org.puremvc.php.interfaces/ICommand.html">ICommand</a></span></div></li>
+</ol>s.</div><br /><br />
+<h4>Author(s):</h4>
+<ul>
+                    </ul>
+
+
+
+
+            
+
+                <p class="implements">
+            Implements interfaces:
+            <ul>
+                <li><a href="../org.puremvc.php.interfaces/ICommand.html">ICommand</a></li><li><a href="../org.puremvc.php.interfaces/INotifier.html">INotifier</a></li>            </ul>
+        </p>
+        
+</td>
+
+
+
+<td valign="top">
+<h3><a href="#class_methods">Methods</a></h3>
+<ul>
+    <li><a href="../org.puremvc.php.patterns.command/MacroCommand.html#method__construct">__construct</a></li>
+    <li><a href="../org.puremvc.php.patterns.command/MacroCommand.html#methodaddSubCommand">addSubCommand</a></li>
+    <li><a href="../org.puremvc.php.patterns.command/MacroCommand.html#methodexecute">execute</a></li>
+    <li><a href="../org.puremvc.php.patterns.command/MacroCommand.html#methodinitializeMacroCommand">initializeMacroCommand</a></li>
+  </ul>
+</td>
+
+</tr></table>
+<hr />
+
+<table width="100%" border="0"><tr>
+
+
+<td valign="top">
+<h3>Child classes:</h3>
+<div class="tags">
+<dl>
+<dt><a href="../org.puremvc.php.demos.basic.controller.commands/StartApplicationCommand.html">StartApplicationCommand</a></dt>
+	<dd>The <ol><li><div class="src-line"><span class="src-id"><a href="../org.puremvc.php.demos.basic.controller.commands/StartApplicationCommand.html">StartApplicationCommand</a></span></div></li>
+</ol> prepares the view first  so that it is ready to display data when the model is done loading.</dd>
+</dl>
+</div>
+</td>
+
+
+<td valign="top">
+<h3>Inherited Variables</h3>
+<div class="tags">
+<h4>Class: <a href="../org.puremvc.php.patterns.observer/Notifier.html">Notifier</a></h4>
+<dl>
+<dt>
+  <a href="../org.puremvc.php.patterns.observer/Notifier.html#var$facade">Notifier::$facade</a>
+  </dt>
+<dd>
+   
+</dd>
+</dl>
+</div>
+</td>
+
+<td valign="top">
+<h3>Inherited Methods</h3>
+<div class="tags">
+<h4>Class: <a href="../org.puremvc.php.patterns.observer/Notifier.html">Notifier</a></h4>
+<dl>
+    <dt>
+    <a href="../org.puremvc.php.patterns.observer/Notifier.html#method__construct">Notifier::__construct()</a>
+  </dt>
+  <dd>
+    
+  </dd>
+    <dt>
+    <a href="../org.puremvc.php.patterns.observer/Notifier.html#methodsendNotification">Notifier::sendNotification()</a>
+  </dt>
+  <dd>
+    
+  </dd>
+  </dl>
+</div>
+</td>
+
+</tr></table>
+<hr />
+
+<a name="class_details"></a>
+<h3>Class Details</h3>
+<div class="tags">
+[line 46]<br />
+A base <ol><li><div class="src-line"><span class="src-id"><a href="../org.puremvc.php.interfaces/ICommand.html">ICommand</a></span></div></li>
+</ol> implementation that executes other <ol><li><div class="src-line"><span class="src-id"><a href="../org.puremvc.php.interfaces/ICommand.html">ICommand</a></span></div></li>
+</ol>s.<br /><br /><p>A <ol><li><div class="src-line"><span class="src-id"><a href="../org.puremvc.php.patterns.command/MacroCommand.html">MacroCommand</a></span></div></li>
+</ol> maintains an list of  <ol><li><div class="src-line"><span class="src-id"><a href="../org.puremvc.php.interfaces/ICommand.html">ICommand</a></span></div></li>
+</ol> Class references called <em>SubCommands</em>.</p><p>When <ol><li><div class="src-line"><a href="../org.puremvc.php.patterns.command/MacroCommand.html#methodexecute">execute</a></div></li>
+</ol> is called, the <ol><li><div class="src-line"><span class="src-id"><a href="../org.puremvc.php.patterns.command/MacroCommand.html">MacroCommand</a></span></div></li>
+</ol>  instantiates and calls <ol><li><div class="src-line"><a href="../org.puremvc.php.patterns.command/MacroCommand.html#methodexecute">execute</a></div></li>
+</ol> on each of its <em>SubCommands</em> turn.  Each <em>SubCommand</em> will be passed a reference to the original  <ol><li><div class="src-line"><span class="src-id"><a href="../org.puremvc.php.interfaces/INotification.html">INotification</a></span></div></li>
+</ol> that was passed to the <ol><li><div class="src-line"><span class="src-id"><a href="../org.puremvc.php.patterns.command/MacroCommand.html">MacroCommand</a></span></div></li>
+</ol>'s  <ol><li><div class="src-line"><a href="../org.puremvc.php.patterns.command/MacroCommand.html#methodexecute">execute</a></div></li>
+</ol> method.</p><p>Unlike <ol><li><div class="src-line"><span class="src-id"><a href="../org.puremvc.php.patterns.command/SimpleCommand.html">SimpleCommand</a></span></div></li>
+</ol>, your subclass  should not override <ol><li><div class="src-line"><a href="../org.puremvc.php.patterns.command/MacroCommand.html#methodexecute">execute</a></div></li>
+</ol>, but instead, should  override the <ol><li><div class="src-line"><a href="../org.puremvc.php.patterns.command/MacroCommand.html#methodinitializeMacroCommand">initializeMacroCommand</a></div></li>
+</ol> method,  calling <ol><li><div class="src-line"><a href="../org.puremvc.php.patterns.command/MacroCommand.html#methodaddSubCommand">addSubCommand</a></div></li>
+</ol> once for each <em>SubCommand</em>  to be executed.</p><p></p><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>see:</b>&nbsp;&nbsp;</td><td>org.puremvc.patterns.command.SimpleCommand SimpleCommand</td>
+  </tr>
+  <tr>
+    <td><b>see:</b>&nbsp;&nbsp;</td><td>org.puremvc.patterns.observer.Notification Notification</td>
+  </tr>
+  <tr>
+    <td><b>see:</b>&nbsp;&nbsp;</td><td>org.puremvc.core.controller.Controller Controller</td>
+  </tr>
+</table>
+</div>
+</div><br /><br />
+<div class="top">[ <a href="#top">Top</a> ]</div><br />
+
+
+<hr />
+<a name="class_methods"></a>
+<h3>Class Methods</h3>
+<div class="tags">
+
+  <hr />
+	<a name="method__construct"></a>
+	<h3>constructor __construct <span class="smalllinenumber">[line 62]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>MacroCommand __construct(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Constructor.<br /><br /><p>You should not need to define a constructor,  instead, override the <ol><li><div class="src-line"><a href="../org.puremvc.php.patterns.command/MacroCommand.html#methodinitializeMacroCommand">initializeMacroCommand</a></div></li>
+</ol>  method.</p><p>If your subclass does define a constructor, be  sure to call <ol><li><div class="src-line"><span class="src-id">super</span><span class="src-sym">(</span><span class="src-sym">)</span></div></li>
+</ol>.</p><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+	Overrides <a href="../org.puremvc.php.patterns.observer/Notifier.html#method__construct">Notifier::__construct()</a> (parent method not documented)<br /><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodaddSubCommand"></a>
+	<h3>method addSubCommand <span class="smalllinenumber">[line 104]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>void addSubCommand(
+commandClassRef
+$commandClassRef)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Add a <em>SubCommand</em>.<br /><br /><p>The <em>SubCommands</em> will be called in First In/First Out (FIFO)  order.</p><p></p><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>protected</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+	
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type">commandClassRef&nbsp;&nbsp;</td>
+        <td><b>$commandClassRef</b>&nbsp;&nbsp;</td>
+        <td>a reference to the <ol><li><div class="src-line"><span class="src-key">Class</span></div></li>
+</ol> of the <ol><li><div class="src-line"><span class="src-id"><a href="../org.puremvc.php.interfaces/ICommand.html">ICommand</a></span></div></li>
+</ol>.</td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodexecute"></a>
+	<h3>method execute <span class="smalllinenumber">[line 118]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>void execute(
+
+$notification)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Execute this <ol><li><div class="src-line"><span class="src-id"><a href="../org.puremvc.php.patterns.command/MacroCommand.html">MacroCommand</a></span></div></li>
+</ol>'s <em>SubCommands</em>.<br /><br /><p>The <em>SubCommands</em> will be called in First In/First Out (FIFO)  order.</p><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+	
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type">notification&nbsp;&nbsp;</td>
+        <td><b>$notification</b>&nbsp;&nbsp;</td>
+        <td>the <ol><li><div class="src-line"><span class="src-id"><a href="../org.puremvc.php.interfaces/INotification.html">INotification</a></span></div></li>
+</ol> object to be passsed to each <em>SubCommand</em>.</td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodinitializeMacroCommand"></a>
+	<h3>method initializeMacroCommand <span class="smalllinenumber">[line 91]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>void initializeMacroCommand(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Initialize the <ol><li><div class="src-line"><span class="src-id"><a href="../org.puremvc.php.patterns.command/MacroCommand.html">MacroCommand</a></span></div></li>
+</ol>.<br /><br /><p>In your subclass, override this method to  initialize the <ol><li><div class="src-line"><span class="src-id"><a href="../org.puremvc.php.patterns.command/MacroCommand.html">MacroCommand</a></span></div></li>
+</ol>'s <em>SubCommand</em>  list with <ol><li><div class="src-line"><span class="src-id"><a href="../org.puremvc.php.interfaces/ICommand.html">ICommand</a></span></div></li>
+</ol> class references like  this:</p><p>&lt;listing&gt;		// Initialize MyMacroCommand		override protected function initializeMacroCommand( ) : void		{			addSubCommand( com.me.myapp.controller.FirstCommand );			addSubCommand( com.me.myapp.controller.SecondCommand );			addSubCommand( com.me.myapp.controller.ThirdCommand );		} &lt;/listing&gt;
+   Note that <em>SubCommand</em>s may be any <ol><li><div class="src-line"><span class="src-id"><a href="../org.puremvc.php.interfaces/ICommand.html">ICommand</a></span></div></li>
+</ol> implementor,  <ol><li><div class="src-line"><span class="src-id"><a href="../org.puremvc.php.patterns.command/MacroCommand.html">MacroCommand</a></span></div></li>
+</ol>s or <ol><li><div class="src-line"><span class="src-id">SimpleCommands</span></div></li>
+</ol> are both acceptable.</p><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>protected</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+	<p>Overridden in child classes as:<br />
+		<dl>
+	<dt><a href="../org.puremvc.php.demos.basic.controller.commands/StartApplicationCommand.html#methodinitializeMacroCommand">StartApplicationCommand::initializeMacroCommand()</a></dt>
+		<dd>The <ol><li><div class="src-line"><span class="src-id">initializeMacroCommand</span></div></li>
+</ol> is overridden to  add references to instances of SimpleCommand that should  be executed.</dd>
+	</dl>
+	</p>
+	
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+</div><br />
+
+
+        <div class="credit">
+		    <hr />
+		    Documentation generated on Tue, 30 Sep 2008 08:05:45 -0700 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.0</a>
+	      </div>
+      </td></tr></table>
+    </td>
+  </tr>
+</table>
+
+</body>
+</html>

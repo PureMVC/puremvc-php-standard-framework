@@ -1,0 +1,426 @@
+<html>
+<head>
+<title>Docs For Class ApplicationFacade</title>
+<link rel="stylesheet" type="text/css" href="../media/style.css">
+</head>
+<body>
+
+<table border="0" cellspacing="0" cellpadding="0" height="48" width="100%">
+  <tr>
+    <td class="header_top">org.puremvc.php.demos</td>
+  </tr>
+  <tr><td class="header_line"><img src="../media/empty.png" width="1" height="1" border="0" alt=""  /></td></tr>
+  <tr>
+    <td class="header_menu">
+        
+                                                        
+                                                                                                                                                                                                                                      		  [ <a href="../classtrees_org.puremvc.php.demos.html" class="menu">class tree: org.puremvc.php.demos</a> ]
+		  [ <a href="../elementindex_org.puremvc.php.demos.html" class="menu">index: org.puremvc.php.demos</a> ]
+		  	    [ <a href="../elementindex.html" class="menu">all elements</a> ]
+    </td>
+  </tr>
+  <tr><td class="header_line"><img src="../media/empty.png" width="1" height="1" border="0" alt=""  /></td></tr>
+</table>
+
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="200" class="menu">
+      <b>Packages:</b><br />
+              <a href="../li_org.puremvc.php.core.html">org.puremvc.php.core</a><br />
+              <a href="../li_org.puremvc.php.demos.html">org.puremvc.php.demos</a><br />
+              <a href="../li_org.puremvc.php.demos.basic.controller.commands.html">org.puremvc.php.demos.basic.controller.commands</a><br />
+              <a href="../li_org.puremvc.php.demos.basic.model.proxy.html">org.puremvc.php.demos.basic.model.proxy</a><br />
+              <a href="../li_org.puremvc.php.demos.basic.model.vo.html">org.puremvc.php.demos.basic.model.vo</a><br />
+              <a href="../li_org.puremvc.php.demos.basic.view.html">org.puremvc.php.demos.basic.view</a><br />
+              <a href="../li_org.puremvc.php.interfaces.html">org.puremvc.php.interfaces</a><br />
+              <a href="../li_org.puremvc.php.patterns.command.html">org.puremvc.php.patterns.command</a><br />
+              <a href="../li_org.puremvc.php.patterns.facade.html">org.puremvc.php.patterns.facade</a><br />
+              <a href="../li_org.puremvc.php.patterns.mediator.html">org.puremvc.php.patterns.mediator</a><br />
+              <a href="../li_org.puremvc.php.patterns.observer.html">org.puremvc.php.patterns.observer</a><br />
+              <a href="../li_org.puremvc.php.patterns.proxy.html">org.puremvc.php.patterns.proxy</a><br />
+            <br /><br />
+                        <b>Files:</b><br />
+      	  <div class="package">
+			<a href="../org.puremvc.php.demos/_demos---basic---ApplicationFacade.php.html">		ApplicationFacade.php
+		</a><br>
+			<a href="../org.puremvc.php.demos/_demos---basic---BasicDemo.php.html">		BasicDemo.php
+		</a><br>
+	  </div><br />
+      
+      
+            <b>Classes:</b><br />
+        <div class="package">
+		    		<a href="../org.puremvc.php.demos/ApplicationFacade.html">ApplicationFacade</a><br />
+	    		<a href="../org.puremvc.php.demos/BasicDemo.html">BasicDemo</a><br />
+	  </div>
+                </td>
+    <td>
+      <table cellpadding="10" cellspacing="0" width="100%" border="0"><tr><td valign="top">
+
+<h1>Class: ApplicationFacade</h1>
+Source Location: /demos/basic/ApplicationFacade.php<br /><br />
+
+
+<table width="100%" border="0">
+<tr><td valign="top">
+
+<h3><a href="#class_details">Class Overview</a></h3>
+<pre><a href="../org.puremvc.php.patterns.facade/Facade.html">Facade</a>
+   |
+   ..ApplicationFacade</pre><br />
+<div class="description">ApplicationFacade for the BasicDemo starts the Model, View  Controller for the application.</div><br /><br />
+
+
+
+
+
+
+        
+</td>
+
+
+<td valign="top">
+<h3><a href="#class_consts">Constants</a></h3>
+<ul>
+    <li><a href="../org.puremvc.php.demos/ApplicationFacade.html#constSTART_APPLICATION">START_APPLICATION</a></li>
+    <li><a href="../org.puremvc.php.demos/ApplicationFacade.html#constVIEW_DATA_READY">VIEW_DATA_READY</a></li>
+  </ul>
+</td>
+
+<td valign="top">
+<h3><a href="#class_methods">Methods</a></h3>
+<ul>
+    <li><a href="../org.puremvc.php.demos/ApplicationFacade.html#methodgetInstance">getInstance</a></li>
+    <li><a href="../org.puremvc.php.demos/ApplicationFacade.html#methodinitializeController">initializeController</a></li>
+    <li><a href="../org.puremvc.php.demos/ApplicationFacade.html#methodstartUp">startUp</a></li>
+  </ul>
+</td>
+
+</tr></table>
+<hr />
+
+<table width="100%" border="0"><tr>
+
+
+
+
+<td valign="top">
+<h3>Inherited Variables</h3>
+<div class="tags">
+<h4>Class: <a href="../org.puremvc.php.patterns.facade/Facade.html">Facade</a></h4>
+<dl>
+<dt>
+  <a href="../org.puremvc.php.patterns.facade/Facade.html#var$controller">Facade::$controller</a>
+  </dt>
+<dd>
+   
+</dd>
+<dt>
+  <a href="../org.puremvc.php.patterns.facade/Facade.html#var$instance">Facade::$instance</a>
+  </dt>
+<dd>
+   
+</dd>
+<dt>
+  <a href="../org.puremvc.php.patterns.facade/Facade.html#var$model">Facade::$model</a>
+  </dt>
+<dd>
+   
+</dd>
+<dt>
+  <a href="../org.puremvc.php.patterns.facade/Facade.html#var$view">Facade::$view</a>
+  </dt>
+<dd>
+   
+</dd>
+</dl>
+</div>
+</td>
+
+<td valign="top">
+<h3>Inherited Methods</h3>
+<div class="tags">
+<h4>Class: <a href="../org.puremvc.php.patterns.facade/Facade.html">Facade</a></h4>
+<dl>
+    <dt>
+    <a href="../org.puremvc.php.patterns.facade/Facade.html#method__construct">Facade::__construct()</a>
+  </dt>
+  <dd>
+    Constructor.
+  </dd>
+    <dt>
+    <a href="../org.puremvc.php.patterns.facade/Facade.html#methodgetInstance">Facade::getInstance()</a>
+  </dt>
+  <dd>
+    Facade Singleton Factory method
+  </dd>
+    <dt>
+    <a href="../org.puremvc.php.patterns.facade/Facade.html#methodhasCommand">Facade::hasCommand()</a>
+  </dt>
+  <dd>
+    Check if a Command is registered for a given Notification
+  </dd>
+    <dt>
+    <a href="../org.puremvc.php.patterns.facade/Facade.html#methodhasMediator">Facade::hasMediator()</a>
+  </dt>
+  <dd>
+    Check to see if a Mediator is registered with the View.
+  </dd>
+    <dt>
+    <a href="../org.puremvc.php.patterns.facade/Facade.html#methodhasProxy">Facade::hasProxy()</a>
+  </dt>
+  <dd>
+    Check to see if a Proxy is registered with the Model.
+  </dd>
+    <dt>
+    <a href="../org.puremvc.php.patterns.facade/Facade.html#methodinitializeController">Facade::initializeController()</a>
+  </dt>
+  <dd>
+    Initialize the <ol><li><div class="src-line"><span class="src-id"><a href="../org.puremvc.php.core/Controller.html">Controller</a></span></div></li>
+</ol>.
+  </dd>
+    <dt>
+    <a href="../org.puremvc.php.patterns.facade/Facade.html#methodinitializeFacade">Facade::initializeFacade()</a>
+  </dt>
+  <dd>
+    Initialize the Singleton <ol><li><div class="src-line"><span class="src-id"><a href="../org.puremvc.php.patterns.facade/Facade.html">Facade</a></span></div></li>
+</ol> instance.
+  </dd>
+    <dt>
+    <a href="../org.puremvc.php.patterns.facade/Facade.html#methodinitializeModel">Facade::initializeModel()</a>
+  </dt>
+  <dd>
+    Initialize the <ol><li><div class="src-line"><span class="src-id"><a href="../org.puremvc.php.core/Model.html">Model</a></span></div></li>
+</ol>.
+  </dd>
+    <dt>
+    <a href="../org.puremvc.php.patterns.facade/Facade.html#methodinitializeView">Facade::initializeView()</a>
+  </dt>
+  <dd>
+    Initialize the <ol><li><div class="src-line"><span class="src-id"><a href="../org.puremvc.php.core/View.html">View</a></span></div></li>
+</ol>.
+  </dd>
+    <dt>
+    <a href="../org.puremvc.php.patterns.facade/Facade.html#methodnotifyObservers">Facade::notifyObservers()</a>
+  </dt>
+  <dd>
+    Notify <ol><li><div class="src-line"><span class="src-id"><a href="../org.puremvc.php.patterns.observer/Observer.html">Observer</a></span></div></li>
+</ol>s.
+  </dd>
+    <dt>
+    <a href="../org.puremvc.php.patterns.facade/Facade.html#methodregisterCommand">Facade::registerCommand()</a>
+  </dt>
+  <dd>
+    Register an <ol><li><div class="src-line"><span class="src-id"><a href="../org.puremvc.php.interfaces/ICommand.html">ICommand</a></span></div></li>
+</ol> with the <ol><li><div class="src-line"><span class="src-id"><a href="../org.puremvc.php.core/Controller.html">Controller</a></span></div></li>
+</ol> by Notification name.
+  </dd>
+    <dt>
+    <a href="../org.puremvc.php.patterns.facade/Facade.html#methodregisterMediator">Facade::registerMediator()</a>
+  </dt>
+  <dd>
+    Register a <ol><li><div class="src-line"><span class="src-id"><a href="../org.puremvc.php.interfaces/IMediator.html">IMediator</a></span></div></li>
+</ol> with the <ol><li><div class="src-line"><span class="src-id"><a href="../org.puremvc.php.core/View.html">View</a></span></div></li>
+</ol>.
+  </dd>
+    <dt>
+    <a href="../org.puremvc.php.patterns.facade/Facade.html#methodregisterProxy">Facade::registerProxy()</a>
+  </dt>
+  <dd>
+    Register an <ol><li><div class="src-line"><span class="src-id"><a href="../org.puremvc.php.interfaces/IProxy.html">IProxy</a></span></div></li>
+</ol> with the <ol><li><div class="src-line"><span class="src-id"><a href="../org.puremvc.php.core/Model.html">Model</a></span></div></li>
+</ol> by name.
+  </dd>
+    <dt>
+    <a href="../org.puremvc.php.patterns.facade/Facade.html#methodremoveCommand">Facade::removeCommand()</a>
+  </dt>
+  <dd>
+    Remove a previously registered <ol><li><div class="src-line"><span class="src-id"><a href="../org.puremvc.php.interfaces/ICommand.html">ICommand</a></span></div></li>
+</ol> to <ol><li><div class="src-line"><span class="src-id"><a href="../org.puremvc.php.interfaces/INotification.html">INotification</a></span></div></li>
+</ol> mapping from the Controller.
+  </dd>
+    <dt>
+    <a href="../org.puremvc.php.patterns.facade/Facade.html#methodremoveMediator">Facade::removeMediator()</a>
+  </dt>
+  <dd>
+    Remove an <ol><li><div class="src-line"><span class="src-id"><a href="../org.puremvc.php.interfaces/IMediator.html">IMediator</a></span></div></li>
+</ol> from the <ol><li><div class="src-line"><span class="src-id"><a href="../org.puremvc.php.core/View.html">View</a></span></div></li>
+</ol>.
+  </dd>
+    <dt>
+    <a href="../org.puremvc.php.patterns.facade/Facade.html#methodremoveProxy">Facade::removeProxy()</a>
+  </dt>
+  <dd>
+    Remove an <ol><li><div class="src-line"><span class="src-id"><a href="../org.puremvc.php.interfaces/IProxy.html">IProxy</a></span></div></li>
+</ol> from the <ol><li><div class="src-line"><span class="src-id"><a href="../org.puremvc.php.core/Model.html">Model</a></span></div></li>
+</ol> by name.
+  </dd>
+    <dt>
+    <a href="../org.puremvc.php.patterns.facade/Facade.html#methodretrieveMediator">Facade::retrieveMediator()</a>
+  </dt>
+  <dd>
+    Retrieve an <ol><li><div class="src-line"><span class="src-id"><a href="../org.puremvc.php.interfaces/IMediator.html">IMediator</a></span></div></li>
+</ol> from the <ol><li><div class="src-line"><span class="src-id"><a href="../org.puremvc.php.core/View.html">View</a></span></div></li>
+</ol>.
+  </dd>
+    <dt>
+    <a href="../org.puremvc.php.patterns.facade/Facade.html#methodretrieveProxy">Facade::retrieveProxy()</a>
+  </dt>
+  <dd>
+    Retrieve an <ol><li><div class="src-line"><span class="src-id"><a href="../org.puremvc.php.interfaces/IProxy.html">IProxy</a></span></div></li>
+</ol> from the <ol><li><div class="src-line"><span class="src-id"><a href="../org.puremvc.php.core/Model.html">Model</a></span></div></li>
+</ol> by name.
+  </dd>
+    <dt>
+    <a href="../org.puremvc.php.patterns.facade/Facade.html#methodsendNotification">Facade::sendNotification()</a>
+  </dt>
+  <dd>
+    Send an <ol><li><div class="src-line"><span class="src-id"><a href="../org.puremvc.php.interfaces/INotification.html">INotification</a></span></div></li>
+</ol>.
+  </dd>
+  </dl>
+</div>
+</td>
+
+</tr></table>
+<hr />
+
+<a name="class_details"></a>
+<h3>Class Details</h3>
+<div class="tags">
+[line 22]<br />
+ApplicationFacade for the BasicDemo starts the Model, View  Controller for the application.<br /><br /></div><br /><br />
+<div class="top">[ <a href="#top">Top</a> ]</div><br />
+
+
+<hr />
+<a name="class_methods"></a>
+<h3>Class Methods</h3>
+<div class="tags">
+  <hr />
+	<a name="methodgetInstance"></a>
+	<h3>static method getInstance <span class="smalllinenumber">[line 37]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>static void getInstance(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Instance getter for the ApplicationFacade, this method  starts the Facade.<br /><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+	Overrides <a href="../org.puremvc.php.patterns.facade/Facade.html#methodgetInstance">Facade::getInstance()</a> (Facade Singleton Factory method)<br /><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+
+  <hr />
+	<a name="methodinitializeController"></a>
+	<h3>method initializeController <span class="smalllinenumber">[line 61]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>void initializeController(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Initializes the controller and gives you an opportunity to register application  specific commands that extend SimpleCommand or MacroCommand with the PureMVC framework.<br /><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>protected</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+	Overrides <a href="../org.puremvc.php.patterns.facade/Facade.html#methodinitializeController">Facade::initializeController()</a> (Initialize the <ol><li><div class="src-line"><span class="src-id"><a href="../org.puremvc.php.core/Controller.html">Controller</a></span></div></li>
+</ol>.)<br /><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodstartUp"></a>
+	<h3>method startUp <span class="smalllinenumber">[line 52]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>void startUp(
+
+$filename, 
+$cssName)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Starts the application by sending a START_APPLICATION notification.<br /><br /><p>The filename (/index.php) is sent along to demonstrate passing  data along.</p><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+	
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type">&nbsp;&nbsp;</td>
+        <td><b>$filename</b>&nbsp;&nbsp;</td>
+        <td></td>
+      </tr>
+          <tr>
+        <td class="type">&nbsp;&nbsp;</td>
+        <td><b>$cssName</b>&nbsp;&nbsp;</td>
+        <td></td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+</div><br />
+
+<hr />
+<a name="class_constss"></a>
+<h3>Class Constants</h3>
+<div class="tags">
+	<a name="constSTART_APPLICATION"></a>
+	<p></p>
+	<h4>START_APPLICATION = <span class="value">&nbsp;&quot;startApplication&quot;</span></h4>
+	<p>[line 27]</p>
+  Notification constant that starts the application.<br /><br />
+  <br />
+	<div class="top">[ <a href="#top">Top</a> ]</div><br />
+	<a name="constVIEW_DATA_READY"></a>
+	<p></p>
+	<h4>VIEW_DATA_READY = <span class="value">&nbsp;&quot;viewDataReady&quot;</span></h4>
+	<p>[line 31]</p>
+  Notification constant sent when view data is ready to be displayed.<br /><br />
+  <br />
+	<div class="top">[ <a href="#top">Top</a> ]</div><br />
+</div><br />
+
+        <div class="credit">
+		    <hr />
+		    Documentation generated on Tue, 30 Sep 2008 08:05:42 -0700 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.0</a>
+	      </div>
+      </td></tr></table>
+    </td>
+  </tr>
+</table>
+
+</body>
+</html>

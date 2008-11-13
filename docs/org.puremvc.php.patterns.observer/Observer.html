@@ -1,0 +1,351 @@
+<html>
+<head>
+<title>Docs For Class Observer</title>
+<link rel="stylesheet" type="text/css" href="../media/style.css">
+</head>
+<body>
+
+<table border="0" cellspacing="0" cellpadding="0" height="48" width="100%">
+  <tr>
+    <td class="header_top">org.puremvc.php.patterns.observer</td>
+  </tr>
+  <tr><td class="header_line"><img src="../media/empty.png" width="1" height="1" border="0" alt=""  /></td></tr>
+  <tr>
+    <td class="header_menu">
+        
+                                                                                                                                                                                                                                            
+                                                  		  [ <a href="../classtrees_org.puremvc.php.patterns.observer.html" class="menu">class tree: org.puremvc.php.patterns.observer</a> ]
+		  [ <a href="../elementindex_org.puremvc.php.patterns.observer.html" class="menu">index: org.puremvc.php.patterns.observer</a> ]
+		  	    [ <a href="../elementindex.html" class="menu">all elements</a> ]
+    </td>
+  </tr>
+  <tr><td class="header_line"><img src="../media/empty.png" width="1" height="1" border="0" alt=""  /></td></tr>
+</table>
+
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="200" class="menu">
+      <b>Packages:</b><br />
+              <a href="../li_org.puremvc.php.core.html">org.puremvc.php.core</a><br />
+              <a href="../li_org.puremvc.php.demos.html">org.puremvc.php.demos</a><br />
+              <a href="../li_org.puremvc.php.demos.basic.controller.commands.html">org.puremvc.php.demos.basic.controller.commands</a><br />
+              <a href="../li_org.puremvc.php.demos.basic.model.proxy.html">org.puremvc.php.demos.basic.model.proxy</a><br />
+              <a href="../li_org.puremvc.php.demos.basic.model.vo.html">org.puremvc.php.demos.basic.model.vo</a><br />
+              <a href="../li_org.puremvc.php.demos.basic.view.html">org.puremvc.php.demos.basic.view</a><br />
+              <a href="../li_org.puremvc.php.interfaces.html">org.puremvc.php.interfaces</a><br />
+              <a href="../li_org.puremvc.php.patterns.command.html">org.puremvc.php.patterns.command</a><br />
+              <a href="../li_org.puremvc.php.patterns.facade.html">org.puremvc.php.patterns.facade</a><br />
+              <a href="../li_org.puremvc.php.patterns.mediator.html">org.puremvc.php.patterns.mediator</a><br />
+              <a href="../li_org.puremvc.php.patterns.observer.html">org.puremvc.php.patterns.observer</a><br />
+              <a href="../li_org.puremvc.php.patterns.proxy.html">org.puremvc.php.patterns.proxy</a><br />
+            <br /><br />
+                        <b>Files:</b><br />
+      	  <div class="package">
+			<a href="../org.puremvc.php.patterns.observer/_patterns---observer---Notification.php.html">		Notification.php
+		</a><br>
+			<a href="../org.puremvc.php.patterns.observer/_patterns---observer---Notifier.php.html">		Notifier.php
+		</a><br>
+			<a href="../org.puremvc.php.patterns.observer/_patterns---observer---Observer.php.html">		Observer.php
+		</a><br>
+	  </div><br />
+      
+      
+            <b>Classes:</b><br />
+        <div class="package">
+		    		<a href="../org.puremvc.php.patterns.observer/Notification.html">Notification</a><br />
+	    		<a href="../org.puremvc.php.patterns.observer/Notifier.html">Notifier</a><br />
+	    		<a href="../org.puremvc.php.patterns.observer/Observer.html">Observer</a><br />
+	  </div>
+                </td>
+    <td>
+      <table cellpadding="10" cellspacing="0" width="100%" border="0"><tr><td valign="top">
+
+<h1>Class: Observer</h1>
+Source Location: /patterns/observer/Observer.php<br /><br />
+
+
+<table width="100%" border="0">
+<tr><td valign="top">
+
+<h3><a href="#class_details">Class Overview</a></h3>
+<pre></pre><br />
+<div class="description">A base <ol><li><div class="src-line"><span class="src-id"><a href="../org.puremvc.php.interfaces/IObserver.html">IObserver</a></span></div></li>
+</ol> implementation.</div><br /><br />
+<h4>Author(s):</h4>
+<ul>
+              </ul>
+
+
+
+
+        
+
+                <p class="implements">
+            Implements interfaces:
+            <ul>
+                <li><a href="../org.puremvc.php.interfaces/IObserver.html">IObserver</a></li>            </ul>
+        </p>
+        
+</td>
+
+
+
+<td valign="top">
+<h3><a href="#class_methods">Methods</a></h3>
+<ul>
+    <li><a href="../org.puremvc.php.patterns.observer/Observer.html#method__construct">__construct</a></li>
+    <li><a href="../org.puremvc.php.patterns.observer/Observer.html#methodcompareNotifyContext">compareNotifyContext</a></li>
+    <li><a href="../org.puremvc.php.patterns.observer/Observer.html#methodnotifyObserver">notifyObserver</a></li>
+    <li><a href="../org.puremvc.php.patterns.observer/Observer.html#methodsetNotifyContext">setNotifyContext</a></li>
+    <li><a href="../org.puremvc.php.patterns.observer/Observer.html#methodsetNotifyMethod">setNotifyMethod</a></li>
+  </ul>
+</td>
+
+</tr></table>
+<hr />
+
+<table width="100%" border="0"><tr>
+
+
+
+
+
+
+</tr></table>
+<hr />
+
+<a name="class_details"></a>
+<h3>Class Details</h3>
+<div class="tags">
+[line 37]<br />
+A base <ol><li><div class="src-line"><span class="src-id"><a href="../org.puremvc.php.interfaces/IObserver.html">IObserver</a></span></div></li>
+</ol> implementation.<br /><br /><p>An <ol><li><div class="src-line"><span class="src-id"><a href="../org.puremvc.php.patterns.observer/Observer.html">Observer</a></span></div></li>
+</ol> is an object that encapsulates information  about an interested object with a method that should  be called when a particular <ol><li><div class="src-line"><span class="src-id"><a href="../org.puremvc.php.interfaces/INotification.html">INotification</a></span></div></li>
+</ol> is broadcast.</p><p>In PureMVC, the <ol><li><div class="src-line"><span class="src-id"><a href="../org.puremvc.php.patterns.observer/Observer.html">Observer</a></span></div></li>
+</ol> class assumes these responsibilities:  <ul><li>Encapsulate the notification (callback) method of the interested object.</li><li>Encapsulate the notification context (this) of the interested object.</li><li>Provide methods for setting the notification method and context.</li><li>Provide a method for notifying the interested object.</li></ul></p><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>see:</b>&nbsp;&nbsp;</td><td>org.puremvc.php.patterns.observer.Notification Notification</td>
+  </tr>
+  <tr>
+    <td><b>see:</b>&nbsp;&nbsp;</td><td>org.puremvc.php.core.View View</td>
+  </tr>
+</table>
+</div>
+</div><br /><br />
+<div class="top">[ <a href="#top">Top</a> ]</div><br />
+
+
+<hr />
+<a name="class_methods"></a>
+<h3>Class Methods</h3>
+<div class="tags">
+
+  <hr />
+	<a name="method__construct"></a>
+	<h3>constructor __construct <span class="smalllinenumber">[line 52]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>Observer __construct(
+notifyMethod
+$notifyMethod, notifyContext
+$notifyContext)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Constructor.<br /><br /><p>The notification method on the interested object should take  one parameter of type <ol><li><div class="src-line"><span class="src-id"><a href="../org.puremvc.php.interfaces/INotification.html">INotification</a></span></div></li>
+</ol></p><p></p><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+	
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type">notifyMethod&nbsp;&nbsp;</td>
+        <td><b>$notifyMethod</b>&nbsp;&nbsp;</td>
+        <td>the notification method of the interested object</td>
+      </tr>
+          <tr>
+        <td class="type">notifyContext&nbsp;&nbsp;</td>
+        <td><b>$notifyContext</b>&nbsp;&nbsp;</td>
+        <td>the notification context of the interested object</td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodcompareNotifyContext"></a>
+	<h3>method compareNotifyContext <span class="smalllinenumber">[line 126]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>boolean compareNotifyContext(
+object the
+$object)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Compare an object to the notification context.<br /><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>return:</b>&nbsp;&nbsp;</td><td>indicating if the object and the notification context are the same</td>
+  </tr>
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+	
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type">object the&nbsp;&nbsp;</td>
+        <td><b>$object</b>&nbsp;&nbsp;</td>
+        <td>object to compare</td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodnotifyObserver"></a>
+	<h3>method notifyObserver <span class="smalllinenumber">[line 106]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>void notifyObserver(
+
+$notification)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Notify the interested object.<br /><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+	
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type">notification&nbsp;&nbsp;</td>
+        <td><b>$notification</b>&nbsp;&nbsp;</td>
+        <td>the <ol><li><div class="src-line"><span class="src-id"><a href="../org.puremvc.php.interfaces/INotification.html">INotification</a></span></div></li>
+</ol> to pass to the interested object's notification method.</td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodsetNotifyContext"></a>
+	<h3>method setNotifyContext <span class="smalllinenumber">[line 76]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>void setNotifyContext(
+notifyContext
+$notifyContext)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Set the notification context.<br /><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+	
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type">notifyContext&nbsp;&nbsp;</td>
+        <td><b>$notifyContext</b>&nbsp;&nbsp;</td>
+        <td>the notification context (this) of the interested object.</td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodsetNotifyMethod"></a>
+	<h3>method setNotifyMethod <span class="smalllinenumber">[line 66]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>void setNotifyMethod(
+notifyMethod
+$notifyMethod)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Set the notification method.<br /><br /><p>The notification method should take one parameter of type <ol><li><div class="src-line"><span class="src-id"><a href="../org.puremvc.php.interfaces/INotification.html">INotification</a></span></div></li>
+</ol>.</p><p></p><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>access:</b>&nbsp;&nbsp;</td><td>public</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+	
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type">notifyMethod&nbsp;&nbsp;</td>
+        <td><b>$notifyMethod</b>&nbsp;&nbsp;</td>
+        <td>the notification (callback) method of the interested object.</td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+</div><br />
+
+
+        <div class="credit">
+		    <hr />
+		    Documentation generated on Tue, 30 Sep 2008 08:05:46 -0700 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.0</a>
+	      </div>
+      </td></tr></table>
+    </td>
+  </tr>
+</table>
+
+</body>
+</html>
