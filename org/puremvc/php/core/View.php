@@ -100,7 +100,7 @@ class View implements IView
    */
   public function registerObserver( $notificationName, IObserver $observer )
   {
-    if ($this->observerMap[ $notificationName ] != null)
+    if (isset($this->observerMap[ $notificationName ]) && $this->observerMap[ $notificationName ] != null)
     {
       array_push( $this->observerMap[ $notificationName ], $observer );
     }
