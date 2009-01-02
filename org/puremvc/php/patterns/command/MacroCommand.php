@@ -60,7 +60,8 @@ class MacroCommand extends Notifier implements ICommand, INotifier
    */
   public function __construct()
   {
-    $this->subCommands = array();
+    parent::__construct();
+  	$this->subCommands = array();
     $this->initializeMacroCommand();
   }
   

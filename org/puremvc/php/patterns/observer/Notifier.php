@@ -62,7 +62,6 @@ class Notifier implements INotifier
   public function __construct()
   {
     $this->facade = Facade::getInstance();
-    parent::__construct();
   }
 }
 ?>
