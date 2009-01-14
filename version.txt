@@ -1,15 +1,20 @@
 ﻿PureMVC Port to PHP by Hasan Otuome <hasan.otuome@puremvc.org>
 PureMVC - Copyright(c) 2006-2008 Futurescale, Inc., Some rights reserved.
 --------------------------------------------------------------------------
-Release Date: 11/14/08
+Release Date: 1/14/09
     Platform: PHP 5 
      Version: 1 
     Revision: 0
-       Minor: 1
+       Minor: 2
      Authors: Hasan Otuome <hasan.otuome@puremvc.org>
-     		: Omar Gonzalez 
+     		: Omar Gonzalez      		
      License: Creative Commons Attribution 3.0 Unported License
 --------------------------------------------------------------------------
+1.0.2 - added workaround for PHP warning notice bug reported 12/3/2008
+        (View.php)
+      - fixed constructors per bug reported 1/1/2009...
+        (MacroCommand.php, Notifier.php)
+
 1.0.1 - Replaced the previously omitted index.php which starts the basic 
         demo from the root - CLH
 
