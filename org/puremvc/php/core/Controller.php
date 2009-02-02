@@ -125,12 +125,14 @@ class Controller implements IController
    */
   public function executeCommand( INotification $note )
   {
-    // $commandClassRef = $this->commandMap[ $note->getName() ];
-    //     if ($commandClassRef) $commandClassRef->execute( $note );
-	$commandClassName = $this->commandMap[ $note->getName() ];
-	$commandClassReflector = new ReflectionClass( $commandClassName );
-	$commandClassRef = $commandClassReflector->newInstance();
-	$commandClassRef->execute( $note );
+    if (isset($this->commandMap[ $note->getName() ]))
+	{
+		$commandClassName = $this->commandMap[ $note->getName() ];
+		$commandClassReflector = new ReflectionClass( $commandClassName );
+		
+		$commandClassRef = $commandClassReflector->newInstance();
+		$commandClassRef->execute( $note );
+	}
   }
 
   /**
