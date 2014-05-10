@@ -97,9 +97,9 @@ class Notification implements INotification
   {
     $msg = "Notification Name: " . $this->getName();
     $msg .= "\nBody:";
-    $msg .= ($this->body == null) ? "null" : $this->body;
+    $msg .= ( is_null( $this->body ) ) ? "null" : $this->body;
     $msg .= "\nType:";
-    $msg .= ($this->type == null) ? "null" : $this->type;
+    $msg .= ( is_null( $this->type ) ) ? "null" : $this->type;
     return $msg;
   }
 }

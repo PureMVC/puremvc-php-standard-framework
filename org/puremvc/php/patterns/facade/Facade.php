@@ -94,7 +94,7 @@ class Facade implements IFacade
    */
   static public function getInstance()
   {
-    if (Facade::$instance == null) Facade::$instance = new Facade();
+    if ( is_null( Facade::$instance ) ) Facade::$instance = new Facade();
     return Facade::$instance;
   }
 
@@ -116,7 +116,7 @@ class Facade implements IFacade
    */
   protected function initializeController()
   {
-    if ($this->controller != null) return;
+    if ( !is_null( $this->controller ) ) return;
     $this->controller = Controller::getInstance();
   }
 
@@ -145,7 +145,7 @@ class Facade implements IFacade
    */
   protected function initializeModel()
   {
-    if ($this->model != null) return;
+    if ( !is_null( $this->model ) ) return;
     $this->model = Model::getInstance();
   }
   
@@ -174,7 +174,7 @@ class Facade implements IFacade
    */
   protected function initializeView()
   {
-    if ( $this->view != null ) return;
+    if ( !is_null($this->view) ) return;
     $this->view = View::getInstance();
   }
 
@@ -185,7 +185,7 @@ class Facade implements IFacade
    */
   public function notifyObservers( INotification $notification )
   {
-    if ($this->view != null) $this->view->notifyObservers( $notification );
+    if ( !is_null( $this->view ) ) $this->view->notifyObservers( $notification );
   }
 
   /**
@@ -259,7 +259,7 @@ class Facade implements IFacade
    */
   public function removeProxy( $proxyName )
   {
-    if ($this->model != null) $proxy = $this->model->removeProxy( $proxyName );	
+    if ( !is_null( $this->model ) ) $proxy = $this->model->removeProxy( $proxyName );	
     return $proxy;
   }
 
@@ -271,7 +271,7 @@ class Facade implements IFacade
    */
   public function registerMediator( IMediator $mediator )
   {
-    if ($this->view != null) $this->view->registerMediator( $mediator );
+    if ( !is_null( $this->view ) ) $this->view->registerMediator( $mediator );
   }
 
   /**
@@ -302,7 +302,7 @@ class Facade implements IFacade
    */
   public function removeMediator( $mediatorName )
   {
-    if ($this->view != null) $mediator = $this->view->removeMediator( $mediatorName );
+    if ( !is_null( $this->view ) ) $mediator = $this->view->removeMediator( $mediatorName );
     return $mediator;			
   }
 

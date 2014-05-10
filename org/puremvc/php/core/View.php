@@ -87,7 +87,7 @@ class View implements IView
    */
   public static function getInstance()
   {
-    if ( View::$instance == null ) View::$instance = new View();
+    if ( is_null( View::$instance ) ) View::$instance = new View();
     return View::$instance;
   }
       
@@ -100,7 +100,7 @@ class View implements IView
    */
   public function registerObserver( $notificationName, IObserver $observer )
   {
-    if (isset($this->observerMap[ $notificationName ]) && $this->observerMap[ $notificationName ] != null)
+    if ( isset( $this->observerMap[ $notificationName ] ) && !is_null( $this->observerMap[ $notificationName ] ) )
     {
       array_push( $this->observerMap[ $notificationName ], $observer );
     }
@@ -123,13 +123,53 @@ class View implements IView
    */
   public function notifyObservers( INotification $notification )
   {
-    if ($this->observerMap[ $notification->getName() ] != null)
+    if ( isset($this->observerMap[ $notification->getName() ]) )
     {
+      // Copy observers from reference array to working array, 
+      // since the reference array may change during the notification loop
       $observers = $this->observerMap[ $notification->getName() ];
+
       foreach ($observers as $observer)
       {
         $observer->notifyObserver( $notification );
       }
+    }
+  }
+  
+  /**
+   * Remove Observer
+   *
+   * Remove a group of observers from the observer list for a given Notification name.
+   *
+   * @param string $notificationName Which observer list to remove from.
+   * @param mixed $notifyContext Remove the observers with this object as their notifyContext
+   * @return void
+   */
+  public function removeObserver( $notificationName, $notifyContext )
+  {
+    //Is there registered Observers for the notification under inspection
+    if( !isset( $this->observerMap[ $notificationName ] )) return;
+
+    // the observer list for the notification under inspection
+    $observers = $this->observerMap[ $notificationName ];
+
+    // find the observer for the notifyContext
+    for ( $i = 0; $i < count( $observers ); $i++ )
+    {
+      if ( $observers[$i]->compareNotifyContext( $notifyContext ) )
+      {
+        // there can only be one Observer for a given notifyContext
+        // in any given Observer list, so remove it and break
+        array_splice($observers,$i,1);
+        break;
+      }
+    }
+
+    // Also, when a Notification's Observer list length falls to
+    // zero, delete the notification key from the observer map
+    if ( count( $observers ) === 0 )
+    {
+      unset($this->observerMap[ $notificationName ]);
     }
   }
           
@@ -152,6 +192,10 @@ class View implements IView
    */
   public function registerMediator( IMediator $mediator )
   {
+
+    // do not allow re-registration (you must to removeMediator fist)
+    if ( $this->hasMediator( $mediator->getMediatorName() ) ) return;
+
     // Register the Mediator for retrieval by name
     $this->mediatorMap[ $mediator->getMediatorName() ] = $mediator;
     
@@ -182,7 +226,10 @@ class View implements IView
    */
   public function retrieveMediator( $mediatorName )
   {
-    return $this->mediatorMap[ $mediatorName ];
+    if( $this->hasMediator($mediatorName) )
+    {
+      return $this->mediatorMap[ $mediatorName ];
+    }
   }
 
   /**
@@ -192,7 +239,7 @@ class View implements IView
    */
   public function hasMediator( $mediatorName )
   {
-	  return $this->mediatorMap[ $mediatorName ] != null;
+    return isset( $this->mediatorMap[ $mediatorName ] );
   }
 
   /**
@@ -202,35 +249,27 @@ class View implements IView
    */
   public function removeMediator( $mediatorName )
   {
-    // Remove all Observers with a reference to this Mediator			
-    // also, when an notification's observer list length falls to 
-    // zero, remove it.
-    foreach ( $this->observerMap as &$observers )
+    if( $this->hasMediator( $mediatorName ) )
     {
-      foreach ( $observers as &$observer )
-      {
-        if ($observer->compareNotifyContext( $this->retrieveMediator( $mediatorName ) ) == true)
-        {
-          unset($observer);
+      // Retrieve the named mediator
+      $mediator = $this->mediatorMap[ $mediatorName ];
 
-          if ( count($observers) == 0 )
-          {
-            unset($observers);
-            break;
-          }
-        }
+      // for every notification this mediator is interested in...
+      $interests = $mediator->listNotificationInterests();
+      foreach( $interests as $interest ) {
+        $this->removeObserver( $interest, $mediator );
       }
-    }			
-   	// get a reference to the mediator to be removed
-    $mediator = $this->mediatorMap[ $mediatorName ];
+      
+      // Remove the reference from the map
+      unset( $this->mediatorMap[ $mediatorName ] );
+      
+      // alert the mediator that it has been removed
+      $mediator->onRemove();
+      
+      return $mediator;
+    }
     
-    // Remove the reference from the map
-    unset($this->mediatorMap[ $mediatorName ]);
-    
-    // alert the mediator that it has been removed
-    if ($mediator != null) { $mediator->onRemove(); }
-    
-    return $mediator;
+    return null;
   }
 }
 ?>
