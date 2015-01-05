@@ -87,7 +87,7 @@ class Model implements IModel
    */
   static public function getInstance()
   {
-    if (Model::$instance == null) Model::$instance = new Model();
+    if ( is_null( Model::$instance ) ) Model::$instance = new Model();
     return Model::$instance;
   }
 
@@ -110,7 +110,10 @@ class Model implements IModel
    */
   public function retrieveProxy( $proxyName )
   {
-    return $this->proxyMap[ $proxyName ];
+    if( $this->hasProxy( $proxyName ) )
+    {
+      return $this->proxyMap[ $proxyName ];
+    }
   }
 
  /**
@@ -120,16 +123,19 @@ class Model implements IModel
    */
   public function removeProxy( $proxyName )
   {
-    // get a reference to the proxy to be removed 
-    $proxy = $this->proxyMap[ $proxyName ];
+    if( $this->hasProxy( $proxyName ) )
+    {
+      // get a reference to the proxy to be removed 
+      $proxy = $this->proxyMap[ $proxyName ];
 
-    // remove the instance from the map
-    unset($this->proxyMap[ $proxyName ]);
+      // remove the instance from the map
+      unset($this->proxyMap[ $proxyName ]);
 
-	// alert the proxy that it has been removed
-    $proxy->onRemove();
-    
-    return $proxy;
+      // alert the proxy that it has been removed
+      $proxy->onRemove();
+
+      return $proxy;
+    }
   }
 
   /**
@@ -139,7 +145,7 @@ class Model implements IModel
    */
   public function hasProxy( $proxyName )
   {
-  	return $this->proxyMap[ $proxyName ] != null;
+    return isset( $this->proxyMap[ $proxyName ] );
   }
 }
 ?>

@@ -45,11 +45,11 @@ class Mediator extends Notifier implements IMediator, INotifier
   /**
    * Constructor.
    */
-  public function __construct( $mediatorName, $viewComponent=null )
+  public function __construct( $mediatorName=null, $viewComponent=null )
   {
   	$this->facade = Facade::getInstance();
     $this->viewComponent = $viewComponent;
-    $this->mediatorName = ($mediatorName != null) ? $mediatorName : self::NAME; 
+    $this->mediatorName = ( !empty( $mediatorName ) ) ? $mediatorName : self::NAME; 
   }
 
   /**

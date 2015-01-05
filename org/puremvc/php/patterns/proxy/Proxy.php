@@ -56,8 +56,8 @@ class Proxy extends Notifier implements IProxy, INotifier
   public function __construct( $proxyName=null, $data=null ) 
   {
   	$this->facade = Facade::getInstance();
-    $this->proxyName = ($proxyName != null) ? $proxyName : self::NAME; 
-    if ($data != null) $this->setData($data);
+    $this->proxyName = ( !empty( $proxyName ) ) ? $proxyName : self::NAME; 
+    if ( !is_null( $data )) $this->setData( $data );
   }
 
   /**

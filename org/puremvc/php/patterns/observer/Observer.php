@@ -104,16 +104,10 @@ class Observer implements IObserver
    */
   public function notifyObserver( INotification $notification )
   {
-	$context		= $this->getNotifyContext();
-	$method			= $this->getNotifyMethod();
-	
-	$classReflector = new ReflectionClass( $context );
-
-	$className = $classReflector->getName();
-	
-	$funcReflector = new ReflectionMethod( $className, $method );
-	
-	$funcReflector->invokeArgs( $context, array($notification) );
+	  $context = $this->getNotifyContext();
+	  $method = $this->getNotifyMethod();
+	  
+	  $context->$method($notification);
   }
 
   /**

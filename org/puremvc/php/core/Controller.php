@@ -113,7 +113,7 @@ class Controller implements IController
    */
   public static function getInstance()
   {
-    if ( Controller::$instance == null ) Controller::$instance = new Controller();
+    if ( is_null( Controller::$instance ) ) Controller::$instance = new Controller();
     return Controller::$instance;
   }
 
@@ -149,8 +149,11 @@ class Controller implements IController
    */
   public function registerCommand( $notificationName, $commandClassRef )
   {
+    if( !$this->hasCommand( $notificationName ) )
+    {
+      $this->view->registerObserver( $notificationName, new Observer( "executeCommand", $this ) );
+    }
     $this->commandMap[$notificationName] = $commandClassRef;
-    $this->view->registerObserver( $notificationName, new Observer("executeCommand", $this) );
   }
   /**
    * Check if a Command is registered for a given Notification 
@@ -160,7 +163,7 @@ class Controller implements IController
    */
   public function hasCommand( $notificationName )
   {
-  	return $this->commandMap[ $notificationName ] != null;
+  	return isset( $this->commandMap[ $notificationName ] );
   }
   
   /**
@@ -170,7 +173,15 @@ class Controller implements IController
    */
   public function removeCommand( $notificationName )
   {
-    $this->commandMap[ $notificationName ] = null;
+    // if the Command is registered...
+    if( $this->hasCommand( $notificationName ) )
+    {
+      // remove the observer
+      $this->view->removeObserver( $notificationName, $this );
+      
+      // remove the command
+      $this->commandMap[ $notificationName ] = null;
+    }
   }
 }
 ?>
