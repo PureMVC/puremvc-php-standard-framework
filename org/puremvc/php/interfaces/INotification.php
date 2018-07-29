@@ -9,7 +9,7 @@
  * PureMVC - Copyright(c) 2006-2008 Futurescale, Inc., Some rights reserved.
  * Your reuse is governed by the Creative Commons Attribution 3.0 Unported License
  */
- 
+
 /**
  * The interface definition for a PureMVC Notification.
  *
@@ -18,43 +18,43 @@
  */
 interface INotification
 {
-  
-  /**
-   * Get the name of the <code>INotification</code> instance. 
-   * No setter, should be set by constructor only
-   *
-   * @return string
-   */
-  public function getName();
+    /**
+     * Get the name of the <code>INotification</code> instance. 
+     * No setter, should be set by constructor only
+     *
+     * @return string
+     */
+    public function getName();
 
-  /**
-   * Set the body of the <code>INotification</code> instance
-   */
-  public function setBody( $body );
-  
-  /**
-   * Get the body of the <code>INotification</code> instance
-   */
-  public function getBody();
-  
-  /**
-   * Set the type of the <code>INotification</code> instance
-   * @param type string
-   */
-  public function setType( $type );
-  
-  /**
-   * Get the type of the <code>INotification</code> instance
-   *
-   * @return string
-   */
-  public function getType();
+    /**
+     * Set the body of the <code>INotification</code> instance
+     * @param mixed $body
+     */
+    public function setBody($body);
 
-  /**
-   * Get the string representation of the <code>INotification</code> instance
-   *
-   * @return string
-   */
-  public function toString();
+    /**
+     * Get the body of the <code>INotification</code> instance
+     */
+    public function getBody();
+
+    /**
+     * Set the type of the <code>INotification</code> instance
+     * @param type string
+     * @param mixed $type
+     */
+    public function setType($type);
+
+    /**
+     * Get the type of the <code>INotification</code> instance
+     *
+     * @return string
+     */
+    public function getType();
+
+    /**
+     * Get the string representation of the <code>INotification</code> instance
+     *
+     * @return string
+     */
+    public function toString();
 }
-?>

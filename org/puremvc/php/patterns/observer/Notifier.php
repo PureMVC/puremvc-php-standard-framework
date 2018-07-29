@@ -9,9 +9,8 @@
  * PureMVC - Copyright(c) 2006-2008 Futurescale, Inc., Some rights reserved.
  * Your reuse is governed by the Creative Commons Attribution 3.0 Unported License
  */
-
 require_once 'org/puremvc/php/interfaces/INotifier.php';
- 
+
 /**
  * A Base <code>INotifier</code> implementation.
  * 
@@ -37,31 +36,29 @@ require_once 'org/puremvc/php/interfaces/INotifier.php';
  * @see org.puremvc.php.patterns.command.SimpleCommand SimpleCommand
  * @see org.puremvc.php.patterns.command.MacroCommand MacroCommand
  */
- 
 class Notifier implements INotifier
 {
-  /**
-   * Send an <code>INotification</code>s.
-   * 
-   * <P>
-   * Keeps us from having to construct new notification 
-   * instances in our implementation code.
-   * @param notificationName the name of the notiification to send
-   * @param body the body of the notification (optional)
-   * @param type the type of the notification (optional)
-   */ 
+    /**
+     * Send an <code>INotification</code>s.
+     * 
+     * <P>
+     * Keeps us from having to construct new notification 
+     * instances in our implementation code.
+     * @param notificationName the name of the notiification to send
+     * @param body the body of the notification (optional)
+     * @param type the type of the notification (optional)
+     */
 
-  // Local reference to the Facade Singleton
-  protected $facade;
-  
-  public function sendNotification( $notificationName, $body=null, $type=null ) 
-  {
-    $this->facade->sendNotification( $notificationName, $body, $type );
-  }
-  
-  public function __construct()
-  {
-    $this->facade = Facade::getInstance();
-  }
+    // Local reference to the Facade Singleton
+    protected $facade;
+
+    public function sendNotification($notificationName, $body = null, $type = null)
+    {
+        $this->facade->sendNotification($notificationName, $body, $type);
+    }
+
+    public function __construct()
+    {
+        $this->facade = Facade::getInstance();
+    }
 }
-?>

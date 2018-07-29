@@ -9,12 +9,11 @@
  * PureMVC - Copyright(c) 2006-2008 Futurescale, Inc., Some rights reserved.
  * Your reuse is governed by the Creative Commons Attribution 3.0 Unported License
  */
- 
-require_once 'org/puremvc/php/interfaces/IMediator.php'; 
-require_once 'org/puremvc/php/interfaces/INotifier.php'; 
-require_once 'org/puremvc/php/interfaces/INotification.php'; 
+require_once 'org/puremvc/php/interfaces/IMediator.php';
+require_once 'org/puremvc/php/interfaces/INotifier.php';
+require_once 'org/puremvc/php/interfaces/INotification.php';
 require_once 'org/puremvc/php/patterns/facade/Facade.php';
-require_once 'org/puremvc/php/patterns/observer/Notifier.php'; 
+require_once 'org/puremvc/php/patterns/observer/Notifier.php';
 
 /**
  * A base <code>IMediator</code> implementation. 
@@ -23,96 +22,93 @@ require_once 'org/puremvc/php/patterns/observer/Notifier.php';
  */
 class Mediator extends Notifier implements IMediator, INotifier
 {
+    // the mediator name
+    protected $mediatorName;
 
-  // the mediator name
-  protected $mediatorName;
+    // The view component
+    protected $viewComponent;
 
-  // The view component
-  protected $viewComponent;
-  
-  protected $facade;
+    protected $facade;
 
-  /**
-   * The name of the <code>Mediator</code>. 
-   * 
-   * <P>
-   * Typically, a <code>Mediator</code> will be written to serve
-   * one specific control or group controls and so,
-   * will not have a need to be dynamically named.</P>
-   */
-  const NAME = 'Mediator';
-  
-  /**
-   * Constructor.
-   */
-  public function __construct( $mediatorName=null, $viewComponent=null )
-  {
-  	$this->facade = Facade::getInstance();
-    $this->viewComponent = $viewComponent;
-    $this->mediatorName = ( !empty( $mediatorName ) ) ? $mediatorName : self::NAME; 
-  }
+    /**
+     * The name of the <code>Mediator</code>. 
+     * 
+     * <P>
+     * Typically, a <code>Mediator</code> will be written to serve
+     * one specific control or group controls and so,
+     * will not have a need to be dynamically named.</P>
+     */
+    const NAME = 'Mediator';
 
-  /**
-   * Get the name of the <code>Mediator</code>.
-   * <P>
-   * Override in subclass!</P>
-   */		
-  public function getMediatorName() 
-  {	
-    return $this->mediatorName;
-  }
+    /**
+     * Constructor.
+     * @param null|mixed $mediatorName
+     * @param null|mixed $viewComponent
+     */
+    public function __construct($mediatorName = null, $viewComponent = null)
+    {
+        $this->facade = Facade::getInstance();
+        $this->viewComponent = $viewComponent;
+        $this->mediatorName = (!empty($mediatorName)) ? $mediatorName : self::NAME;
+    }
 
-  /**
-   * Get the <code>Mediator</code>'s view component.
-   */		
-  public function getViewComponent()
-  {	
-    return $this->viewComponent;
-  }
-  
-  public function setViewComponent( $component )
-  {
-  	$this->viewComponent = $component;
-  }
+    /**
+     * Get the name of the <code>Mediator</code>.
+     * <P>
+     * Override in subclass!</P>
+     */
+    public function getMediatorName()
+    {
+        return $this->mediatorName;
+    }
 
-  /**
-   * List the <code>INotification</code> names this
-   * <code>Mediator</code> is interested in being notified of.
-   * 
-   * @return Array the list of <code>INotification</code> names 
-   */
-  public function listNotificationInterests()
-  {
-    return array();
-  }
+    /**
+     * Get the <code>Mediator</code>'s view component.
+     */
+    public function getViewComponent()
+    {
+        return $this->viewComponent;
+    }
 
-  /**
-   * Handle <code>INotification</code>s.
-   * 
-   * <P>
-   * Typically this will be handled in a switch statement,
-   * with one 'case' entry per <code>INotification</code>
-   * the <code>Mediator</code> is interested in.
-   */ 
-  public function handleNotification( INotification $notification )
-  {
-  	
-  }
-  
-  /**
-   * Called when the View registers a Mediator.
-   */
-  public function onRegister()
-  {
-     return;
-  }
-  
-  /**
-   * Called when the View removes a Mediator.
-   */
-  public function onRemove()
-  {
-  	return;
-  }
+    public function setViewComponent($component)
+    {
+        $this->viewComponent = $component;
+    }
+
+    /**
+     * List the <code>INotification</code> names this
+     * <code>Mediator</code> is interested in being notified of.
+     * 
+     * @return array the list of <code>INotification</code> names 
+     */
+    public function listNotificationInterests()
+    {
+        return [];
+    }
+
+    /**
+     * Handle <code>INotification</code>s.
+     * 
+     * <P>
+     * Typically this will be handled in a switch statement,
+     * with one 'case' entry per <code>INotification</code>
+     * the <code>Mediator</code> is interested in.
+     */
+    public function handleNotification(INotification $notification)
+    {
+    }
+
+    /**
+     * Called when the View registers a Mediator.
+     */
+    public function onRegister()
+    {
+    }
+
+    /**
+     * Called when the View removes a Mediator.
+     */
+    public function onRemove()
+    {
+    }
 }
-?>

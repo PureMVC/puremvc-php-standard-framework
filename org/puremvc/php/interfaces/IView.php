@@ -9,7 +9,7 @@
  * PureMVC - Copyright(c) 2006-2008 Futurescale, Inc., Some rights reserved.
  * Your reuse is governed by the Creative Commons Attribution 3.0 Unported License
  */
- 
+
 /**
  * The interface definition for a PureMVC View.
  * 
@@ -31,69 +31,71 @@
  * @see org.puremvc.php.interfaces.IObserver IObserver
  * @see org.puremvc.php.interfaces.INotification INotification
  */
-interface IView 
+interface IView
 {
-  /**
-   * Register an <code>IObserver</code> to be notified
-   * of <code>INotifications</code> with a given name.
-   * 
-   * @param notificationName the name of the <code>INotifications</code> to notify this <code>IObserver</code> of
-   * @param observer the <code>IObserver</code> to register
-   */
-  public function registerObserver ( $noteName, IObserver $observer );
+    /**
+     * Register an <code>IObserver</code> to be notified
+     * of <code>INotifications</code> with a given name.
+     * 
+     * @param notificationName the name of the <code>INotifications</code> to notify this <code>IObserver</code> of
+     * @param observer the <code>IObserver</code> to register
+     * @param mixed $noteName
+     */
+    public function registerObserver($noteName, IObserver $observer);
 
-  /**
-   * Notify the <code>IObservers</code> for a particular <code>INotification</code>.
-   * 
-   * <P>
-   * All previously attached <code>IObservers</code> for this <code>INotification</code>'s
-   * list are notified and are passed a reference to the <code>INotification</code> in 
-   * the order in which they were registered.</P>
-   * 
-   * @param notification the <code>INotification</code> to notify <code>IObservers</code> of.
-   */
-  public function notifyObservers( INotification $note );
-  
-  /**
-   * Register an <code>IMediator</code> instance with the <code>View</code>.
-   * 
-   * <P>
-   * Registers the <code>IMediator</code> so that it can be retrieved by name,
-   * and further interrogates the <code>IMediator</code> for its 
-   * <code>INotification</code> interests.</P>
-   * <P>
-   * If the <code>IMediator</code> returns any <code>INotification</code> 
-   * names to be notified about, an <code>Observer</code> is created encapsulating 
-   * the <code>IMediator</code> instance's <code>handleNotification</code> method 
-   * and registering it as an <code>Observer</code> for all <code>INotifications</code> the 
-   * <code>IMediator</code> is interested in.</p>
-   * 
-   * @param mediatorName the name to associate with this <code>IMediator</code> instance
-   * @param mediator a reference to the <code>IMediator</code> instance
-   */
-  public function registerMediator( IMediator $mediator );
+    /**
+     * Notify the <code>IObservers</code> for a particular <code>INotification</code>.
+     * 
+     * <P>
+     * All previously attached <code>IObservers</code> for this <code>INotification</code>'s
+     * list are notified and are passed a reference to the <code>INotification</code> in 
+     * the order in which they were registered.</P>
+     * 
+     * @param notification the <code>INotification</code> to notify <code>IObservers</code> of.
+     */
+    public function notifyObservers(INotification $note);
 
-  /**
-   * Retrieve an <code>IMediator</code> from the <code>View</code>.
-   * 
-   * @param mediatorName the name of the <code>IMediator</code> instance to retrieve.
-   * @return the <code>IMediator</code> instance previously registered with the given <code>mediatorName</code>.
-   */
-  public function retrieveMediator( $mediatorName );
+    /**
+     * Register an <code>IMediator</code> instance with the <code>View</code>.
+     * 
+     * <P>
+     * Registers the <code>IMediator</code> so that it can be retrieved by name,
+     * and further interrogates the <code>IMediator</code> for its 
+     * <code>INotification</code> interests.</P>
+     * <P>
+     * If the <code>IMediator</code> returns any <code>INotification</code> 
+     * names to be notified about, an <code>Observer</code> is created encapsulating 
+     * the <code>IMediator</code> instance's <code>handleNotification</code> method 
+     * and registering it as an <code>Observer</code> for all <code>INotifications</code> the 
+     * <code>IMediator</code> is interested in.</p>
+     * 
+     * @param mediatorName the name to associate with this <code>IMediator</code> instance
+     * @param mediator a reference to the <code>IMediator</code> instance
+     */
+    public function registerMediator(IMediator $mediator);
 
-  /**
-   * Remove an <code>IMediator</code> from the <code>View</code>.
-   * 
-   * @param mediatorName name of the <code>IMediator</code> instance to be removed.
-   */
-  public function removeMediator( $mediatorName );
- 
-  /**
-   * Check to see if a Mediator is registered with the View.
-   * 
-   * @param mediatorName name of the <code>IMediator</code> instance to check for.
-   */
-  public function hasMediator( $mediatorName );
-  
+    /**
+     * Retrieve an <code>IMediator</code> from the <code>View</code>.
+     * 
+     * @param mediatorName the name of the <code>IMediator</code> instance to retrieve.
+     * @param mixed $mediatorName
+     * @return the <code>IMediator</code> instance previously registered with the given <code>mediatorName</code>.
+     */
+    public function retrieveMediator($mediatorName);
+
+    /**
+     * Remove an <code>IMediator</code> from the <code>View</code>.
+     * 
+     * @param mediatorName name of the <code>IMediator</code> instance to be removed.
+     * @param mixed $mediatorName
+     */
+    public function removeMediator($mediatorName);
+
+    /**
+     * Check to see if a Mediator is registered with the View.
+     * 
+     * @param mediatorName name of the <code>IMediator</code> instance to check for.
+     * @param mixed $mediatorName
+     */
+    public function hasMediator($mediatorName);
 }
-?>

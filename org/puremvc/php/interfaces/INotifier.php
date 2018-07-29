@@ -9,7 +9,7 @@
  * PureMVC - Copyright(c) 2006-2008 Futurescale, Inc., Some rights reserved.
  * Your reuse is governed by the Creative Commons Attribution 3.0 Unported License
  */
- 
+
 /**
  * The interface definition for a PureMVC Notifier.
  * 
@@ -35,18 +35,19 @@
  */
 interface INotifier
 {
-  /**
-   * Send a <code>INotification</code>.
-   * 
-   * <P>
-   * Convenience method to prevent having to construct new 
-   * notification instances in our implementation code.</P>
-   * 
-   * @param notificationName the name of the notification to send
-   * @param body the body of the notification (optional)
-   * @param type the type of the notification (optional)
-   */ 
-  public function sendNotification( $notificationName, $body=null, $type=null ); 
-  
+    /**
+     * Send a <code>INotification</code>.
+     * 
+     * <P>
+     * Convenience method to prevent having to construct new 
+     * notification instances in our implementation code.</P>
+     * 
+     * @param notificationName the name of the notification to send
+     * @param body the body of the notification (optional)
+     * @param type the type of the notification (optional)
+     * @param mixed $notificationName
+     * @param null|mixed $body
+     * @param null|mixed $type
+     */
+    public function sendNotification($notificationName, $body = null, $type = null);
 }
-?>
