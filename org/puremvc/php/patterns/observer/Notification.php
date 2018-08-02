@@ -35,7 +35,7 @@ class Notification implements INotification
      * @param null|mixed $body
      * @param null|mixed $type
      */
-    public function Notification($name, $body = null, $type = null)
+    public function __construct($name, $body = null, $type = null)
     {
         $this->name = $name;
         $this->body = $body;
@@ -99,7 +99,7 @@ class Notification implements INotification
     {
         $msg = 'Notification Name: ' . $this->getName();
         $msg .= "\nBody:";
-        $msg .= (null === $this->body) ? 'null' : $this->body;
+        $msg .= (null === $this->body) ? 'null' : (is_array($this->body)? 'Array': $this->body);
         $msg .= "\nType:";
         $msg .= (null === $this->type) ? 'null' : $this->type;
 

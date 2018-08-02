@@ -34,7 +34,7 @@ class ApplicationFacade extends Facade
      */
     public static function getInstance()
     {
-        if (null == parent::$instance) {
+        if (null === parent::$instance) {
             parent::$instance = new self();
         }
 
