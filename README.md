@@ -1,4 +1,6 @@
 ## [PureMVC](http://puremvc.github.com/) PHP Standard Framework
+
+[![Join the chat at https://gitter.im/PureMVC/puremvc-php-standard-framework](https://badges.gitter.im/PureMVC/puremvc-php-standard-framework.svg)](https://gitter.im/PureMVC/puremvc-php-standard-framework?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 PureMVC is a lightweight framework for creating applications based upon the classic [Model-View-Controller](http://en.wikipedia.org/wiki/Model-view-controller) design meta-pattern. This is a PHP port of the [AS3 reference implementation of the Standard Version](https://github.com/PureMVC/puremvc-as3-standard-framework/wiki). 
 
 The distribution comes with a built in server-side demo: Zen Garden.
