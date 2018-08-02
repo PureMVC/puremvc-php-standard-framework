@@ -9,9 +9,8 @@
  * PureMVC - Copyright(c) 2006-2008 Futurescale, Inc., Some rights reserved.
  * Your reuse is governed by the Creative Commons Attribution 3.0 Unported License
  */
-
 require_once 'org/puremvc/php/interfaces/INotification.php';
- 
+
 /**
  * The interface definition for a PureMVC Controller.
  * 
@@ -36,29 +35,30 @@ require_once 'org/puremvc/php/interfaces/INotification.php';
  */
 interface IController
 {
+    /**
+     * Register a particular <code>ICommand</code> class as the handler 
+     * for a particular <code>INotification</code>.
+     * 
+     * @param notificationName the name of the <code>INotification</code>
+     * @param commandClassRef the Class of the <code>ICommand</code>
+     * @param mixed $notificationName
+     * @param mixed $commandClassRef
+     */
+    public function registerCommand($notificationName, $commandClassRef);
 
-  /**
-   * Register a particular <code>ICommand</code> class as the handler 
-   * for a particular <code>INotification</code>.
-   * 
-   * @param notificationName the name of the <code>INotification</code>
-   * @param commandClassRef the Class of the <code>ICommand</code>
-   */
-  public function registerCommand( $notificationName, $commandClassRef );
-  
-  /**
-   * Execute the <code>ICommand</code> previously registered as the
-   * handler for <code>INotification</code>s with the given notification name.
-   * 
-   * @param notification the <code>INotification</code> to execute the associated <code>ICommand</code> for
-   */
-  public function executeCommand( INotification $notification );
+    /**
+     * Execute the <code>ICommand</code> previously registered as the
+     * handler for <code>INotification</code>s with the given notification name.
+     * 
+     * @param notification the <code>INotification</code> to execute the associated <code>ICommand</code> for
+     */
+    public function executeCommand(INotification $notification);
 
-  /**
-   * Remove a previously registered <code>ICommand</code> to <code>INotification</code> mapping.
-   * 
-   * @param notificationName the name of the <code>INotification</code> to remove the <code>ICommand</code> mapping for
-   */
-  public function removeCommand( $notificationName );
+    /**
+     * Remove a previously registered <code>ICommand</code> to <code>INotification</code> mapping.
+     * 
+     * @param notificationName the name of the <code>INotification</code> to remove the <code>ICommand</code> mapping for
+     * @param mixed $notificationName
+     */
+    public function removeCommand($notificationName);
 }
-?>

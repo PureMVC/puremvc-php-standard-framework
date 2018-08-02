@@ -9,9 +9,8 @@
  * PureMVC - Copyright(c) 2006-2008 Futurescale, Inc., Some rights reserved.
  * Your reuse is governed by the Creative Commons Attribution 3.0 Unported License
  */
-
 require_once 'org/puremvc/php/interfaces/IProxy.php';
- 
+
 /**
  * The interface definition for a PureMVC Model.
  * 
@@ -27,38 +26,38 @@ require_once 'org/puremvc/php/interfaces/IProxy.php';
  * <LI>Provide methods for registering, retrieving, and removing <code>IProxy</code> instances</LI>
  * </UL>
  */
-
-interface IModel 
+interface IModel
 {
-  /**
-   * Register an <code>IProxy</code> instance with the <code>Model</code>.
-   * 
-   * @param proxyName the name to associate with this <code>IProxy</code> instance.
-   * @param proxy an object reference to be held by the <code>Model</code>.
-   */
-  public function registerProxy( IProxy $proxy );
+    /**
+     * Register an <code>IProxy</code> instance with the <code>Model</code>.
+     * 
+     * @param proxyName the name to associate with this <code>IProxy</code> instance.
+     * @param proxy an object reference to be held by the <code>Model</code>.
+     */
+    public function registerProxy(IProxy $proxy);
 
-  /**
-   * Retrieve an <code>IProxy</code> instance from the Model.
-   * 
-   * @param proxyName
-   * @return the <code>IProxy</code> instance previously registered with the given <code>proxyName</code>.
-   */
-  public function retrieveProxy( $proxyName );
+    /**
+     * Retrieve an <code>IProxy</code> instance from the Model.
+     * 
+     * @param proxyName
+     * @param mixed $proxyName
+     * @return the <code>IProxy</code> instance previously registered with the given <code>proxyName</code>.
+     */
+    public function retrieveProxy($proxyName);
 
-  /**
-   * Remove an <code>IProxy</code> instance from the Model.
-   * 
-   * @param proxyName name of the <code>IProxy</code> instance to be removed.
-   */
-  public function removeProxy( $proxyName );
-  
-  /**
-   * Check to see if a Proxy is registered with the Model.
-   * 
-   * @param proxyName name of the <code>IProxy</code> instance to check for.
-   */
-  public function hasProxy( $proxyName );
-  
+    /**
+     * Remove an <code>IProxy</code> instance from the Model.
+     * 
+     * @param proxyName name of the <code>IProxy</code> instance to be removed.
+     * @param mixed $proxyName
+     */
+    public function removeProxy($proxyName);
+
+    /**
+     * Check to see if a Proxy is registered with the Model.
+     * 
+     * @param proxyName name of the <code>IProxy</code> instance to check for.
+     * @param mixed $proxyName
+     */
+    public function hasProxy($proxyName);
 }
-?>

@@ -9,7 +9,7 @@
  * PureMVC - Copyright(c) 2006-2008 Futurescale, Inc., Some rights reserved.
  * Your reuse is governed by the Creative Commons Attribution 3.0 Unported License
  */
- 
+
 /**
  * The interface definition for a PureMVC Observer.
  *
@@ -51,35 +51,38 @@
  */
 interface IObserver
 {
-  /**
-   * Set the notification method.
-   * 
-   * <P>
-   * The notification method should take one parameter of type <code>INotification</code></P>
-   * 
-   * @param notifyMethod the notification (callback) method of the interested object
-   */
-  public function setNotifyMethod( $notifyMethod );
-  
-  /**
-   * Set the notification context.
-   * 
-   * @param notifyContext the notification context (this) of the interested object
-   */
-  public function setNotifyContext( $notifyContext );
-  
-  /**
-   * Notify the interested object.
-   * 
-   * @param notification the <code>INotification</code> to pass to the interested object's notification method
-   */
-  public function notifyObserver( INotification $notification );
-  
-  /**
-   * Compare the given object to the notificaiton context object.
-   * 
-   * @param object the object to compare.
-   * @return boolean indicating if the notification context and the object are the same.
-   */
-  public function compareNotifyContext( $object );
+    /**
+     * Set the notification method.
+     * 
+     * <P>
+     * The notification method should take one parameter of type <code>INotification</code></P>
+     * 
+     * @param notifyMethod the notification (callback) method of the interested object
+     * @param mixed $notifyMethod
+     */
+    public function setNotifyMethod($notifyMethod);
+
+    /**
+     * Set the notification context.
+     * 
+     * @param notifyContext the notification context (this) of the interested object
+     * @param mixed $notifyContext
+     */
+    public function setNotifyContext($notifyContext);
+
+    /**
+     * Notify the interested object.
+     * 
+     * @param notification the <code>INotification</code> to pass to the interested object's notification method
+     */
+    public function notifyObserver(INotification $notification);
+
+    /**
+     * Compare the given object to the notificaiton context object.
+     * 
+     * @param object the object to compare.
+     * @param mixed $object
+     * @return bool indicating if the notification context and the object are the same.
+     */
+    public function compareNotifyContext($object);
 }
