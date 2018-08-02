@@ -13,14 +13,14 @@ The distribution comes with a built in server-side demo: Zen Garden.
 * [Employee Admin](https://github.com/PureMVC/puremvc-php-demo-gtk-employeeadmin/wiki)
 
 ## Status
-Production - [Version 1.0.3](https://github.com/PureMVC/puremvc-php-standard-framework/blob/master/VERSION)
+Production - [Version 1.1.0](https://github.com/PureMVC/puremvc-php-standard-framework/blob/master/VERSION)
 
 ## Platforms / Technologies
 * [PHP](http://en.wikipedia.org/wiki/PHP)
 
 ## License
 * PureMVC Standard Framework for PHP (Ported) - Copyright © 2009 Hasan Otuome 
-* PureMVC - Copyright © 2006-2012 Futurescale, Inc.
+* PureMVC - Copyright © 2006-2018 Futurescale, Inc.
 * All rights reserved.
 
 * Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
