@@ -58,22 +58,23 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
    		$this->assertTrue( $controller != null, "Expecting instance not null" );
    		$this->assertTrue( $controller instanceof IController, "Expecting instance implements IController" );
 	}
-	
-	/**
-	 * Tests Command registration and execution.
-	 * 
-	 * <P>
-  	 * This test gets the Singleton Controller instance 
-  	 * and registers the ControllerTestCommand class 
-  	 * to handle 'ControllerTest' Notifications.<P>
-  	 * 
-  	 * <P>
-  	 * It then constructs such a Notification and tells the 
-  	 * Controller to execute the associated Command.
-  	 * Success is determined by evaluating a property
-  	 * on an object passed to the Command, which will
-  	 * be modified when the Command executes.</P>
-	 */
+
+    /**
+     * Tests Command registration and execution.
+     *
+     * <P>
+     * This test gets the Singleton Controller instance
+     * and registers the ControllerTestCommand class
+     * to handle 'ControllerTest' Notifications.<P>
+     *
+     * <P>
+     * It then constructs such a Notification and tells the
+     * Controller to execute the associated Command.
+     * Success is determined by evaluating a property
+     * on an object passed to the Command, which will
+     * be modified when the Command executes.</P>
+     * @throws \ReflectionException
+     */
 	public function testRegisterAndExecuteCommand()
 	{
 		// Create the controller, register the ControllerTestCommand to handle 'ControllerTest' notes

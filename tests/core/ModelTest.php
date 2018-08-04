@@ -44,10 +44,11 @@ class ModelTest extends \PHPUnit\Framework\TestCase
 	{
 		parent::tearDown();
 	}
-	
-	/**
-	 * Tests the Model Singleton Factory Method 
-	 */
+
+    /**
+     * Tests the Model Singleton Factory Method
+     * @throws \ReflectionException
+     */
 	public function testGetInstance()
 	{
 		// Test Factory Method
