@@ -62,7 +62,7 @@ class ProxyTest extends \PHPUnit\Framework\TestCase
    		$data = $proxy->getData();
    		
    		// test assertions
-   		$this->assertTrue( sizeof($data) == 3, 'Expecting data.length == 3');
+   		$this->assertTrue(count($data) == 3, 'Expecting data.length == 3');
    		$this->assertTrue( $data[0]  == 'red', "Expecting data[0] == 'red'" );
    		$this->assertTrue( $data[1]  == 'green', "Expecting data[1] == 'green'" );
    		$this->assertTrue( $data[2]  == 'blue', "Expecting data[2] == 'blue'" );
@@ -80,7 +80,7 @@ class ProxyTest extends \PHPUnit\Framework\TestCase
    		// test assertions
    		$this->assertNotNull($proxy, 'Expecting proxy not null');
    		$this->assertTrue( $proxy->getProxyName() == 'colors', "Expecting proxy.getProxyName() == 'colors'" );
-   		$this->assertTrue( sizeof($data) == 3, 'Expecting data.length == 3');
+   		$this->assertTrue(count($data) == 3, 'Expecting data.length == 3');
    		$this->assertTrue( $data[0]  == 'red', "Expecting data[0] == 'red'" );
    		$this->assertTrue( $data[1]  == 'green', "Expecting data[1] == 'green'" );
    		$this->assertTrue( $data[2]  == 'blue', "Expecting data[2] == 'blue'" );

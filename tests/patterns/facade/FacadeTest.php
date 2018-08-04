@@ -145,7 +145,7 @@ class FacadeTest extends \PHPUnit\Framework\TestCase
 		// test assertions
    		$this->assertNotNull($data, 'Expecting data not null');
    		$this->assertTrue(is_array($data), 'Expecting data is Array');
-   		$this->assertTrue( sizeof($data) == 3, 'Expecting data.length == 3');
+   		$this->assertTrue(count($data) == 3, 'Expecting data.length == 3');
    		$this->assertTrue( $data[0]  == 'red', "Expecting data[0] == 'red'" );
    		$this->assertTrue( $data[1]  == 'green', "Expecting data[1] == 'green'" );
    		$this->assertTrue( $data[2]  == 'blue', "Expecting data[2] == 'blue'" );
