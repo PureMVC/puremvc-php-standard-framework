@@ -83,7 +83,7 @@ interface IView
      * Retrieve an <code>IMediator</code> from the <code>View</code>.
      *
      * @param mixed $mediatorName
-     * @return the <code>IMediator</code> instance previously registered with the given <code>mediatorName</code>.
+     * @return IMediator the <code>IMediator</code> instance previously registered with the given <code>mediatorName</code>.
      */
     public function retrieveMediator($mediatorName);
 

@@ -42,7 +42,7 @@ interface IModel
      * Retrieve an <code>IProxy</code> instance from the Model.
      *
      * @param mixed $proxyName
-     * @return the <code>IProxy</code> instance previously registered with the given <code>proxyName</code>.
+     * @return IProxy the <code>IProxy</code> instance previously registered with the given <code>proxyName</code>.
      */
     public function retrieveProxy($proxyName);
 

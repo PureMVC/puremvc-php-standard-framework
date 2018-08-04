@@ -43,7 +43,7 @@ class Notification implements INotification
     /**
      * Get the name of the <code>Notification</code> instance.
      * 
-     * @return the name of the <code>Notification</code> instance.
+     * @return string the name of the <code>Notification</code> instance.
      */
     public function getName()
     {
@@ -62,7 +62,7 @@ class Notification implements INotification
     /**
      * Get the body of the <code>Notification</code> instance.
      * 
-     * @return the body object. 
+     * @return mixed the body object.
      */
     public function getBody()
     {
@@ -81,7 +81,7 @@ class Notification implements INotification
     /**
      * Get the type of the <code>Notification</code> instance.
      * 
-     * @return the type  
+     * @return mixed the type
      */
     public function getType()
     {
@@ -91,7 +91,7 @@ class Notification implements INotification
     /**
      * Get the string representation of the <code>Notification</code> instance.
      * 
-     * @return the string representation of the <code>Notification</code> instance.
+     * @return string the string representation of the <code>Notification</code> instance.
      */
     public function toString()
     {

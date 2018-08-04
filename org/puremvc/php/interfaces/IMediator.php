@@ -22,7 +22,7 @@ interface IMediator
     /**
      * Get the <code>IMediator</code> instance name
      *
-     * @return the <code>IMediator</code> instance name
+     * @return string the <code>IMediator</code> instance name
      */
     public function getMediatorName();
 
@@ -44,7 +44,7 @@ interface IMediator
     /**
      * List <code>INotification</code> interests.
      *
-     * @return an <code>Array</code> of the <code>INotification</code> names this <code>IMediator</code> has an interest in.
+     * @return array an <code>Array</code> of the <code>INotification</code> names this <code>IMediator</code> has an interest in.
      */
     public function listNotificationInterests();
 

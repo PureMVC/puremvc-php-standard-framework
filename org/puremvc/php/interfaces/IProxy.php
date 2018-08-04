@@ -34,7 +34,7 @@ interface IProxy
     /**
      * Get the Proxy name
      * 
-     * @return the Proxy instance name
+     * @return string the Proxy instance name
      */
     public function getProxyName();
 

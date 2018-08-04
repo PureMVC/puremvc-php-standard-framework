@@ -45,7 +45,7 @@ class ApplicationDataProxy extends Proxy
      * Does the actual file loading of the CSS file.
      *
      * @param mixed $cssName
-     * @return A String value of the CSS loaded.
+     * @return string String value of the CSS loaded.
      */
     private function _getViewCSS($cssName)
     {
@@ -59,7 +59,7 @@ class ApplicationDataProxy extends Proxy
     /**
      * Public getter for <code>ApplicationDataVO</code>
      *
-     * @return The instance of ApplicationDataVO
+     * @return ApplicationDataVO The instance of ApplicationDataVO
      */
     public function getApplicationDataVO()
     {

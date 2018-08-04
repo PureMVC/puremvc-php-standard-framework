@@ -223,7 +223,7 @@ class Facade implements IFacade
      * Check if a Command is registered for a given Notification
      *
      * @param mixed $notificationName
-     * @return whether a Command is currently registered for the given <code>notificationName</code>.
+     * @return bool whether a Command is currently registered for the given <code>notificationName</code>.
      */
     public function hasCommand($notificationName)
     {
@@ -244,7 +244,7 @@ class Facade implements IFacade
      * Retrieve an <code>IProxy</code> from the <code>Model</code> by name.
      *
      * @param mixed $proxyName
-     * @return the <code>IProxy</code> instance previously registered with the given <code>proxyName</code>.
+     * @return IProxy the <code>IProxy</code> instance previously registered with the given <code>proxyName</code>.
      */
     public function retrieveProxy($proxyName)
     {
@@ -293,7 +293,7 @@ class Facade implements IFacade
      * Retrieve an <code>IMediator</code> from the <code>View</code>.
      *
      * @param mixed $mediatorName
-     * @return the <code>IMediator</code> previously registered with the given <code>mediatorName</code>.
+     * @return IMediator the <code>IMediator</code> previously registered with the given <code>mediatorName</code>.
      */
     public function retrieveMediator($mediatorName)
     {

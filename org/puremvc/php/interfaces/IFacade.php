@@ -47,7 +47,7 @@ interface IFacade
      * Retrieve a <code>IProxy</code> from the <code>Model</code> by name.
      *
      * @param mixed $proxyName
-     * @return the <code>IProxy</code> previously regisetered by <code>proxyName</code> with the <code>Model</code>.
+     * @return IProxy the <code>IProxy</code> previously regisetered by <code>proxyName</code> with the <code>Model</code>.
      */
     public function retrieveProxy($proxyName);
 
@@ -96,7 +96,7 @@ interface IFacade
      * Retrieve an <code>IMediator</code> instance from the <code>View</code>.
      *
      * @param mixed $mediatorName
-     * @return the <code>IMediator</code> previously registered with the given <code>mediatorName</code>.
+     * @return IMediator the <code>IMediator</code> previously registered with the given <code>mediatorName</code>.
      */
     public function retrieveMediator($mediatorName);
 

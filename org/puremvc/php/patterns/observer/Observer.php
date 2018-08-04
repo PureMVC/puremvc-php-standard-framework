@@ -80,7 +80,7 @@ class Observer implements IObserver
     /**
      * Get the notification method.
      * 
-     * @return the notification (callback) method of the interested object.
+     * @return Notification the notification (callback) method of the interested object.
      */
     private function getNotifyMethod()
     {
