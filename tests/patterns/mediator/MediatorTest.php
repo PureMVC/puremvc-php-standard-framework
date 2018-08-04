@@ -48,7 +48,7 @@ class MediatorTest extends \PHPUnit\Framework\TestCase
    		$mediator = new Mediator( '' );
    		
    		// test assertions
-   		$this->assertTrue( $mediator->getMediatorName() == Mediator::NAME, "Expecting mediator->getMediatorName() == Mediator::NAME" );
+   		$this->assertTrue( $mediator->getMediatorName() == Mediator::NAME, 'Expecting mediator->getMediatorName() == Mediator::NAME');
 	}
 	
 	/**
@@ -63,7 +63,7 @@ class MediatorTest extends \PHPUnit\Framework\TestCase
    		$mediator = new Mediator( Mediator::NAME, $view );
 		   			
    		// test assertions
-   		$this->assertNotNull( $mediator->getViewComponent(), "Expecting mediator.getViewComponent() not null" );
+   		$this->assertNotNull($mediator->getViewComponent(), 'Expecting mediator.getViewComponent() not null');
 	}
 }
 

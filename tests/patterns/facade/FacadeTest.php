@@ -51,8 +51,8 @@ class FacadeTest extends \PHPUnit\Framework\TestCase
    		$facade = Facade::getInstance();
    		
    		// test assertions
-   		$this->assertTrue( $facade != null, "Expecting instance not null" );
-   		$this->assertTrue( $facade instanceof IFacade, "Expecting instance implements IFacade" );
+   		$this->assertTrue( $facade != null, 'Expecting instance not null');
+   		$this->assertTrue( $facade instanceof IFacade, 'Expecting instance implements IFacade');
 	}
 	/**
 	 * Tests Command registration and execution via the Facade.
@@ -83,7 +83,7 @@ class FacadeTest extends \PHPUnit\Framework\TestCase
    		$facade->sendNotification( 'FacadeTestNote', $vo );
    		
    		// test assertions 
-   		$this->assertTrue( $vo->result == 64, "Expecting vo->result == 64" );
+   		$this->assertTrue( $vo->result == 64, 'Expecting vo->result == 64');
 	}
 	
 	/**
@@ -117,7 +117,7 @@ class FacadeTest extends \PHPUnit\Framework\TestCase
    		$facade->sendNotification( 'FacadeTestNote', $vo );
    		
    		// test assertions 
-   		$this->assertTrue( $vo->result != 64, "Expecting vo->result != 64" );
+   		$this->assertTrue( $vo->result != 64, 'Expecting vo->result != 64');
    	}
    	
 	/**
@@ -137,15 +137,15 @@ class FacadeTest extends \PHPUnit\Framework\TestCase
 		$proxy = $facade->retrieveProxy('colors');
 		
 		// test assertions
-   		$this->assertTrue( $proxy instanceof puremvc\php\interfaces\IProxy, "Expecting proxy is IProxy" );
+   		$this->assertTrue( $proxy instanceof puremvc\php\interfaces\IProxy, 'Expecting proxy is IProxy');
    		
 		// retrieve data from proxy
 		$data = $proxy->getData();
 		
 		// test assertions
-   		$this->assertNotNull( $data, "Expecting data not null" );
-   		$this->assertTrue( is_array($data), "Expecting data is Array" );
-   		$this->assertTrue( sizeof($data) == 3, "Expecting data.length == 3" );
+   		$this->assertNotNull($data, 'Expecting data not null');
+   		$this->assertTrue(is_array($data), 'Expecting data is Array');
+   		$this->assertTrue( sizeof($data) == 3, 'Expecting data.length == 3');
    		$this->assertTrue( $data[0]  == 'red', "Expecting data[0] == 'red'" );
    		$this->assertTrue( $data[1]  == 'green', "Expecting data[1] == 'green'" );
    		$this->assertTrue( $data[2]  == 'blue', "Expecting data[2] == 'blue'" );
@@ -172,7 +172,7 @@ class FacadeTest extends \PHPUnit\Framework\TestCase
 		$proxy = $facade->retrieveProxy( 'sizes' );
 		
 		// test assertions
-   		$this->assertNull( $proxy, "Expecting proxy is null" );
+   		$this->assertNull($proxy, 'Expecting proxy is null');
    	}
    	
 	/**
@@ -185,19 +185,16 @@ class FacadeTest extends \PHPUnit\Framework\TestCase
 		$facade->registerMediator( new Mediator(Mediator::NAME, new \stdClass()) );
 		
 		// retrieve the mediator
-   		$this->assertNotNull( $facade->retrieveMediator( Mediator::NAME ),
-   								"Expecting mediator is not null" );
+   		$this->assertNotNull( $facade->retrieveMediator( Mediator::NAME ), 'Expecting mediator is not null');
 
 		// remove the mediator
 		$removedMediator = $facade->removeMediator( Mediator::NAME );
 
 		// assert that we have removed the appropriate mediator
-   		$this->assertTrue( $removedMediator->getMediatorName() == Mediator::NAME,
-   							"Expecting removedMediator.getMediatorName() == Mediator.NAME" );
+   		$this->assertTrue( $removedMediator->getMediatorName() == Mediator::NAME, 'Expecting removedMediator.getMediatorName() == Mediator.NAME');
 			
 		// assert that the mediator is no longer retrievable
-   		$this->assertTrue( $facade->retrieveMediator( Mediator::NAME ) == null,
-   							"Expecting facade.retrieveMediator( Mediator.NAME ) == null )" );	  			
+   		$this->assertTrue( $facade->retrieveMediator( Mediator::NAME ) == null, 'Expecting facade.retrieveMediator( Mediator.NAME ) == null )');
    	}
    	
 	/**

@@ -25,7 +25,7 @@ if (isset( $_GET[ 'c' ] ))
 }
 else
 {
-	$cssName = "default";
+	$cssName = 'default';
 }
 
 function html_debug( $stack )

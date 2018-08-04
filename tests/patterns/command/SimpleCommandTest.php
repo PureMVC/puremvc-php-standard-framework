@@ -72,7 +72,7 @@ class SimpleCommandTest extends \PHPUnit\Framework\TestCase
    		$command->execute( $note );
    		
    		// test assertions
-   		$this->assertTrue( $vo->result == 10, "Expecting vo.result == 10" );
+   		$this->assertTrue( $vo->result == 10, 'Expecting vo.result == 10');
 	}
 }
 

@@ -55,8 +55,8 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
    		$controller = Controller::getInstance();
    		
    		// test assertions
-   		$this->assertTrue( $controller != null, "Expecting instance not null" );
-   		$this->assertTrue( $controller instanceof IController, "Expecting instance implements IController" );
+   		$this->assertTrue( $controller != null, 'Expecting instance not null');
+   		$this->assertTrue( $controller instanceof IController, 'Expecting instance implements IController');
 	}
 
     /**
@@ -91,7 +91,7 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
    		$controller->executeCommand( $note );
    		
    		// test assertions 
-   		$this->assertTrue( $vo->result == 24, "Expecting vo.result == 24" );
+   		$this->assertTrue( $vo->result == 24, 'Expecting vo.result == 24');
 	}
 	
 	/**
@@ -117,7 +117,7 @@ class ControllerTest extends \PHPUnit\Framework\TestCase
    		$controller->executeCommand( $note );
    		
    		// test assertions 
-   		$this->assertTrue( $vo->result == 24, "Expecting vo.result == 24" );
+   		$this->assertTrue( $vo->result == 24, 'Expecting vo.result == 24');
    		
    		// Reset result
    		$vo->result = 0;

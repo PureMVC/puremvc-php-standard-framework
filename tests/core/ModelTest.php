@@ -55,7 +55,7 @@ class ModelTest extends \PHPUnit\Framework\TestCase
    		$model = Model::getInstance();
    		
    		// test assertion - Model::getInstance() non-null
-   		$this->assertNotNull( $model, "Expecting instance not null" );
+   		$this->assertNotNull($model, 'Expecting instance not null');
    		
    		// utilize reflection for the interface test assertion
    		$this->classReflector = new \ReflectionClass( $model );
@@ -89,9 +89,9 @@ class ModelTest extends \PHPUnit\Framework\TestCase
 		$data = $proxy->getData();
 		
 		// test assertions
-   		 $this->assertNotNull( $data, "Expecting data not null" );
-   		 $this->assertTrue( is_array($data), "Expecting data type is Array" );
-   		 $this->assertTrue( count($data) == 3, "Expecting data.length == 3" );
+   		 $this->assertNotNull($data, 'Expecting data not null');
+   		 $this->assertTrue(is_array($data), 'Expecting data type is Array');
+   		 $this->assertTrue( count($data) == 3, 'Expecting data.length == 3');
    		 $this->assertTrue( $data[0]  == 'red', "Expecting data[0] == 'red'" );
    		 $this->assertTrue( $data[1]  == 'green', "Expecting data[1] == 'green'" );
    		 $this->assertTrue( $data[2]  == 'blue', "Expecting data[2] == 'blue'" );
@@ -118,7 +118,7 @@ class ModelTest extends \PHPUnit\Framework\TestCase
 		$proxy = $model->retrieveProxy( 'sizes' );
 		
 		// test assertions
-   		$this->assertNull( $proxy, "Expecting proxy is null" );
+   		$this->assertNull($proxy, 'Expecting proxy is null');
 	}
 	
 	/**
@@ -158,15 +158,13 @@ class ModelTest extends \PHPUnit\Framework\TestCase
 		$model->registerProxy( $proxy );
 
 		// assert that onRegsiter was called, and the proxy responded by setting its data accordingly
-   		$this->assertTrue( $proxy->getData() == ModelTestProxy::ON_REGISTER_CALLED, 
-   								"Expecting proxy.getData() == ModelTestProxy.ON_REGISTER_CALLED" );
+   		$this->assertTrue( $proxy->getData() == ModelTestProxy::ON_REGISTER_CALLED, 'Expecting proxy.getData() == ModelTestProxy.ON_REGISTER_CALLED');
 		
 		// Remove the component
 		$model->removeProxy( ModelTestProxy::NAME );
 		
 		// assert that onRemove was called, and the proxy responded by setting its data accordingly
-   		$this->assertTrue( $proxy->getData() == ModelTestProxy::ON_REMOVE_CALLED, 
-   								"Expecting proxy.getData() == ModelTestProxy.ON_REMOVE_CALLED" );
+   		$this->assertTrue( $proxy->getData() == ModelTestProxy::ON_REMOVE_CALLED, 'Expecting proxy.getData() == ModelTestProxy.ON_REMOVE_CALLED');
 	}
 }
 

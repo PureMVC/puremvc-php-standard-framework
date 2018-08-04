@@ -90,8 +90,8 @@ class MacroCommandTest extends \PHPUnit\Framework\TestCase
    		$command->execute( $note );
    		
    		// test assertions
-   		$this->assertTrue( $vo->result1 == 10, "Expecting vo->result1 == 10" );
-   		$this->assertTrue( $vo->result2 == 25, "Expecting vo->result2 == 25" );
+   		$this->assertTrue( $vo->result1 == 10, 'Expecting vo->result1 == 10');
+   		$this->assertTrue( $vo->result2 == 25, 'Expecting vo->result2 == 25');
 	}
 }
 

@@ -38,12 +38,12 @@ class ViewTest extends \PHPUnit\Framework\TestCase
   	 */
 	private $viewTestVar;
 	
- 	const NOTE1 = "Notification1";
-	const NOTE2 = "Notification2";
-	const NOTE3 = "Notification3";
-	const NOTE4 = "Notification4";
-	const NOTE5 = "Notification5";
-	const NOTE6 = "Notification6";
+ 	const NOTE1 = 'Notification1';
+	const NOTE2 = 'Notification2';
+	const NOTE3 = 'Notification3';
+	const NOTE4 = 'Notification4';
+	const NOTE5 = 'Notification5';
+	const NOTE6 = 'Notification6';
 	
 	public $lastNotification;	
   	public $onRegisterCalled = false;
@@ -75,8 +75,8 @@ class ViewTest extends \PHPUnit\Framework\TestCase
    		$view = View::getInstance();
    		
    		// test assertions
-   		$this->assertTrue( $view != null, "Expecting instance not null" );
-   		$this->assertTrue( $view instanceof IView, "Expecting instance implements IView" );
+   		$this->assertTrue( $view != null, 'Expecting instance not null');
+   		$this->assertTrue( $view instanceof IView, 'Expecting instance implements IView');
 	}
 	
 	/**
@@ -121,7 +121,7 @@ class ViewTest extends \PHPUnit\Framework\TestCase
 		$view->notifyObservers( $note );
 
 		// test assertions  			
-   		$this->assertTrue( $this->viewTestVar == 10, "Expecting viewTestVar = 10" );
+   		$this->assertTrue( $this->viewTestVar == 10, 'Expecting viewTestVar = 10');
 	}
 	
 	/**
@@ -141,7 +141,7 @@ class ViewTest extends \PHPUnit\Framework\TestCase
 		$mediator = $view->retrieveMediator( ViewTestMediator::NAME );
 		
 		// test assertions  			
-   		$this->assertTrue( $mediator instanceof ViewTestMediator, "Expecting comp is ViewTestMediator" );
+   		$this->assertTrue( $mediator instanceof ViewTestMediator, 'Expecting comp is ViewTestMediator');
    		
    		$this->cleanup();
 	}
@@ -208,13 +208,13 @@ class ViewTest extends \PHPUnit\Framework\TestCase
 		$view->registerMediator( $mediator );
 
 		// assert that onRegsiter was called, and the mediator responded by setting our boolean
-   		$this->assertTrue( $this->onRegisterCalled, "Expecting onRegisterCalled == true" );
+   		$this->assertTrue($this->onRegisterCalled, 'Expecting onRegisterCalled == true');
 		
 		// Remove the component
 		$view->removeMediator( ViewTestMediator4::NAME );
 		
 		// assert that the mediator is no longer retrievable
-   		$this->assertTrue( $this->onRemoveCalled, "Expecting onRemoveCalled == true" );
+   		$this->assertTrue($this->onRemoveCalled, 'Expecting onRemoveCalled == true');
    					
 		$this->cleanup();
 	}
@@ -232,15 +232,13 @@ class ViewTest extends \PHPUnit\Framework\TestCase
 		$view->registerMediator( new ViewTestMediator( $this ) );
 		
 		// test that we can retrieve it
-   		$this->assertTrue( $view->retrieveMediator( ViewTestMediator::NAME ) instanceof ViewTestMediator, 
-   						"Expecting view->retrieveMediator( ViewTestMediator.NAME ) is ViewTestMediator" );
+   		$this->assertTrue( $view->retrieveMediator( ViewTestMediator::NAME ) instanceof ViewTestMediator, 'Expecting view->retrieveMediator( ViewTestMediator.NAME ) is ViewTestMediator');
 
 		// Remove the Mediator
 		$view->removeMediator( ViewTestMediator::NAME );
 
 		// test that retrieving it now returns null			
-   		$this->assertTrue( $view->retrieveMediator( ViewTestMediator::NAME ) == null, 
-   							"Expecting view->retrieveMediator( ViewTestMediator::NAME ) == null" );
+   		$this->assertTrue( $view->retrieveMediator( ViewTestMediator::NAME ) == null, 'Expecting view->retrieveMediator( ViewTestMediator::NAME ) == null');
 
 		// test that removing the mediator again once its gone doesn't cause crash 		
    		$this->assertTrue( $view->removeMediator( ViewTestMediator::NAME ) == null, 
@@ -249,15 +247,13 @@ class ViewTest extends \PHPUnit\Framework\TestCase
 		// Create and register another instance of the test mediator, 
 		$view->registerMediator( new ViewTestMediator( $this ) );
 		
-   		$this->assertTrue( $view->retrieveMediator( ViewTestMediator::NAME ) instanceof ViewTestMediator, 
-   							"Expecting view->retrieveMediator( ViewTestMediator::NAME ) is ViewTestMediator" );
+   		$this->assertTrue( $view->retrieveMediator( ViewTestMediator::NAME ) instanceof ViewTestMediator, 'Expecting view->retrieveMediator( ViewTestMediator::NAME ) is ViewTestMediator');
 
 		// Remove the Mediator
 		$view->removeMediator( ViewTestMediator::NAME );
 		
 		// test that retrieving it now returns null			
-   		$this->assertTrue( $view->retrieveMediator( ViewTestMediator::NAME ) == null, 
-   							"Expecting view->retrieveMediator( ViewTestMediator::NAME ) == null" );
+   		$this->assertTrue( $view->retrieveMediator( ViewTestMediator::NAME ) == null, 'Expecting view->retrieveMediator( ViewTestMediator::NAME ) == null');
 
 		$this->cleanup();						  			
 	}
@@ -278,19 +274,16 @@ class ViewTest extends \PHPUnit\Framework\TestCase
 		// test that notifications work
    		$view->notifyObservers( new Notification(ViewTest::NOTE1) );
    		print( '<br/>last note = ' . $this->lastNotification . '<br/>' );
-   		$this->assertTrue( $this->lastNotification == ViewTest::NOTE1, 
-   							"Expecting lastNotification == NOTE1" );
+   		$this->assertTrue( $this->lastNotification == ViewTest::NOTE1, 'Expecting lastNotification == NOTE1');
    		
    		$view->notifyObservers( new Notification(NOTE2) );
-   		$this->assertTrue( $this->lastNotification == ViewTest::NOTE2, 
-   							"Expecting lastNotification == NOTE2" );
+   		$this->assertTrue( $this->lastNotification == ViewTest::NOTE2, 'Expecting lastNotification == NOTE2');
 
 		// Remove the Mediator
 		$view->removeMediator( ViewTestMediator2::NAME );
 
 		// test that retrieving it now returns null			
-   		$this->assertTrue( $view->retrieveMediator( ViewTestMediator2::NAME ) == null, 
-   							"Expecting view->retrieveMediator( ViewTestMediator2.NAME ) == null" );
+   		$this->assertTrue( $view->retrieveMediator( ViewTestMediator2::NAME ) == null, 'Expecting view->retrieveMediator( ViewTestMediator2.NAME ) == null');
 
 		// test that notifications no longer work
 		// (ViewTestMediator2 is the one that sets lastNotification
@@ -298,12 +291,10 @@ class ViewTest extends \PHPUnit\Framework\TestCase
 		$this->lastNotification = null;
 		
    		$view->notifyObservers( new Notification(ViewTest::NOTE1) );
-   		$this->assertTrue( $this->lastNotification != ViewTest::NOTE1, 
-   							"Expecting lastNotification != NOTE1" );
+   		$this->assertTrue( $this->lastNotification != ViewTest::NOTE1, 'Expecting lastNotification != NOTE1');
 
    		$view->notifyObservers( new Notification(ViewTest::NOTE2) );
-   		$this->assertTrue( $this->lastNotification != ViewTest::NOTE2, 
-   							"Expecting lastNotification != NOTE2" );
+   		$this->assertTrue( $this->lastNotification != ViewTest::NOTE2, 'Expecting lastNotification != NOTE2');
 
 		$this->cleanup();						  			
 	}
@@ -326,39 +317,32 @@ class ViewTest extends \PHPUnit\Framework\TestCase
 		
 		// test that all notifications work
    		$view->notifyObservers( new Notification(ViewTest::NOTE1) );
-   		$this->assertTrue( $this->lastNotification == ViewTest::NOTE1, 
-   							"Expecting lastNotification == NOTE1" );
+   		$this->assertTrue( $this->lastNotification == ViewTest::NOTE1, 'Expecting lastNotification == NOTE1');
 
    		$view->notifyObservers( new Notification(ViewTest::NOTE2) );
-   		$this->assertTrue( $this->lastNotification == ViewTest::NOTE2, 
-   							"Expecting lastNotification == NOTE2" );
+   		$this->assertTrue( $this->lastNotification == ViewTest::NOTE2, 'Expecting lastNotification == NOTE2');
 
    		$view->notifyObservers( new Notification(ViewTest::NOTE3) );
-   		$this->assertTrue( $this->lastNotification == ViewTest::NOTE3, 
-   							"Expecting lastNotification == NOTE3" );
+   		$this->assertTrue( $this->lastNotification == ViewTest::NOTE3, 'Expecting lastNotification == NOTE3');
 	   			
 		// Remove the Mediator that responds to 1 and 2
 		$view->removeMediator( ViewTestMediator2::NAME );
 
 		// test that retrieving it now returns null			
-   		$this->assertTrue( $view->retrieveMediator( ViewTestMediator2::NAME ) == null, 
-   						"Expecting view->retrieveMediator( ViewTestMediator2.NAME ) == null" );
+   		$this->assertTrue( $view->retrieveMediator( ViewTestMediator2::NAME ) == null, 'Expecting view->retrieveMediator( ViewTestMediator2.NAME ) == null');
 
 		// test that notifications no longer work
 		// for notifications 1 and 2, but still work for 3
 		$this->lastNotification = null;
 		
    		$view->notifyObservers( new Notification(ViewTest::NOTE1) );
-   		$this->assertTrue( $this->lastNotification != ViewTest::NOTE1, 
-   							"Expecting lastNotification != NOTE1" );
+   		$this->assertTrue( $this->lastNotification != ViewTest::NOTE1, 'Expecting lastNotification != NOTE1');
 
    		$view->notifyObservers( new Notification(ViewTest::NOTE2) );
-   		$this->assertTrue( $this->lastNotification != ViewTest::NOTE2, 
-   							"Expecting lastNotification != NOTE2" );
+   		$this->assertTrue( $this->lastNotification != ViewTest::NOTE2, 'Expecting lastNotification != NOTE2');
 
    		$view->notifyObservers( new Notification(ViewTest::NOTE3) );
-   		$this->assertTrue( $this->lastNotification == ViewTest::NOTE3, 
-   							"Expecting lastNotification == NOTE3" );
+   		$this->assertTrue( $this->lastNotification == ViewTest::NOTE3, 'Expecting lastNotification == NOTE3');
 
 		$this->cleanup();						  			
 	}
@@ -387,7 +371,7 @@ class ViewTest extends \PHPUnit\Framework\TestCase
 		// test that the counter is only incremented once (mediator 5's response) 
 		$this->counter = 0;
    		$view->notifyObservers( new Notification(ViewTest::NOTE5) );
-   		$this->assertEquals( 1, $this->counter, "Expecting counter == 1" );
+   		$this->assertEquals(1, $this->counter, 'Expecting counter == 1');
 
 		// Remove the Mediator 
 		$view->removeMediator( ViewTestMediator5::NAME );
@@ -399,7 +383,7 @@ class ViewTest extends \PHPUnit\Framework\TestCase
 		// test that the counter is no longer incremented  
 		$this->counter = 0;
    		$view->notifyObservers( new Notification(ViewTest::NOTE5) );
-   		$this->assertEquals( 0, $this->counter, "Expecting counter == 0" );
+   		$this->assertEquals(0, $this->counter, 'Expecting counter == 0');
 	}
 	
 	/**
@@ -421,14 +405,14 @@ class ViewTest extends \PHPUnit\Framework\TestCase
 		// by removing themselves, which will cause the observer list for that notification 
 		// to change. versions prior to Standard Version 2.0.4 will see every other mediator
 		// fails to be notified.  
-		$view->registerMediator( new ViewTestMediator6(ViewTestMediator6+"/1", $this) );
-		$view->registerMediator( new ViewTestMediator6(ViewTestMediator6+"/2", $this) );
-		$view->registerMediator( new ViewTestMediator6(ViewTestMediator6+"/3", $this) );
-		$view->registerMediator( new ViewTestMediator6(ViewTestMediator6+"/4", $this) );
-		$view->registerMediator( new ViewTestMediator6(ViewTestMediator6+"/5", $this) );
-		$view->registerMediator( new ViewTestMediator6(ViewTestMediator6+"/6", $this) );
-		$view->registerMediator( new ViewTestMediator6(ViewTestMediator6+"/7", $this) );
-		$view->registerMediator( new ViewTestMediator6(ViewTestMediator6+"/8", $this) );
+		$view->registerMediator( new ViewTestMediator6(ViewTestMediator6 + '/1', $this) );
+		$view->registerMediator( new ViewTestMediator6(ViewTestMediator6 + '/2', $this) );
+		$view->registerMediator( new ViewTestMediator6(ViewTestMediator6 + '/3', $this) );
+		$view->registerMediator( new ViewTestMediator6(ViewTestMediator6 + '/4', $this) );
+		$view->registerMediator( new ViewTestMediator6(ViewTestMediator6 + '/5', $this) );
+		$view->registerMediator( new ViewTestMediator6(ViewTestMediator6 + '/6', $this) );
+		$view->registerMediator( new ViewTestMediator6(ViewTestMediator6 + '/7', $this) );
+		$view->registerMediator( new ViewTestMediator6(ViewTestMediator6 + '/8', $this) );
 
 		// clear the counter
 		$this->counter = 0;
@@ -437,13 +421,13 @@ class ViewTest extends \PHPUnit\Framework\TestCase
 		// count of 8, since 8 mediators will respond.
 		$view->notifyObservers( new Notification( ViewTest::NOTE6 ) );
 		// verify the count is correct
-   		$this->assertEquals( 8, $this->counter, "Expecting counter == 8" );
+   		$this->assertEquals(8, $this->counter, 'Expecting counter == 8');
 
 		// clear the counter
 		$this->counter = 0;
 		$view->notifyObservers( new Notification( ViewTest::NOTE6 ) );
 		// verify the count is 0
-   		$this->assertEquals( 0, $this->counter, "Expecting counter == 0" );
+   		$this->assertEquals(0, $this->counter, 'Expecting counter == 0');
 	}
 
     /**

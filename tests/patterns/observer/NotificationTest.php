@@ -60,7 +60,7 @@ class NotificationTest extends \PHPUnit\Framework\TestCase
    		$note->setBody( 5 );
    		
    		// test assertions
-   		$this->assertTrue( $note->getBody() == 5, "Expecting note.getBody() as Number == 5" );
+   		$this->assertTrue( $note->getBody() == 5, 'Expecting note.getBody() as Number == 5');
 	}
 	
 	/**
@@ -73,7 +73,7 @@ class NotificationTest extends \PHPUnit\Framework\TestCase
    		
    		// test assertions
    		$this->assertTrue( $note->getName() == 'TestNote', "Expecting note.getName() == 'TestNote'" );
-   		$this->assertTrue( $note->getBody() == 5, "Expecting note->getBody() as Number == 5" );
+   		$this->assertTrue( $note->getBody() == 5, 'Expecting note->getBody() as Number == 5');
    		$this->assertTrue( $note->getType() == 'TestNoteType', "Expecting note->getType() == 'TestNoteType'" );
 	}
 	

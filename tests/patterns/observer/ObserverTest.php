@@ -67,7 +67,7 @@ class ObserverTest extends \PHPUnit\Framework\TestCase
 		$observer->notifyObserver( $note );
 
 		// test assertions  			
-   		$this->assertTrue( $this->observerTestVar == 10, "Expecting observerTestVar = 10" );
+   		$this->assertTrue( $this->observerTestVar == 10, 'Expecting observerTestVar = 10');
 	}
 	
 	/**
@@ -88,7 +88,7 @@ class ObserverTest extends \PHPUnit\Framework\TestCase
 		$observer->notifyObserver( $note );
 		
 		// test assertions  			
-   		$this->assertTrue( $this->observerTestVar == 5, "Expecting observerTestVar = 5" );
+   		$this->assertTrue( $this->observerTestVar == 5, 'Expecting observerTestVar = 5');
 	}
 	
 	/**
@@ -102,8 +102,8 @@ class ObserverTest extends \PHPUnit\Framework\TestCase
   		$negTestObj = new stdClass();
   		
 		// test assertions  			
-   		$this->assertTrue( $observer->compareNotifyContext($negTestObj) == false, "Expecting observer->compareNotifyContext(negTestObj) == false" );
-   		$this->assertTrue( $observer->compareNotifyContext($this) == true, "Expecting observer->compareNotifyContext(this) == true" );
+   		$this->assertTrue( $observer->compareNotifyContext($negTestObj) == false, 'Expecting observer->compareNotifyContext(negTestObj) == false');
+   		$this->assertTrue( $observer->compareNotifyContext($this) == true, 'Expecting observer->compareNotifyContext(this) == true');
 	}
 
     /**
