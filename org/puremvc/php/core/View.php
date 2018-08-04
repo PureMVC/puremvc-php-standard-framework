@@ -1,4 +1,12 @@
 <?php
+namespace puremvc\php\core;
+use puremvc\php\interfaces\IView;
+use puremvc\php\interfaces\IMediator;
+use puremvc\php\interfaces\INotification;
+use puremvc\php\interfaces\IObserver;
+use puremvc\php\patterns\observer\Observer;
+
+
 /**
  * PureMVC Port to PHP originally translated by Asbjørn Sloth Tønnesen
  *
@@ -9,10 +17,6 @@
  * PureMVC - Copyright(c) 2006-2008 Futurescale, Inc., Some rights reserved.
  * Your reuse is governed by the Creative Commons Attribution 3.0 Unported License
  */
-require_once 'org/puremvc/php/interfaces/IView.php';
-require_once 'org/puremvc/php/interfaces/IMediator.php';
-require_once 'org/puremvc/php/interfaces/INotification.php';
-require_once 'org/puremvc/php/interfaces/IObserver.php';
 
 /**
  * A Singleton <code>IView</code> implementation.
@@ -77,7 +81,7 @@ class View implements IView
     /**
      * View Singleton Factory method.
      *
-     * @return the Singleton instance of <code>View</code>
+     * @return View Singleton instance of <code>View</code>
      */
     public static function getInstance()
     {
@@ -92,9 +96,8 @@ class View implements IView
      * Register an <code>IObserver</code> to be notified
      * of <code>INotifications</code> with a given name.
      *
-     * @param notificationName the name of the <code>INotifications</code> to notify this <code>IObserver</code> of
-     * @param observer the <code>IObserver</code> to register
-     * @param mixed $notificationName
+     * @param mixed                             $notificationName
+     * @param IObserver $observer
      */
     public function registerObserver($notificationName, IObserver $observer)
     {
@@ -113,7 +116,7 @@ class View implements IView
      * list are notified and are passed a reference to the <code>INotification</code> in
      * the order in which they were registered.</P>
      *
-     * @param notification the <code>INotification</code> to notify <code>IObservers</code> of.
+     * @param INotification $notification
      */
     public function notifyObservers(INotification $notification)
     {
@@ -147,7 +150,7 @@ class View implements IView
         $observers = $this->observerMap[$notificationName];
 
         // find the observer for the notifyContext
-        for ($i = 0; $i < count($observers); $i++) {
+        for ($i = 0, $iMax = count($observers); $i < $iMax; $i++) {
             if ($observers[$i]->compareNotifyContext($notifyContext)) {
                 // there can only be one Observer for a given notifyContext
                 // in any given Observer list, so remove it and break
@@ -177,8 +180,7 @@ class View implements IView
      * and registering it as an <code>Observer</code> for all <code>INotifications</code> the
      * <code>IMediator</code> is interested in.</p>
      *
-     * @param mediatorName the name to associate with this <code>IMediator</code> instance
-     * @param mediator a reference to the <code>IMediator</code> instance
+     * @param IMediator $mediator
      */
     public function registerMediator(IMediator $mediator)
     {
@@ -210,7 +212,6 @@ class View implements IView
     /**
      * Retrieve an <code>IMediator</code> from the <code>View</code>.
      *
-     * @param mediatorName the name of the <code>IMediator</code> instance to retrieve.
      * @param mixed $mediatorName
      * @return the <code>IMediator</code> instance previously registered with the given <code>mediatorName</code>.
      */
@@ -224,8 +225,8 @@ class View implements IView
     /**
      * Check to see if a Mediator is registered with the View.
      *
-     * @param mediatorName name of the <code>IMediator</code> instance to check for.
      * @param mixed $mediatorName
+     * @return bool
      */
     public function hasMediator($mediatorName)
     {
@@ -235,8 +236,8 @@ class View implements IView
     /**
      * Remove an <code>IMediator</code> from the <code>View</code>.
      *
-     * @param mediatorName name of the <code>IMediator</code> instance to be removed.
      * @param mixed $mediatorName
+     * @return mixed|null
      */
     public function removeMediator($mediatorName)
     {

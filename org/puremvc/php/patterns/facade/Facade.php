@@ -1,4 +1,14 @@
 <?php
+namespace puremvc\php\patterns\facade;
+use puremvc\php\core\Controller;
+use puremvc\php\core\Model;
+use puremvc\php\core\View;
+use puremvc\php\interfaces\IFacade;
+use puremvc\php\interfaces\IMediator;
+use puremvc\php\interfaces\INotification;
+use puremvc\php\interfaces\IProxy;
+use puremvc\php\patterns\observer\Notification;
+
 /**
  * PureMVC Port to PHP originally translated by Asbjørn Sloth Tønnesen
  *
@@ -9,14 +19,6 @@
  * PureMVC - Copyright(c) 2006-2008 Futurescale, Inc., Some rights reserved.
  * Your reuse is governed by the Creative Commons Attribution 3.0 Unported License
  */
-require_once 'org/puremvc/php/core/Controller.php';
-require_once 'org/puremvc/php/core/Model.php';
-require_once 'org/puremvc/php/core/View.php';
-require_once 'org/puremvc/php/interfaces/IFacade.php';
-require_once 'org/puremvc/php/interfaces/IMediator.php';
-require_once 'org/puremvc/php/interfaces/INotification.php';
-require_once 'org/puremvc/php/interfaces/IProxy.php';
-require_once 'org/puremvc/php/patterns/observer/Notification.php';
 
 /**
  * A base Singleton <code>IFacade</code> implementation.
@@ -87,8 +89,8 @@ class Facade implements IFacade
 
     /**
      * Facade Singleton Factory method
-     * 
-     * @return the Singleton instance of the Facade
+     *
+     * @return Facade Singleton instance of the Facade
      */
     public static function getInstance()
     {
@@ -186,8 +188,8 @@ class Facade implements IFacade
 
     /**
      * Notify <code>Observer</code>s.
-     * 
-     * @param notification the <code>INotification</code> to have the <code>View</code> notify <code>Observers</code> of.
+     *
+     * @param INotification $notification
      */
     public function notifyObservers(INotification $notification)
     {
@@ -198,9 +200,7 @@ class Facade implements IFacade
 
     /**
      * Register an <code>ICommand</code> with the <code>Controller</code> by Notification name.
-     * 
-     * @param notificationName the name of the <code>INotification</code> to associate the <code>ICommand</code> with
-     * @param commandClassRef a reference to the Class of the <code>ICommand</code>
+     *
      * @param mixed $notificationName
      * @param mixed $commandClassRef
      */
@@ -211,8 +211,7 @@ class Facade implements IFacade
 
     /**
      * Remove a previously registered <code>ICommand</code> to <code>INotification</code> mapping from the Controller.
-     * 
-     * @param notificationName the name of the <code>INotification</code> to remove the <code>ICommand</code> mapping for
+     *
      * @param mixed $notificationName
      */
     public function removeCommand($notificationName)
@@ -221,9 +220,8 @@ class Facade implements IFacade
     }
 
     /**
-     * Check if a Command is registered for a given Notification 
-     * 
-     * @param notificationName
+     * Check if a Command is registered for a given Notification
+     *
      * @param mixed $notificationName
      * @return whether a Command is currently registered for the given <code>notificationName</code>.
      */
@@ -234,9 +232,8 @@ class Facade implements IFacade
 
     /**
      * Register an <code>IProxy</code> with the <code>Model</code> by name.
-     * 
-     * @param proxyName the name of the <code>IProxy</code>.
-     * @param proxy the <code>IProxy</code> instance to be registered with the <code>Model</code>.
+     *
+     * @param IProxy $proxy
      */
     public function registerProxy(IProxy $proxy)
     {
@@ -245,8 +242,7 @@ class Facade implements IFacade
 
     /**
      * Retrieve an <code>IProxy</code> from the <code>Model</code> by name.
-     * 
-     * @param proxyName the name of the proxy to be retrieved.
+     *
      * @param mixed $proxyName
      * @return the <code>IProxy</code> instance previously registered with the given <code>proxyName</code>.
      */
@@ -257,9 +253,9 @@ class Facade implements IFacade
 
     /**
      * Check to see if a Proxy is registered with the Model.
-     * 
-     * @param proxyName name of the <code>IProxy</code> instance to check for.
+     *
      * @param mixed $proxyName
+     * @return
      */
     public function hasProxy($proxyName)
     {
@@ -269,8 +265,8 @@ class Facade implements IFacade
     /**
      * Remove an <code>IProxy</code> from the <code>Model</code> by name.
      *
-     * @param proxyName the <code>IProxy</code> to remove from the <code>Model</code>.
      * @param mixed $proxyName
+     * @return
      */
     public function removeProxy($proxyName)
     {
@@ -283,9 +279,8 @@ class Facade implements IFacade
 
     /**
      * Register a <code>IMediator</code> with the <code>View</code>.
-     * 
-     * @param mediatorName the name to associate with this <code>IMediator</code>
-     * @param mediator a reference to the <code>IMediator</code>
+     *
+     * @param IMediator $mediator
      */
     public function registerMediator(IMediator $mediator)
     {
@@ -296,8 +291,7 @@ class Facade implements IFacade
 
     /**
      * Retrieve an <code>IMediator</code> from the <code>View</code>.
-     * 
-     * @param mediatorName
+     *
      * @param mixed $mediatorName
      * @return the <code>IMediator</code> previously registered with the given <code>mediatorName</code>.
      */
@@ -308,9 +302,9 @@ class Facade implements IFacade
 
     /**
      * Check to see if a Mediator is registered with the View.
-     * 
-     * @param mediatorName name of the <code>IMediator</code> instance to check for.
+     *
      * @param mixed $mediatorName
+     * @return
      */
     public function hasMediator($mediatorName)
     {
@@ -319,9 +313,9 @@ class Facade implements IFacade
 
     /**
      * Remove an <code>IMediator</code> from the <code>View</code>.
-     * 
-     * @param mediatorName name of the <code>IMediator</code> to be removed.
+     *
      * @param mixed $mediatorName
+     * @return
      */
     public function removeMediator($mediatorName)
     {
@@ -334,14 +328,11 @@ class Facade implements IFacade
 
     /**
      * Send an <code>INotification</code>.
-     * 
+     *
      * <P>
-     * Keeps us from having to construct new notification 
+     * Keeps us from having to construct new notification
      * instances in our implementation code.
-     * @param notificationName the name of the notiification to send
-     * @param body the body of the notification (optional)
-     * @param type the type of the notification (optional)
-     * @param mixed $notificationName
+     * @param mixed      $notificationName
      * @param null|mixed $body
      * @param null|mixed $type
      */

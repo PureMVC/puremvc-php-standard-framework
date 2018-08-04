@@ -1,4 +1,8 @@
 <?php
+namespace puremvc\php\patterns\command;
+use puremvc\php\interfaces\ICommand;
+use puremvc\php\interfaces\INotification;
+use puremvc\php\patterns\observer\Notifier;
 /**
  * PureMVC Port to PHP originally translated by Asbjørn Sloth Tønnesen
  *
@@ -9,9 +13,6 @@
  * PureMVC - Copyright(c) 2006-2008 Futurescale, Inc., Some rights reserved.
  * Your reuse is governed by the Creative Commons Attribution 3.0 Unported License
  */
-require_once 'org/puremvc/php/interfaces/ICommand.php';
-require_once 'org/puremvc/php/interfaces/INotifier.php';
-require_once 'org/puremvc/php/patterns/observer/Notifier.php';
 
 /**
  * A base <code>ICommand</code> implementation that executes other <code>ICommand</code>s.
@@ -40,7 +41,7 @@ require_once 'org/puremvc/php/patterns/observer/Notifier.php';
  * @see org.puremvc.patterns.observer.Notification Notification
  * @see org.puremvc.patterns.command.SimpleCommand SimpleCommand
  */
-class MacroCommand extends Notifier implements ICommand, INotifier
+class MacroCommand extends Notifier implements ICommand
 {
     private $subCommands;
 
@@ -92,33 +93,33 @@ class MacroCommand extends Notifier implements ICommand, INotifier
 
     /**
      * Add a <i>SubCommand</i>.
-     * 
+     *
      * <P>
      * The <i>SubCommands</i> will be called in First In/First Out (FIFO)
      * order.</P>
-     * 
-     * @param commandClassRef a reference to the <code>Class</code> of the <code>ICommand</code>.
+     *
      * @param mixed $commandClassRef
      */
     protected function addSubCommand($commandClassRef)
     {
-        array_push($this->subCommands, $commandClassRef);
+        $this->subCommands[] = $commandClassRef;
     }
 
-    /** 
+    /**
      * Execute this <code>MacroCommand</code>'s <i>SubCommands</i>.
-     * 
+     *
      * <P>
      * The <i>SubCommands</i> will be called in First In/First Out (FIFO)
-     * order. 
-     * 
-     * @param notification the <code>INotification</code> object to be passsed to each <i>SubCommand</i>.
+     * order.
+     *
+     * @param INotification $notification
+     * @throws \ReflectionException
      */
     final public function execute(INotification $notification)
     {
         while (0 < count($this->subCommands)) {
             $commandClassName = array_shift($this->subCommands);
-            $commandClassReflector = new ReflectionClass($commandClassName);
+            $commandClassReflector = new \ReflectionClass($commandClassName);
             $commandClassRef = $commandClassReflector->newInstance();
             $commandClassRef->execute($notification);
         }

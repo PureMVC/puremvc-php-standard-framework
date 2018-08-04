@@ -1,4 +1,8 @@
 <?php
+namespace puremvc\php\interfaces;
+use puremvc\php\interfaces\IMediator;
+use puremvc\php\interfaces\INotification;
+use puremvc\php\interfaces\IProxy;
 /**
  * PureMVC Port to PHP originally translated by Asbjørn Sloth Tønnesen
  *
@@ -33,15 +37,15 @@ interface IFacade
 {
     /**
      * Register an <code>IProxy</code> with the <code>Model</code> by name.
-     * 
-     * @param proxy the <code>IProxy</code> to be registered with the <code>Model</code>.
+     *
+     * @param IProxy $proxy
+     * @return
      */
     public function registerProxy(IProxy $proxy);
 
     /**
      * Retrieve a <code>IProxy</code> from the <code>Model</code> by name.
-     * 
-     * @param proxyName the name of the <code>IProxy</code> instance to be retrieved.
+     *
      * @param mixed $proxyName
      * @return the <code>IProxy</code> previously regisetered by <code>proxyName</code> with the <code>Model</code>.
      */
@@ -49,48 +53,48 @@ interface IFacade
 
     /**
      * Check to see if a Proxy is registered with the Model.
-     * 
-     * @param proxyName name of the <code>IProxy</code> instance to check for.
+     *
      * @param mixed $proxyName
+     * @return
      */
     public function hasProxy($proxyName);
 
     /**
      * Remove an <code>IProxy</code> instance from the <code>Model</code> by name.
      *
-     * @param proxyName the <code>IProxy</code> to remove from the <code>Model</code>.
      * @param mixed $proxyName
+     * @return
      */
     public function removeProxy($proxyName);
 
     /**
      * Register an <code>ICommand</code> with the <code>Controller</code>.
-     * 
-     * @param noteName the name of the <code>INotification</code> to associate the <code>ICommand</code> with.
-     * @param commandClassRef a reference to the <code>Class</code> of the <code>ICommand</code>.
+     *
      * @param mixed $noteName
      * @param mixed $commandClassRef
+     * @return
      */
     public function registerCommand($noteName, $commandClassRef);
 
     /**
      * Notify <code>Observer</code>s of an <code>INotification</code>.
-     * 
-     * @param note the <code>INotification</code> to have the <code>View</code> notify observers of.
+     *
+     * @param INotification $note
+     * @return
      */
     public function notifyObservers(INotification $note);
 
     /**
      * Register an <code>IMediator</code> instance with the <code>View</code>.
-     * 
-     * @param mediator a reference to the <code>IMediator</code> instance
+     *
+     * @param IMediator $mediator
+     * @return
      */
     public function registerMediator(IMediator $mediator);
 
     /**
      * Retrieve an <code>IMediator</code> instance from the <code>View</code>.
-     * 
-     * @param mediatorName the name of the <code>IMediator</code> instance to retrievve
+     *
      * @param mixed $mediatorName
      * @return the <code>IMediator</code> previously registered with the given <code>mediatorName</code>.
      */
@@ -98,33 +102,31 @@ interface IFacade
 
     /**
      * Check to see if a Mediator is registered with the View.
-     * 
-     * @param mediatorName name of the <code>IMediator</code> instance to check for.
+     *
      * @param mixed $mediatorName
+     * @return
      */
     public function hasMediator($mediatorName);
 
     /**
      * Remove a <code>IMediator</code> instance from the <code>View</code>.
-     * 
-     * @param mediatorName name of the <code>IMediator</code> instance to be removed.
+     *
      * @param mixed $mediatorName
+     * @return
      */
     public function removeMediator($mediatorName);
 
     /**
      * Send a <code>INotification</code>.
-     * 
+     *
      * <P>
-     * Convenience method to prevent having to construct new 
+     * Convenience method to prevent having to construct new
      * notification instances in our implementation code.</P>
-     * 
-     * @param notificationName the name of the notification to send
-     * @param body the body of the notification (optional)
-     * @param type the type of the notification (optional)
-     * @param mixed $notificationName
+     *
+     * @param mixed      $notificationName
      * @param null|mixed $body
      * @param null|mixed $type
+     * @return
      */
     public function sendNotification($notificationName, $body = null, $type = null);
 }

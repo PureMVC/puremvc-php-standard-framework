@@ -1,4 +1,5 @@
 <?php
+namespace puremvc\php\interfaces;
 /**
  * PureMVC Port to PHP originally translated by Asbjørn Sloth Tønnesen
  *

@@ -1,4 +1,9 @@
 <?php
+namespace puremvc\php\patterns\mediator;
+use puremvc\php\interfaces\IMediator;
+use puremvc\php\interfaces\INotification;
+use puremvc\php\patterns\facade\Facade;
+use puremvc\php\patterns\observer\Notifier;
 /**
  * PureMVC Port to PHP originally translated by Asbjørn Sloth Tønnesen
  *
@@ -9,18 +14,13 @@
  * PureMVC - Copyright(c) 2006-2008 Futurescale, Inc., Some rights reserved.
  * Your reuse is governed by the Creative Commons Attribution 3.0 Unported License
  */
-require_once 'org/puremvc/php/interfaces/IMediator.php';
-require_once 'org/puremvc/php/interfaces/INotifier.php';
-require_once 'org/puremvc/php/interfaces/INotification.php';
-require_once 'org/puremvc/php/patterns/facade/Facade.php';
-require_once 'org/puremvc/php/patterns/observer/Notifier.php';
 
 /**
  * A base <code>IMediator</code> implementation. 
  * 
  * @see org.puremvc.core.view.View View
  */
-class Mediator extends Notifier implements IMediator, INotifier
+class Mediator extends Notifier implements IMediator
 {
     // the mediator name
     protected $mediatorName;
@@ -49,7 +49,7 @@ class Mediator extends Notifier implements IMediator, INotifier
     {
         $this->facade = Facade::getInstance();
         $this->viewComponent = $viewComponent;
-        $this->mediatorName = (!empty($mediatorName)) ? $mediatorName : self::NAME;
+        $this->mediatorName = !empty($mediatorName) ? $mediatorName : self::NAME;
     }
 
     /**
@@ -88,11 +88,12 @@ class Mediator extends Notifier implements IMediator, INotifier
 
     /**
      * Handle <code>INotification</code>s.
-     * 
+     *
      * <P>
      * Typically this will be handled in a switch statement,
      * with one 'case' entry per <code>INotification</code>
      * the <code>Mediator</code> is interested in.
+     * @param INotification $notification
      */
     public function handleNotification(INotification $notification)
     {

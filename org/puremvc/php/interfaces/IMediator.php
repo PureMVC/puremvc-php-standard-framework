@@ -1,4 +1,6 @@
 <?php
+namespace puremvc\php\interfaces;
+use puremvc\php\interfaces\INotification;
 /**
  * PureMVC Port to PHP originally translated by Asbjørn Sloth Tønnesen
  *
@@ -34,8 +36,8 @@ interface IMediator
     /**
      * Set the <code>IMediator</code>'s view component.
      *
-     * @param object the view component
      * @param mixed $viewComponent
+     * @return
      */
     public function setViewComponent($viewComponent);
 
@@ -49,7 +51,8 @@ interface IMediator
     /**
      * Handle an <code>INotification</code>.
      *
-     * @param notification the <code>INotification</code> to be handled
+     * @param INotification $notification
+     * @return
      */
     public function handleNotification(INotification $notification);
 

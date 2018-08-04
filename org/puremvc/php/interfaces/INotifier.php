@@ -1,4 +1,5 @@
 <?php
+namespace puremvc\php\interfaces;
 /**
  * PureMVC Port to PHP originally translated by Asbjørn Sloth Tønnesen
  *
@@ -37,17 +38,15 @@ interface INotifier
 {
     /**
      * Send a <code>INotification</code>.
-     * 
+     *
      * <P>
-     * Convenience method to prevent having to construct new 
+     * Convenience method to prevent having to construct new
      * notification instances in our implementation code.</P>
-     * 
-     * @param notificationName the name of the notification to send
-     * @param body the body of the notification (optional)
-     * @param type the type of the notification (optional)
-     * @param mixed $notificationName
+     *
+     * @param mixed      $notificationName
      * @param null|mixed $body
      * @param null|mixed $type
+     * @return
      */
     public function sendNotification($notificationName, $body = null, $type = null);
 }

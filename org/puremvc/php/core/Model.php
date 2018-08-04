@@ -1,4 +1,8 @@
 <?php
+namespace puremvc\php\core;
+use puremvc\php\interfaces\IModel;
+use puremvc\php\interfaces\IProxy;
+
 /**
  * PureMVC Port to PHP originally translated by Asbjørn Sloth Tønnesen
  *
@@ -9,8 +13,6 @@
  * PureMVC - Copyright(c) 2006-2008 Futurescale, Inc., Some rights reserved.
  * Your reuse is governed by the Creative Commons Attribution 3.0 Unported License
  */
-require_once 'org/puremvc/php/interfaces/IModel.php';
-require_once 'org/puremvc/php/interfaces/IProxy.php';
 
 /**
  * A Singleton <code>IModel</code> implementation.
@@ -79,7 +81,7 @@ class Model implements IModel
     /**
      * <code>Model</code> Singleton Factory method.
      *
-     * @return the Singleton instance
+     * @return Model the Singleton instance
      */
     public static function getInstance()
     {
@@ -93,7 +95,7 @@ class Model implements IModel
     /**
      * Register an <code>IProxy</code> with the <code>Model</code>.
      *
-     * @param proxy an <code>IProxy</code> to be held by the <code>Model</code>.
+     * @param mixed $proxy an <code>IProxy</code> to be held by the <code>Model</code>.
      */
     public function registerProxy(IProxy $proxy)
     {
@@ -104,9 +106,8 @@ class Model implements IModel
     /**
      * Retrieve an <code>IProxy</code> from the <code>Model</code>.
      *
-     * @param proxyName
      * @param mixed $proxyName
-     * @return the <code>IProxy</code> instance previously registered with the given <code>proxyName</code>.
+     * @return string the <code>IProxy</code> instance previously registered with the given <code>proxyName</code>.
      */
     public function retrieveProxy($proxyName)
     {
@@ -118,8 +119,8 @@ class Model implements IModel
     /**
      * Remove an <code>IProxy</code> from the <code>Model</code>.
      *
-     * @param proxyName name of the <code>IProxy</code> instance to be removed.
-     * @param mixed $proxyName
+     * @param mixed $proxyName name of the <code>IProxy</code> instance to be removed.
+     * @return mixed
      */
     public function removeProxy($proxyName)
     {
@@ -140,8 +141,8 @@ class Model implements IModel
     /**
      * Check to see if a Proxy is registered with the Model.
      *
-     * @param proxyName name of the <code>IProxy</code> instance to check for.
-     * @param mixed $proxyName
+     * @param mixed $proxyName name of the <code>IProxy</code> instance to check for.
+     * @return bool
      */
     public function hasProxy($proxyName)
     {

@@ -1,0 +1,24 @@
+PureMVC Standard Framework for PHP - Unit Tests (Ported)
+--------------------------------------------------------------------------
+Release Date: 08/04/2018
+    Platform: PHP 7
+     Version: 1 
+    Revision: 2
+       Minor: 0
+     Authors: Hasan Otuome <hasan.otuome@puremvc.org>
+            : Omar Gonzalez
+     	    : Michael Beck (https://github.com/mambax7/)
+--------------------------------------------------------------------------
+1.2.0 added namespaces, moved to main distribution
+
+1.0.1 - added missing value to constructor of FacadeTestVO which prevented FacadeTest.testRegisterCommandAndSendNotification() from passing...
+
+1.0 - Prepared unit tests for port source code version 1.0 - OG/HO
+
+0.4 - Corrected Singleton creation functionality - CLH
+
+0.3 - Updated to AS3 2.0.1 functionality. - CLH
+
+0.2 - Initial upload of ported code, doc is coming shortly - AST
+
+0.1 - Initial project structure created in repository - CLH

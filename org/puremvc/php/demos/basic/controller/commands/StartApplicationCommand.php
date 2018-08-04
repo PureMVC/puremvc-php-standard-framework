@@ -1,4 +1,8 @@
 <?php
+namespace puremvc\php\demos\basic\controller\commands;
+use puremvc\php\patterns\command\MacroCommand;
+
+
 /**
  * PureMVC PHP Basic Demo
  * @author Omar Gonzalez :: omar@almerblank.com
@@ -8,9 +12,6 @@
  * PureMVC - Copyright(c) 2006-2008 Futurescale, Inc., Some rights reserved.
  * Your reuse is governed by the Creative Commons Attribution 3.0 Unported License
  */
-require_once 'org/puremvc/php/patterns/command/MacroCommand.php';
-require_once 'org/puremvc/php/demos/basic/controller/commands/StartModelCommand.php';
-require_once 'org/puremvc/php/demos/basic/controller/commands/StartViewCommand.php';
 
 /**
  * The <code>StartApplicationCommand</code> prepares the view first
@@ -25,7 +26,7 @@ class StartApplicationCommand extends MacroCommand
      */
     protected function initializeMacroCommand()
     {
-        $this->addSubCommand('StartViewCommand');
-        $this->addSubCommand('StartModelCommand');
+        $this->addSubCommand(StartViewCommand::class);
+        $this->addSubCommand(StartModelCommand::class);
     }
 }

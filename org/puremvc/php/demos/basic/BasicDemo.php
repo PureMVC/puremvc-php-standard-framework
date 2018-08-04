@@ -1,4 +1,6 @@
 <?php
+namespace puremvc\php\demos\basic;
+use puremvc\php\demos\basic\ApplicationFacade;
 /**
  * PureMVC PHP Basic Demo
  * PureMVC Port to PHP originally translated by Asbjørn Sloth Tønnesen
@@ -10,7 +12,6 @@
  * PureMVC - Copyright(c) 2006-2008 Futurescale, Inc., Some rights reserved.
  * Your reuse is governed by the Creative Commons Attribution 3.0 Unported License
  */
-require_once 'org/puremvc/php/demos/basic/ApplicationFacade.php';
 
 /**
  * PureMVC PHP Basic demo base class.  The index starts an

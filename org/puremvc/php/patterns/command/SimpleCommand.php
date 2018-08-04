@@ -1,4 +1,9 @@
 <?php
+namespace puremvc\php\patterns\command;
+use puremvc\php\interfaces\ICommand;
+use puremvc\php\interfaces\INotification;
+use puremvc\php\patterns\facade\Facade;
+use puremvc\php\patterns\observer\Notifier;
 /**
  * PureMVC Port to PHP originally translated by Asbjørn Sloth Tønnesen
  *
@@ -9,10 +14,6 @@
  * PureMVC - Copyright(c) 2006-2008 Futurescale, Inc., Some rights reserved.
  * Your reuse is governed by the Creative Commons Attribution 3.0 Unported License
  */
-require_once 'org/puremvc/php/interfaces/ICommand.php';
-require_once 'org/puremvc/php/interfaces/INotifier.php';
-require_once 'org/puremvc/php/patterns/observer/Notifier.php';
-require_once 'org/puremvc/php/patterns/facade/Facade.php';
 
 /**
  * A base <code>ICommand</code> implementation.
@@ -25,7 +26,7 @@ require_once 'org/puremvc/php/patterns/facade/Facade.php';
  * @see org.puremvc.patterns.observer.Notification Notification
  * @see org.puremvc.patterns.command.MacroCommand MacroCommand
  */
-class SimpleCommand extends Notifier implements ICommand, INotifier
+class SimpleCommand extends Notifier implements ICommand
 {
     protected $facade;
 
@@ -36,14 +37,14 @@ class SimpleCommand extends Notifier implements ICommand, INotifier
 
     /**
      * Fulfill the use-case initiated by the given <code>INotification</code>.
-     * 
+     *
      * <P>
      * In the Command Pattern, an application use-case typically
-     * begins with some user action, which results in an <code>INotification</code> being broadcast, which 
+     * begins with some user action, which results in an <code>INotification</code> being broadcast, which
      * is handled by business logic in the <code>execute</code> method of an
      * <code>ICommand</code>.</P>
-     * 
-     * @param notification the <code>INotification</code> to handle.
+     *
+     * @param INotification $notification
      */
     public function execute(INotification $notification)
     {
