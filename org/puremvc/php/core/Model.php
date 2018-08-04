@@ -107,7 +107,7 @@ class Model implements IModel
      * Retrieve an <code>IProxy</code> from the <code>Model</code>.
      *
      * @param mixed $proxyName
-     * @return string the <code>IProxy</code> instance previously registered with the given <code>proxyName</code>.
+     * @return IProxy the <code>IProxy</code> instance previously registered with the given <code>proxyName</code>.
      */
     public function retrieveProxy($proxyName)
     {

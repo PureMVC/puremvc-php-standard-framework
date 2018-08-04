@@ -37,4 +37,3 @@ function html_debug( $stack )
 $basicDemo = new basic\BasicDemo();
 // start up the view by sending in the variables.
 $basicDemo->startView( $filename, $cssName );
-?>

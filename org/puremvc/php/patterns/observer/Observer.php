@@ -90,7 +90,7 @@ class Observer implements IObserver
     /**
      * Get the notification context.
      * 
-     * @return the notification context (<code>this</code>) of the interested object.
+     * @return mixed the notification context (<code>this</code>) of the interested object.
      */
     private function getNotifyContext()
     {

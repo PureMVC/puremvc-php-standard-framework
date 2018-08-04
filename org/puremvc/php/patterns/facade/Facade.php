@@ -244,7 +244,7 @@ class Facade implements IFacade
      * Retrieve an <code>IProxy</code> from the <code>Model</code> by name.
      *
      * @param mixed $proxyName
-     * @return IProxy the <code>IProxy</code> instance previously registered with the given <code>proxyName</code>.
+     * @return string|IProxy the <code>IProxy</code> instance previously registered with the given <code>proxyName</code>.
      */
     public function retrieveProxy($proxyName)
     {
