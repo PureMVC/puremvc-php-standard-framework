@@ -9,7 +9,7 @@
  * PureMVC - Copyright(c) 2006-2008 Futurescale, Inc., Some rights reserved.
  * Your reuse is governed by the Creative Commons Attribution 3.0 Unported License
  */
-use puremvc\php\patterns\command;
+use puremvc\php\patterns\command\MacroCommand;
 use puremvc\php\patterns\observer\Notification;
 
 require_once 'MacroCommandTestCommand.php';
