@@ -133,7 +133,7 @@ class FacadeTest extends \PHPUnit\Framework\TestCase
   	{	
    		// register a proxy and retrieve it.
    		$facade = Facade::getInstance();
-		$facade->registerProxy( new Proxy('colors', array('red', 'green', 'blue')) );
+		$facade->registerProxy( new Proxy('colors', ['red', 'green', 'blue']) );
 		$proxy = $facade->retrieveProxy('colors');
 		
 		// test assertions
@@ -158,7 +158,7 @@ class FacadeTest extends \PHPUnit\Framework\TestCase
   	{	
    		// register a proxy, remove it, then try to retrieve it
    		$facade = Facade::getInstance();
-   		$proxy = new Proxy( 'sizes', array('7', '13', '21') );
+   		$proxy = new Proxy('sizes', ['7', '13', '21']);
 		$facade->registerProxy( $proxy );
 		
 		// remove the proxy
@@ -207,7 +207,7 @@ class FacadeTest extends \PHPUnit\Framework\TestCase
 	{
 		// register a Proxy
 		$facade = Facade::getInstance();
-		$facade->registerProxy( new Proxy('hasProxyTest', array(1, 2, 3)) );
+		$facade->registerProxy( new Proxy('hasProxyTest', [1, 2, 3]) );
 		
    		// assert that the model.hasProxy method returns true
    		// for that proxy name

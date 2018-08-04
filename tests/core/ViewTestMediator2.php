@@ -43,7 +43,7 @@ class ViewTestMediator2 extends Mediator implements IMediator
 	{
 		// be sure that the mediator has some Observers created
 		// in order to test removeMediator
-		return array( ViewTest::NOTE1, ViewTest::NOTE2 );
+		return [ViewTest::NOTE1, ViewTest::NOTE2];
 	}
 
     /**

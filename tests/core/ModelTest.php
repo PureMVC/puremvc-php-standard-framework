@@ -83,7 +83,7 @@ class ModelTest extends \PHPUnit\Framework\TestCase
 	{
 		// register a proxy and retrieve it.
    		$model = Model::getInstance();
-		$model->registerProxy( new Proxy('colors', array('red', 'green', 'blue')) );
+		$model->registerProxy( new Proxy('colors', ['red', 'green', 'blue']) );
 		$proxy = $model->retrieveProxy( 'colors' );
 		$data = $proxy->getData();
 		
@@ -103,7 +103,7 @@ class ModelTest extends \PHPUnit\Framework\TestCase
 	{
 		// register a proxy, remove it, then try to retrieve it
    		$model = Model::getInstance();
-   		$proxy = new Proxy( 'sizes', array('7', '13', '21') );
+   		$proxy = new Proxy('sizes', ['7', '13', '21']);
 		$model->registerProxy( $proxy );
 
 		// remove the proxy
@@ -127,7 +127,7 @@ class ModelTest extends \PHPUnit\Framework\TestCase
 	{
 		// register a proxy
    		$model = Model::getInstance();
-   		$proxy = new Proxy( 'aces', array('clubs', 'spades', 'hearts', 'diamonds'));
+   		$proxy = new Proxy('aces', ['clubs', 'spades', 'hearts', 'diamonds']);
 		$model->registerProxy( $proxy );
 		
    		// assert that the model.hasProxy method returns true

@@ -83,7 +83,7 @@ class NotificationTest extends \PHPUnit\Framework\TestCase
 	public function testToString()
 	{
 		// Create a new Notification and use accessors to set the note name 
-   		$note = new Notification( 'TestNote', array(1, 3, 5), 'TestType' );
+   		$note = new Notification('TestNote', [1, 3, 5], 'TestType' );
    		$ts = "Notification Name: TestNote\nBody:Array\nType:TestType";
    		
    		// test assertions

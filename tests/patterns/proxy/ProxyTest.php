@@ -58,7 +58,7 @@ class ProxyTest extends \PHPUnit\Framework\TestCase
 	{
 		// Create a new Proxy and use accessors to set the data
    		$proxy = new Proxy( 'colors' );
-   		$proxy->setData( array('red', 'green', 'blue') );
+   		$proxy->setData(['red', 'green', 'blue']);
    		$data = $proxy->getData();
    		
    		// test assertions
@@ -74,7 +74,7 @@ class ProxyTest extends \PHPUnit\Framework\TestCase
 	public function testConstructor()
 	{
 		// Create a new Proxy using the Constructor to set the name and data
-   		$proxy = new Proxy( 'colors', array('red', 'green', 'blue') );
+   		$proxy = new Proxy('colors', ['red', 'green', 'blue']);
    		$data = $proxy->getData();
    		
    		// test assertions

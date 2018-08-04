@@ -39,7 +39,7 @@ class ViewTestMediator extends Mediator implements IMediator
 	{
 		// be sure that the mediator has some Observers created
 		// in order to test removeMediator
-		return array( 'ABC', 'DEF', 'GHI' );
+		return ['ABC', 'DEF', 'GHI'];
 	}
 }
 
