@@ -1,8 +1,5 @@
 <?php
 namespace puremvc\php\interfaces;
-use puremvc\php\interfaces\IMediator;
-use puremvc\php\interfaces\INotification;
-use puremvc\php\interfaces\IProxy;
 /**
  * PureMVC Port to PHP originally translated by Asbjørn Sloth Tønnesen
  *

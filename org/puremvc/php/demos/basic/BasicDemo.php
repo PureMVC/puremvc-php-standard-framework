@@ -1,6 +1,5 @@
 <?php
 namespace puremvc\php\demos\basic;
-use puremvc\php\demos\basic\ApplicationFacade;
 /**
  * PureMVC PHP Basic Demo
  * PureMVC Port to PHP originally translated by Asbjørn Sloth Tønnesen

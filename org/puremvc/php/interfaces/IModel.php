@@ -1,6 +1,5 @@
 <?php
 namespace puremvc\php\interfaces;
-use puremvc\php\interfaces\IProxy;
 /**
  * PureMVC Port to PHP originally translated by Asbjørn Sloth Tønnesen
  *
