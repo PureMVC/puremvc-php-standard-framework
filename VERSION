@@ -4,12 +4,14 @@ Release Date: 8/04/18
     Platform: PHP 7
      Version: 1 
     Revision: 2
-       Minor: 0
+       Minor: 1
      Authors: Hasan Otuome <hasan.otuome@puremvc.org>
      	    : Omar Gonzalez
      	    : Michael Beck (https://github.com/mambax7/)
 --------------------------------------------------------------------------
-1.2.0 - added namespaces, merged-in tests incl. composer for PHPUnit
+1.2.1 - Filled out composer.json for publishing to https://packagist.org/
+
+1.2.0 - added namespaces, merged-in tests incl. composerjson for PHPUnit 
 
 1.1.0 - updated for PHP 5.6.x - PHP 7.2.8
 
