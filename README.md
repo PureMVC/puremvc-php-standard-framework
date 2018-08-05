@@ -13,7 +13,7 @@ The distribution comes with a built in server-side demo: Zen Garden.
 * [Employee Admin](https://github.com/PureMVC/puremvc-php-demo-gtk-employeeadmin/wiki)
 
 ## Status
-Production - [Version 1.2.1](https://github.com/PureMVC/puremvc-php-standard-framework/blob/master/VERSION)
+Production - [Version 1.2.2](https://github.com/PureMVC/puremvc-php-standard-framework/blob/master/VERSION)
 
 ## Platforms / Technologies
 * [PHP](http://en.wikipedia.org/wiki/PHP)
