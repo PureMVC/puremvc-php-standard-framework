@@ -1,4 +1,8 @@
 <?php
+namespace puremvc\php\patterns\proxy;
+use puremvc\php\interfaces\IProxy;
+use puremvc\php\patterns\facade\Facade;
+use puremvc\php\patterns\observer\Notifier;
 /**
  * PureMVC Port to PHP originally translated by Asbjørn Sloth Tønnesen
  *
@@ -9,10 +13,6 @@
  * PureMVC - Copyright(c) 2006-2008 Futurescale, Inc., Some rights reserved.
  * Your reuse is governed by the Creative Commons Attribution 3.0 Unported License
  */
-require_once 'org/puremvc/php/interfaces/IProxy.php';
-require_once 'org/puremvc/php/interfaces/INotifier.php';
-require_once 'org/puremvc/php/patterns/observer/Notifier.php';
-require_once 'org/puremvc/php/patterns/facade/Facade.php';
 
 /**
  * A base <code>IProxy</code> implementation. 
@@ -35,7 +35,7 @@ require_once 'org/puremvc/php/patterns/facade/Facade.php';
  * 
  * @see org.puremvc.core.model.Model Model
  */
-class Proxy extends Notifier implements IProxy, INotifier
+class Proxy extends Notifier implements IProxy
 {
     // the proxy name
     protected $proxyName;
@@ -55,7 +55,7 @@ class Proxy extends Notifier implements IProxy, INotifier
     public function __construct($proxyName = null, $data = null)
     {
         $this->facade = Facade::getInstance();
-        $this->proxyName = (!empty($proxyName)) ? $proxyName : self::NAME;
+        $this->proxyName = !empty($proxyName) ? $proxyName : self::NAME;
         if (null !== $data) {
             $this->setData($data);
         }

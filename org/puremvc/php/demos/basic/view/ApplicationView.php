@@ -1,4 +1,5 @@
 <?php
+namespace puremvc\php\demos\basic\view;
 /**
  * PureMVC PHP Basic Demo
  * @author Omar Gonzalez :: omar@almerblank.com
@@ -41,10 +42,8 @@ class ApplicationView
     private function _initializeView()
     {
         switch ($this->view) {
-default:
-
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                $file = 'org/puremvc/php/demos/basic/view/templates/index_template.php';
-
+            default:
+                $file = 'org/puremvc/php/demos/basic/view/templates/index_template.php';
                 break;
         }
 
@@ -57,7 +56,7 @@ default:
         if ($display) {
             $this->viewTemplate = $display;
         } else {
-            $display = 'Sorry, error creating page.';
+            $display            = 'Sorry, error creating page.';
             $this->viewTemplate = $display;
         }
     }

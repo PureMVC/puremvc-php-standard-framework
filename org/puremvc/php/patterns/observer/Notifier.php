@@ -1,4 +1,7 @@
 <?php
+namespace puremvc\php\patterns\observer;
+use puremvc\php\interfaces\INotifier;
+use puremvc\php\patterns\facade\Facade;
 /**
  * PureMVC Port to PHP originally translated by Asbjørn Sloth Tønnesen
  *
@@ -9,7 +12,6 @@
  * PureMVC - Copyright(c) 2006-2008 Futurescale, Inc., Some rights reserved.
  * Your reuse is governed by the Creative Commons Attribution 3.0 Unported License
  */
-require_once 'org/puremvc/php/interfaces/INotifier.php';
 
 /**
  * A Base <code>INotifier</code> implementation.

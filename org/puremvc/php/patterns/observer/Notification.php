@@ -1,4 +1,6 @@
 <?php
+namespace puremvc\php\patterns\observer;
+use puremvc\php\interfaces\INotification;
 /**
  * PureMVC Port to PHP originally translated by Asbjørn Sloth Tønnesen
  *
@@ -9,7 +11,6 @@
  * PureMVC - Copyright(c) 2006-2008 Futurescale, Inc., Some rights reserved.
  * Your reuse is governed by the Creative Commons Attribution 3.0 Unported License
  */
-require_once 'org/puremvc/php/interfaces/INotification.php';
 
 /**
  * A base <code>INotification</code> implementation.
@@ -26,12 +27,9 @@ class Notification implements INotification
     private $body;
 
     /**
-     * Constructor. 
-     * 
-     * @param name name of the <code>Notification</code> instance. (required)
-     * @param body the <code>Notification</code> body. (optional)
-     * @param type the type of the <code>Notification</code> (optional)
-     * @param mixed $name
+     * Constructor.
+     *
+     * @param mixed      $name
      * @param null|mixed $body
      * @param null|mixed $type
      */
@@ -45,7 +43,7 @@ class Notification implements INotification
     /**
      * Get the name of the <code>Notification</code> instance.
      * 
-     * @return the name of the <code>Notification</code> instance.
+     * @return string the name of the <code>Notification</code> instance.
      */
     public function getName()
     {
@@ -64,7 +62,7 @@ class Notification implements INotification
     /**
      * Get the body of the <code>Notification</code> instance.
      * 
-     * @return the body object. 
+     * @return mixed the body object.
      */
     public function getBody()
     {
@@ -83,7 +81,7 @@ class Notification implements INotification
     /**
      * Get the type of the <code>Notification</code> instance.
      * 
-     * @return the type  
+     * @return mixed the type
      */
     public function getType()
     {
@@ -93,7 +91,7 @@ class Notification implements INotification
     /**
      * Get the string representation of the <code>Notification</code> instance.
      * 
-     * @return the string representation of the <code>Notification</code> instance.
+     * @return string the string representation of the <code>Notification</code> instance.
      */
     public function toString()
     {

@@ -11,7 +11,9 @@
  * Your reuse is governed by the Creative Commons Attribution 3.0 Unported License
  */
 
-require_once 'org/puremvc/php/demos/basic/BasicDemo.php';
+use puremvc\php\demos\basic;
+
+require __DIR__ . '/puremvc_autoloader.php';
 
 // name of file user browsed to
 $filename = $_SERVER[ 'PHP_SELF' ];
@@ -23,7 +25,7 @@ if (isset( $_GET[ 'c' ] ))
 }
 else
 {
-	$cssName = "default";
+	$cssName = 'default';
 }
 
 function html_debug( $stack )
@@ -32,7 +34,6 @@ function html_debug( $stack )
 }
 
 // start php application
-$basicDemo = new BasicDemo();
+$basicDemo = new basic\BasicDemo();
 // start up the view by sending in the variables.
 $basicDemo->startView( $filename, $cssName );
-?>

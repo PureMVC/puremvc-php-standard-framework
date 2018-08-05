@@ -1,4 +1,7 @@
 <?php
+namespace puremvc\php\patterns\observer;
+use puremvc\php\interfaces\INotification;
+use puremvc\php\interfaces\IObserver;
 /**
  * PureMVC Port to PHP originally translated by Asbjørn Sloth Tønnesen
  *
@@ -9,8 +12,6 @@
  * PureMVC - Copyright(c) 2006-2008 Futurescale, Inc., Some rights reserved.
  * Your reuse is governed by the Creative Commons Attribution 3.0 Unported License
  */
-require_once 'org/puremvc/php/interfaces/INotification.php';
-require_once 'org/puremvc/php/interfaces/IObserver.php';
 
 /**
  * A base <code>IObserver</code> implementation.
@@ -38,14 +39,12 @@ class Observer implements IObserver
     private $context;
 
     /**
-     * Constructor. 
-     * 
+     * Constructor.
+     *
      * <P>
-     * The notification method on the interested object should take 
+     * The notification method on the interested object should take
      * one parameter of type <code>INotification</code></P>
-     * 
-     * @param notifyMethod the notification method of the interested object
-     * @param notifyContext the notification context of the interested object
+     *
      * @param mixed $notifyMethod
      * @param mixed $notifyContext
      */
@@ -57,11 +56,10 @@ class Observer implements IObserver
 
     /**
      * Set the notification method.
-     * 
+     *
      * <P>
      * The notification method should take one parameter of type <code>INotification</code>.</P>
-     * 
-     * @param notifyMethod the notification (callback) method of the interested object.
+     *
      * @param mixed $notifyMethod
      */
     public function setNotifyMethod($notifyMethod)
@@ -71,8 +69,7 @@ class Observer implements IObserver
 
     /**
      * Set the notification context.
-     * 
-     * @param notifyContext the notification context (this) of the interested object.
+     *
      * @param mixed $notifyContext
      */
     public function setNotifyContext($notifyContext)
@@ -83,7 +80,7 @@ class Observer implements IObserver
     /**
      * Get the notification method.
      * 
-     * @return the notification (callback) method of the interested object.
+     * @return Notification the notification (callback) method of the interested object.
      */
     private function getNotifyMethod()
     {
@@ -93,7 +90,7 @@ class Observer implements IObserver
     /**
      * Get the notification context.
      * 
-     * @return the notification context (<code>this</code>) of the interested object.
+     * @return mixed the notification context (<code>this</code>) of the interested object.
      */
     private function getNotifyContext()
     {
@@ -102,8 +99,8 @@ class Observer implements IObserver
 
     /**
      * Notify the interested object.
-     * 
-     * @param notification the <code>INotification</code> to pass to the interested object's notification method.
+     *
+     * @param INotification $notification
      */
     public function notifyObserver(INotification $notification)
     {
@@ -114,9 +111,8 @@ class Observer implements IObserver
     }
 
     /**
-     * Compare an object to the notification context. 
-     * 
-     * @param object the object to compare
+     * Compare an object to the notification context.
+     *
      * @param mixed $object
      * @return bool indicating if the object and the notification context are the same
      */

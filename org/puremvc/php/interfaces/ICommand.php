@@ -1,4 +1,5 @@
 <?php
+namespace puremvc\php\interfaces;
 /**
  * PureMVC Port to PHP originally translated by Asbjørn Sloth Tønnesen
  *
@@ -20,7 +21,8 @@ interface ICommand
     /**
      * Execute the <code>ICommand</code>'s logic to handle a given <code>INotification</code>.
      *
-     * @param note an <code>INotification</code> to handle.
+     * @param INotification $notification
+     * @return
      */
     public function execute(INotification $notification);
 }

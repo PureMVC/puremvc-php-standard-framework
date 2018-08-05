@@ -1,4 +1,6 @@
 <?php
+namespace puremvc\php\interfaces;
+use puremvc\php\interfaces\INotification;
 /**
  * PureMVC Port to PHP originally translated by Asbjørn Sloth Tønnesen
  *
@@ -53,34 +55,34 @@ interface IObserver
 {
     /**
      * Set the notification method.
-     * 
+     *
      * <P>
      * The notification method should take one parameter of type <code>INotification</code></P>
-     * 
-     * @param notifyMethod the notification (callback) method of the interested object
+     *
      * @param mixed $notifyMethod
+     * @return
      */
     public function setNotifyMethod($notifyMethod);
 
     /**
      * Set the notification context.
-     * 
-     * @param notifyContext the notification context (this) of the interested object
+     *
      * @param mixed $notifyContext
+     * @return
      */
     public function setNotifyContext($notifyContext);
 
     /**
      * Notify the interested object.
-     * 
-     * @param notification the <code>INotification</code> to pass to the interested object's notification method
+     *
+     * @param INotification $notification
+     * @return
      */
     public function notifyObserver(INotification $notification);
 
     /**
      * Compare the given object to the notificaiton context object.
-     * 
-     * @param object the object to compare.
+     *
      * @param mixed $object
      * @return bool indicating if the notification context and the object are the same.
      */

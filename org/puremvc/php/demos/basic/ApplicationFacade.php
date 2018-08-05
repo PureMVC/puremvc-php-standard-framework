@@ -1,4 +1,8 @@
 <?php
+namespace puremvc\php\demos\basic;
+use puremvc\php\patterns\facade\Facade;
+use puremvc\php\demos\basic\controller\commands\StartApplicationCommand;
+
 /**
  * PureMVC PHP Basic Demo
  * @author Omar Gonzalez :: omar@almerblank.com
@@ -8,10 +12,10 @@
  * PureMVC - Copyright(c) 2006-2008 Futurescale, Inc., Some rights reserved.
  * Your reuse is governed by the Creative Commons Attribution 3.0 Unported License
  */
-require_once 'org/puremvc/php/patterns/facade/Facade.php';
+//require_once 'org/puremvc/php/patterns/facade/Facade.php';
 
 // demo requires
-require_once 'org/puremvc/php/demos/basic/controller/commands/StartApplicationCommand.php';
+//require_once 'org/puremvc/php/demos/basic/controller/commands/StartApplicationCommand.php';
 
 /**
  * ApplicationFacade for the BasicDemo starts the Model, View
@@ -60,6 +64,6 @@ class ApplicationFacade extends Facade
     protected function initializeController()
     {
         parent::initializeController();
-        $this->registerCommand(self::START_APPLICATION, 'StartApplicationCommand');
+        $this->registerCommand(self::START_APPLICATION, StartApplicationCommand::class);
     }
 }

@@ -23,7 +23,7 @@
  * Defines a constant that indicates that the base directory ("root") for lookups should be 
  * the directory in which this file is located in.
  */
-define( 'PMVC_BASE_DIR', dirname( __FILE__ ) );
+//define( 'PMVC_BASE_DIR', __DIR__ );
 
 /**
  * Checks all paths defined in $_includePaths for 
@@ -31,36 +31,35 @@ define( 'PMVC_BASE_DIR', dirname( __FILE__ ) );
  * 
  * @param string $class The class to search for.
  */
-function __autoload( $class )
-{
-	$_includePaths = array(
-							PMVC_BASE_DIR . '/org/puremvc/php/core', 
-							PMVC_BASE_DIR . '/org/puremvc/php/interfaces', 
-							PMVC_BASE_DIR . '/org/puremvc/php/patterns', 
-							PMVC_BASE_DIR . '/org/puremvc/php/patterns/command', 
-							PMVC_BASE_DIR . '/org/puremvc/php/patterns/facade', 
-							PMVC_BASE_DIR . '/org/puremvc/php/patterns/mediator', 
-							PMVC_BASE_DIR . '/org/puremvc/php/patterns/observer', 
-							PMVC_BASE_DIR . '/org/puremvc/php/patterns/proxy',							
-							);
 
-	$classPath = get_include_path();
-	$classPathTokens = explode( ':', $classPath );
 
-	$classXtn = '.php';
+/**
+ * @see http://www.php-fig.org/psr/psr-4/examples/
+ */
+spl_autoload_register(function ($class) {
+    // project-specific namespace prefix
+    $prefix = 'puremvc\php\\';
 
-	foreach ($classPathTokens as $prefix)
-	{
-		foreach ($_includePaths as $includePath)
-		{
-			$path = "$includePath/$class$classXtn";
-			if (file_exists($path)) 
-			{
-				require_once $path;
-				return;
-			}
-		}
-	}
-}	
+    // base directory for the namespace prefix
+    $base_dir = __DIR__ . '/org/puremvc/php/';
 
-?>
+    // does the class use the namespace prefix?
+    $len      = strlen($prefix);
+
+    if (0 !== strncmp($prefix, $class, $len)) {
+        return;
+    }
+
+    // get the relative class name
+    $relativeClass = substr($class, $len);
+
+    // replace the namespace prefix with the base directory, replace namespace
+    // separators with directory separators in the relative class name, append
+    // with .php
+    $file           = $base_dir . str_replace('\\', '/', $relativeClass) . '.php';
+
+    // if the file exists, require it
+    if (file_exists($file)) {
+        require $file;
+    }
+});

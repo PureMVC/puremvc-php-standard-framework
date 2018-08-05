@@ -1,4 +1,5 @@
 <?php
+namespace puremvc\php\interfaces;
 /**
  * PureMVC Port to PHP originally translated by Asbjørn Sloth Tønnesen
  *
@@ -39,8 +40,8 @@ interface INotification
 
     /**
      * Set the type of the <code>INotification</code> instance
-     * @param type string
      * @param mixed $type
+     * @return
      */
     public function setType($type);
 

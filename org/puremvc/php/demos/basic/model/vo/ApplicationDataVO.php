@@ -1,4 +1,5 @@
 <?php
+namespace puremvc\php\demos\basic\model\vo;
 /**
  * PureMVC PHP Basic Demo
  * @author Omar Gonzalez :: omar@almerblank.com

@@ -1,4 +1,9 @@
 <?php
+namespace puremvc\php\core;
+use puremvc\php\interfaces\INotification;
+use puremvc\php\interfaces\IController;
+use puremvc\php\patterns\observer\Observer;
+
 /**
  * PureMVC Port to PHP originally translated by Asbjørn Sloth Tønnesen
  *
@@ -9,10 +14,10 @@
  * PureMVC - Copyright(c) 2006-2008 Futurescale, Inc., Some rights reserved.
  * Your reuse is governed by the Creative Commons Attribution 3.0 Unported License
  */
-require_once 'org/puremvc/php/patterns/observer/Observer.php';
-require_once 'org/puremvc/php/core/View.php';
-require_once 'org/puremvc/php/interfaces/IController.php';
-require_once 'org/puremvc/php/interfaces/INotification.php';
+//require_once 'org/puremvc/php/patterns/observer/Observer.php';
+//require_once 'org/puremvc/php/core/View.php';
+//require_once 'org/puremvc/php/interfaces/IController.php';
+//require_once 'org/puremvc/php/interfaces/INotification.php';
 
 /**
  * A Singleton <code>IController</code> implementation.
@@ -67,7 +72,7 @@ class Controller implements IController
      * directly, but instead call the static Singleton
      * Factory method <code>Controller.getInstance()</code>
      *
-     * @throws Error Error if Singleton instance has already been constructed
+     * @throws \Error Error if Singleton instance has already been constructed
      */
     private function __construct()
     {
@@ -101,7 +106,7 @@ class Controller implements IController
     /**
      * <code>Controller</code> Singleton Factory method.
      *
-     * @return the Singleton instance of <code>Controller</code>
+     * @return Controller Singleton instance of <code>Controller</code>
      */
     public static function getInstance()
     {
@@ -116,14 +121,14 @@ class Controller implements IController
      * If an <code>ICommand</code> has previously been registered
      * to handle a the given <code>INotification</code>, then it is executed.
      *
-     * @param note an <code>INotification</code>
+     * @param INotification $note
+     * @throws \ReflectionException
      */
     public function executeCommand(INotification $note)
     {
         if (isset($this->commandMap[$note->getName()])) {
-            $commandClassName = $this->commandMap[$note->getName()];
-            $commandClassReflector = new ReflectionClass($commandClassName);
-
+            $commandClassName      = $this->commandMap[$note->getName()];
+            $commandClassReflector = new \ReflectionClass($commandClassName);
             $commandClassRef = $commandClassReflector->newInstance();
             $commandClassRef->execute($note);
         }
@@ -138,8 +143,6 @@ class Controller implements IController
      * handle <code>INotification</code>s with this name, it is no longer
      * used, the new <code>ICommand</code> is used instead.</P>
      *
-     * @param notificationName the name of the <code>INotification</code>
-     * @param commandClassRef the <code>Class</code> of the <code>ICommand</code>
      * @param mixed $notificationName
      * @param mixed $commandClassRef
      */
@@ -155,7 +158,7 @@ class Controller implements IController
      * Check if a Command is registered for a given Notification
      *
      * @param string $notificationName
-     * @return whether a Command is currently registered for the given <code>notificationName</code>.
+     * @return bool a Command is currently registered for the given <code>notificationName</code>.
      */
     public function hasCommand($notificationName)
     {
@@ -165,7 +168,6 @@ class Controller implements IController
     /**
      * Remove a previously registered <code>ICommand</code> to <code>INotification</code> mapping.
      *
-     * @param notificationName the name of the <code>INotification</code> to remove the <code>ICommand</code> mapping for
      * @param mixed $notificationName
      */
     public function removeCommand($notificationName)
@@ -174,7 +176,6 @@ class Controller implements IController
         if ($this->hasCommand($notificationName)) {
             // remove the observer
             $this->view->removeObserver($notificationName, $this);
-
             // remove the command
             $this->commandMap[$notificationName] = null;
         }

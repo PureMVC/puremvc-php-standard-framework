@@ -1,4 +1,8 @@
 <?php
+namespace puremvc\php\demos\basic\model\proxy;
+use puremvc\php\demos\basic\ApplicationFacade;
+use puremvc\php\demos\basic\model\vo\ApplicationDataVO;
+use puremvc\php\patterns\proxy\Proxy;
 /**
  * PureMVC PHP Basic Demo
  * @author Omar Gonzalez :: omar@almerblank.com
@@ -8,9 +12,6 @@
  * PureMVC - Copyright(c) 2006-2008 Futurescale, Inc., Some rights reserved.
  * Your reuse is governed by the Creative Commons Attribution 3.0 Unported License
  */
-require_once 'org/puremvc/php/patterns/proxy/Proxy.php';
-require_once 'org/puremvc/php/demos/basic/model/vo/ApplicationDataVO.php';
-require_once 'org/puremvc/php/demos/basic/ApplicationFacade.php';
 
 /**
  * The ApplicationDataProxy manipulates the ApplicationDataVO which
@@ -44,7 +45,7 @@ class ApplicationDataProxy extends Proxy
      * Does the actual file loading of the CSS file.
      *
      * @param mixed $cssName
-     * @return A String value of the CSS loaded.
+     * @return string String value of the CSS loaded.
      */
     private function _getViewCSS($cssName)
     {
@@ -58,7 +59,7 @@ class ApplicationDataProxy extends Proxy
     /**
      * Public getter for <code>ApplicationDataVO</code>
      *
-     * @return The instance of ApplicationDataVO
+     * @return ApplicationDataVO The instance of ApplicationDataVO
      */
     public function getApplicationDataVO()
     {

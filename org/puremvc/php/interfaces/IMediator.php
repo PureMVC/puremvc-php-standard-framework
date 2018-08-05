@@ -1,4 +1,5 @@
 <?php
+namespace puremvc\php\interfaces;
 /**
  * PureMVC Port to PHP originally translated by Asbjørn Sloth Tønnesen
  *
@@ -20,7 +21,7 @@ interface IMediator
     /**
      * Get the <code>IMediator</code> instance name
      *
-     * @return the <code>IMediator</code> instance name
+     * @return string the <code>IMediator</code> instance name
      */
     public function getMediatorName();
 
@@ -34,22 +35,23 @@ interface IMediator
     /**
      * Set the <code>IMediator</code>'s view component.
      *
-     * @param object the view component
      * @param mixed $viewComponent
+     * @return
      */
     public function setViewComponent($viewComponent);
 
     /**
      * List <code>INotification</code> interests.
      *
-     * @return an <code>Array</code> of the <code>INotification</code> names this <code>IMediator</code> has an interest in.
+     * @return array an <code>Array</code> of the <code>INotification</code> names this <code>IMediator</code> has an interest in.
      */
     public function listNotificationInterests();
 
     /**
      * Handle an <code>INotification</code>.
      *
-     * @param notification the <code>INotification</code> to be handled
+     * @param INotification $notification
+     * @return
      */
     public function handleNotification(INotification $notification);
 
