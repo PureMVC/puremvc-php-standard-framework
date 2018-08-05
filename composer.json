@@ -3,7 +3,7 @@
     "description": "PureMVC Standard Framework for PHP",
     "type": "library",
     "homepage": "http://puremvc.org",
-    "license": "BSD three clause",
+    "license": "BSD-3-Clause-Clear",
     "keywords": ["MVC","PureMVC"],
     "authors": [
         {
