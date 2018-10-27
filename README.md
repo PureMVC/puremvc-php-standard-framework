@@ -9,7 +9,6 @@ The distribution comes with a built in server-side demo: Zen Garden.
 * [Overview Presentation](http://puremvc.tv/#P100)
 
 ## Demos
-* [Included Demo - Zen Garden](http://puremvc.org/pages/demos/PHP/Demo_PHP_CSSZenGarden/)
 * [Employee Admin](https://github.com/PureMVC/puremvc-php-demo-gtk-employeeadmin/wiki)
 
 ## Status
