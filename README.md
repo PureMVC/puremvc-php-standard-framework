@@ -3,13 +3,13 @@ PureMVC is a lightweight framework for creating applications based upon the clas
 
 The distribution comes with a built in server-side demo: Zen Garden.
 
-* [API Docs](http://darkstar.puremvc.org/content_header.html?url=http://puremvc.org/pages/docs/PHP/docs/&desc=PureMVC%20API%20Docs:%20PureMVC%20Standard%20for%20PHP)
+* [API Docs](http://puremvc.org/pages/docs/PHP/docs/)
 * [Unit Tests](https://github.com/PureMVC/puremvc-php-standard-unittests/wiki)
 * [Discussion](http://forums.puremvc.org/index.php?board=75.0)
 * [Overview Presentation](http://puremvc.tv/#P100)
 
 ## Demos
-* [Included Demo - Zen Garden](http://darkstar.puremvc.org/content_header.html?url=http://puremvc.org/pages/demos/PHP/Demo_PHP_CSSZenGarden/&desc=PureMVC%20PHP%20Demo:%20PureMVC%20CSS%20Zen%20Garden)
+* [Included Demo - Zen Garden](http://puremvc.org/pages/demos/PHP/Demo_PHP_CSSZenGarden/)
 * [Employee Admin](https://github.com/PureMVC/puremvc-php-demo-gtk-employeeadmin/wiki)
 
 ## Status
